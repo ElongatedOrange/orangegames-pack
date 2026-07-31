@@ -1,32 +1,36 @@
 #!/usr/bin/env python3
 """Generate the OrangeGames native HUD fonts + Java glyph constants.
 
-Replaces the BetterHud runtime: the plugin composes bossbar text using these
-fonts; the existing betterhud_* overlay shaders decode the same position
-encoding BetterHud used (element id in the high bits of glyph Y):
+The plugin composes bossbar text from these fonts; the betterhud_* overlay
+shaders decode the position encoding (element id in the high bits of glyph Y):
 
-    ascent(id, y) = -(((1024 + id) << 13) + 4105 + y - 9)
+    ascent(id, y) = -(((1024 + id) << 13) + 4105 + y - 9 + CALIB)
 
 id semantics baked into all overlay shaders' switch tables:
   1 = absolute from left edge, base layer
   2 = absolute from left edge, layer +1 (draws on top)
   3 = right-anchored
 
-Outputs:
-  assets/orangegames/font/hud.json            (images + space advances)
-  assets/orangegames/font/text_<y>.json       (vanilla-ascii text at fixed y)
-  assets/orangegames/textures/hud/head.png    (baked player head, if fetchable)
-  <plugin>/hud/HudGlyphs.java                 (generated constants)
+CRITICAL metric rule: Minecraft computes a bitmap glyph's advance from the
+RIGHTMOST NON-TRANSPARENT COLUMN, not the image width:
+    advance = int(0.5 + trimmed_w * height / tex_h) + 1
+Transparent left padding still renders (shifts the art right) but adds no
+advance. We therefore measure both from the alpha channel and emit exact
+per-glyph advances + left pads, so every element's net width is exactly zero
+and the boss bar string stays center-anchored.
 """
 import json
-import struct
 import urllib.request
+import zipfile
 from pathlib import Path
+
+from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 FONT = ROOT / "assets" / "orangegames" / "font"
 TEX = ROOT / "assets" / "orangegames" / "textures" / "hud"
 JAVA = Path(r"C:\Users\jackh\Development\OrangeGames\src\main\java\com\elongatedorange\orangegames\hud\HudGlyphs.java")
+VANILLA_JAR = Path(r"C:\Users\jackh\AppData\Local\Temp\claude\C--Users-jackh-Development-OrangeGames\cbaa0dc5-d2fa-4126-82a0-a75043f4f380\scratchpad\vanilla\client-1.21.11.jar")
 
 CALIB = 10  # global vertical calibration (screenshots showed -10px drift)
 
@@ -35,14 +39,19 @@ def enc(elem_id, y):
     return -(((1024 + elem_id) << 13) + 4105 + y - 9 + CALIB)
 
 
-def png_size(path):
-    d = open(path, "rb").read(24)
-    return struct.unpack(">II", d[16:24])
-
-
 def tex_path(ref):
     ns, _, p = ref.partition(":")
     return ROOT / "assets" / ns / "textures" / p
+
+
+def alpha_cols(im):
+    """(leftmost, rightmost+1) columns containing any non-transparent pixel."""
+    a = im.convert("RGBA").split()[-1]
+    w, h = im.size
+    cols = [x for x in range(w) if any(a.getpixel((x, y)) > 0 for y in range(h))]
+    if not cols:
+        return 0, w
+    return cols[0], cols[-1] + 1
 
 
 # ---------------------------------------------------------------- player head
@@ -50,7 +59,6 @@ def bake_head():
     TEX.mkdir(parents=True, exist_ok=True)
     out = TEX / "head.png"
     try:
-        from PIL import Image
         import base64, io
         prof = json.load(urllib.request.urlopen(
             "https://api.mojang.com/users/profiles/minecraft/Elongated_Orange", timeout=10))
@@ -60,15 +68,13 @@ def bake_head():
         url = json.loads(base64.b64decode(tex_b64))["textures"]["SKIN"]["url"]
         skin = Image.open(io.BytesIO(urllib.request.urlopen(url, timeout=10).read())).convert("RGBA")
         head = skin.crop((8, 8, 16, 16))
-        hat = skin.crop((40, 8, 48, 16))
-        head.alpha_composite(hat)
+        head.alpha_composite(skin.crop((40, 8, 48, 16)))
         head.save(out)
         return "fetched skin for Elongated_Orange"
     except Exception as e:
-        # fallback: reuse an existing 8x8 glyph so the pack stays valid
         import shutil
         shutil.copy2(tex_path("betterhud:glyph_online.png"), out)
-        return f"head fetch failed ({type(e).__name__}: {e}) - placeholder used"
+        return f"head fetch failed ({type(e).__name__}) - placeholder used"
 
 
 # ------------------------------------------------------------------- builders
@@ -88,50 +94,53 @@ for p in SPACE_POWERS:
     spaces[chr(nextcp())] = -p
 
 img_providers = []
-java_glyphs = []  # (NAME, char, advance)
+java_glyphs = []  # (NAME, char, mc_advance, left_pad)
 
 
 def add_img(name, ref, elem_id, y, height=None):
-    w, h = png_size(tex_path(ref))
+    im = Image.open(tex_path(ref))
+    w, h = im.size
     height = height if height is not None else h
+    scale = height / h
+    left, right = alpha_cols(im)
+    adv = int(0.5 + right * scale) + 1
+    padl = round(left * scale)
     ch = chr(nextcp())
-    adv = round(w * height / h) + 1
     img_providers.append({
         "type": "bitmap", "file": ref, "ascent": enc(elem_id, y),
         "height": height, "chars": [ch],
     })
-    java_glyphs.append((name, ch, adv))
+    java_glyphs.append((name, ch, adv, padl))
 
 
-# --- pre-scaled textures (PIL) so widths are exact, no font-scale rounding ---
+# --- pre-scaled textures so target boxes are exact ---
 print(bake_head())
-from PIL import Image
+
 
 def load(ref):
     return Image.open(tex_path(ref)).convert("RGBA")
+
 
 def save(img, name):
     img.save(TEX / name)
     return "orangegames:hud/" + name
 
+
 # coords chip background: left cap + tiled body + right cap = 90x14
-l, b, r = load("betterhud:background_background_left.png"), load("betterhud:background_background_body.png"), load("betterhud:background_background_right.png")
 chip = Image.new("RGBA", (90, 14))
-chip.paste(l, (0, 0))
+chip.paste(load("betterhud:background_background_left.png"), (0, 0))
 for i in range(13):
-    chip.paste(b, (6 + 6 * i, 0))
-chip.paste(r, (84, 0))
+    chip.paste(load("betterhud:background_background_body.png"), (6 + 6 * i, 0))
+chip.paste(load("betterhud:background_background_right.png"), (84, 0))
 coords_bg = save(chip, "coords_bg.png")
 
-# bars resized to exact target boxes: bg 89x8, fills inside 87x6
-bar_specs = {
+# bars resized to exact boxes: bg 89x8, fills inside 87x6
+bar_refs = {}
+for key, (bg_ref, fill_ref) in {
     "HEALTH": ("betterhud:image_xp.png", "betterhud:image_image_xpbar_left_25_{}.png"),
     "SHIELD": ("betterhud:image_shield.png", "betterhud:image_image_shield_bar_left_25_{}.png"),
-}
-bar_refs = {}
-for key, (bg_ref, fill_ref) in bar_specs.items():
-    bg = load(bg_ref).resize((89, 8), Image.NEAREST)
-    bar_refs[key] = save(bg, f"bar_{key.lower()}_bg.png")
+}.items():
+    bar_refs[key] = save(load(bg_ref).resize((89, 8), Image.NEAREST), f"bar_{key.lower()}_bg.png")
     fills = []
     for i in range(1, 26):
         f = load(fill_ref.format(i))
@@ -180,10 +189,27 @@ for name, y in TEXT_YS.items():
     json.dump({"providers": prov},
               open(FONT / f"text_{name.lower()}.json", "w", encoding="utf-8"), ensure_ascii=False)
 
+# ----------------------------------------------- exact vanilla ascii advances
+# Measure each glyph cell of vanilla ascii.png the way Minecraft does.
+import io as _io
+ascii_png = Image.open(_io.BytesIO(
+    zipfile.ZipFile(VANILLA_JAR).read("assets/minecraft/textures/font/ascii.png"))).convert("RGBA")
+cw, chh = ascii_png.width // 16, ascii_png.height // 16
+ascii_adv = [6] * 96  # printable ' '..DEL, default 6
+ascii_adv[0] = 4      # space comes from the space provider
+for row in range(2, 8):
+    for col in range(16):
+        ch = ASCII_ROWS[row][col]
+        if ch in ("\u0000", " "):
+            continue
+        cell = ascii_png.crop((col * cw, row * chh, (col + 1) * cw, (row + 1) * chh))
+        _, right = alpha_cols(cell)
+        code = ord(ch)
+        if 32 <= code < 128:
+            ascii_adv[code - 32] = int(0.5 + right * 8 / chh) + 1
+
+
 # ------------------------------------------------------------------ Java const
-esc = lambda c: "\\u%04x" % ord(c) if ord(c) <= 0xFFFF else repr(c)
-
-
 def jstr(ch):
     return '"' + "".join("\\u%04x" % ord(u) for u in ch) + '"'
 
@@ -203,26 +229,26 @@ lines += [
     "",
     "    // space advances: POS[i]/NEG[i] moves the cursor +/- (1 << i) pixels",
     "    public static final String[] POS = {"
-    + ", ".join(jstr(c) for c, v in spaces.items() if v > 0) + "};",
+    + ", ".join(jstr(c) for c, v in spaces.items() if v > 0 and c != " ") + "};",
     "    public static final String[] NEG = {"
-    + ", ".join(jstr(c) for c, v in spaces.items() if v < 0) + "};",
+    + ", ".join(jstr(c) for c, v in spaces.items() if v < 0 and c != " ") + "};",
+    "",
+    "    // exact advances for vanilla ascii.png glyphs at height 8 (' '..'~')",
+    "    public static final int[] ASCII_ADV = {" + ", ".join(map(str, ascii_adv)) + "};",
     "",
 ]
-for name, ch, adv in java_glyphs:
+for name, ch, adv, padl in java_glyphs:
     if "_FILL_" in name:
         continue
-    lines.append(f"    public static final String {name} = {jstr(ch)}; public static final int {name}_W = {adv - 1};")
-hf = [jstr(ch) for n, ch, a in java_glyphs if n.startswith("HEALTH_FILL_")]
-sf = [jstr(ch) for n, ch, a in java_glyphs if n.startswith("SHIELD_FILL_")]
-lines.append("    public static final String[] HEALTH_FILL = {" + ", ".join(hf) + "};")
-hfa = [str(a) for n, ch, a in java_glyphs if n.startswith("HEALTH_FILL_")]
-sfa = [str(a) for n, ch, a in java_glyphs if n.startswith("SHIELD_FILL_")]
-lines.append("    public static final int[] HEALTH_FILL_ADV = {" + ", ".join(hfa) + "};")
-lines.append("    public static final int[] SHIELD_FILL_ADV = {" + ", ".join(sfa) + "};")
-lines.append("    public static final String[] SHIELD_FILL = {" + ", ".join(sf) + "};")
+    lines.append(f"    public static final String {name} = {jstr(ch)}; "
+                 f"public static final int {name}_ADV = {adv}; public static final int {name}_PADL = {padl};")
+for key in ("HEALTH", "SHIELD"):
+    chars = [jstr(ch) for n, ch, a, p in java_glyphs if n.startswith(key + "_FILL_")]
+    advs = [str(a) for n, ch, a, p in java_glyphs if n.startswith(key + "_FILL_")]
+    lines.append(f"    public static final String[] {key}_FILL = {{" + ", ".join(chars) + "};")
+    lines.append(f"    public static final int[] {key}_FILL_ADV = {{" + ", ".join(advs) + "};")
 lines.append("}")
 JAVA.parent.mkdir(parents=True, exist_ok=True)
 JAVA.write_text("\n".join(lines), encoding="utf-8")
-
 
 print(f"wrote hud.json ({len(img_providers)} image glyphs), {len(TEXT_YS)} text fonts, HudGlyphs.java")
