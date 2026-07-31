@@ -140,28 +140,28 @@ for key, (bg_ref, fill_ref) in {
     "HEALTH": ("betterhud:image_xp.png", "betterhud:image_image_xpbar_left_25_{}.png"),
     "SHIELD": ("betterhud:image_shield.png", "betterhud:image_image_shield_bar_left_25_{}.png"),
 }.items():
-    bar_refs[key] = save(load(bg_ref).resize((89, 8), Image.NEAREST), f"bar_{key.lower()}_bg.png")
+    bar_refs[key] = save(load(bg_ref).resize((100, 9), Image.NEAREST), f"bar_{key.lower()}_bg.png")
     fills = []
     for i in range(1, 26):
         f = load(fill_ref.format(i))
-        w = max(1, round(f.width * 87 / 121))
-        fills.append(save(f.resize((w, 6), Image.NEAREST), f"fill_{key.lower()}_{i}.png"))
+        w = max(1, round(f.width * 98 / 121))
+        fills.append(save(f.resize((w, 7), Image.NEAREST), f"fill_{key.lower()}_{i}.png"))
     bar_refs[key + "_FILLS"] = fills
 
 # --- element glyphs (layout measured from the reference screenshot) ---
-add_img("COORDS_BG", coords_bg, 1, 3)                                  # left 10
-add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)    # left 13
-add_img("CARD_BG", "betterhud:image_top.png", 1, 18, height=48)        # w91, left 12
-add_img("HEAD", "orangegames:hud/head.png", 2, 22, height=24)          # left 15
-add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 35, height=6)   # left 42
-add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 35, height=6)
-add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 35, height=6)
-add_img("HEALTH_BG", bar_refs["HEALTH"], 1, 45)                        # left 14
-add_img("SHIELD_BG", bar_refs["SHIELD"], 1, 55)                        # left 14
+add_img("COORDS_BG", coords_bg, 1, 3)                                  # left 12
+add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)    # left 15
+add_img("CARD_BG", "betterhud:image_top.png", 1, 20, height=56)        # w106, left 12
+add_img("HEAD", "orangegames:hud/head.png", 2, 25, height=24)          # left 17
+add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 39, height=6)   # left 46
+add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 39, height=6)
+add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 39, height=6)
+add_img("HEALTH_BG", bar_refs["HEALTH"], 1, 50)                        # left 15
+add_img("SHIELD_BG", bar_refs["SHIELD"], 1, 62)                        # left 15
 for i in range(1, 26):
-    add_img(f"HEALTH_FILL_{i}", bar_refs["HEALTH_FILLS"][i - 1], 2, 46)  # left 15
+    add_img(f"HEALTH_FILL_{i}", bar_refs["HEALTH_FILLS"][i - 1], 2, 51)  # left 16
 for i in range(1, 26):
-    add_img(f"SHIELD_FILL_{i}", bar_refs["SHIELD_FILLS"][i - 1], 2, 56)  # left 15
+    add_img(f"SHIELD_FILL_{i}", bar_refs["SHIELD_FILLS"][i - 1], 2, 63)  # left 16
 
 # ------------------------------------------------------------------ ascii font
 ASCII_ROWS = [
@@ -175,7 +175,7 @@ ASCII_ROWS = [
     "pqrstuvwxyz{|}~\u0000",
 ] + ["\u0000" * 16] * 8
 
-TEXT_YS = {"COORDS": 6, "NAME": 25, "PING": 36, "HEALTH": 45, "SHIELD": 55}
+TEXT_YS = {"COORDS": 7, "NAME": 27, "PING": 39, "HEALTH": 51, "SHIELD": 63}
 
 FONT.mkdir(parents=True, exist_ok=True)
 space_provider = {"type": "space", "advances": {c: v for c, v in spaces.items()}}

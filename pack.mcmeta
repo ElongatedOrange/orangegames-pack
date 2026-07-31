@@ -64,7 +64,67 @@
                 "directory": "betterhud_26_2",
                 "min_format": 88,
                 "max_format": 999
+            },
+            {
+                "min_format": 15,
+                "max_format": 36,
+                "formats": {
+                    "min_inclusive": 15,
+                    "max_inclusive": 36
+                },
+                "directory": "modelengine_1_19_4"
+            },
+            {
+                "min_format": 36,
+                "max_format": 32767,
+                "formats": {
+                    "min_inclusive": 36,
+                    "max_inclusive": 32767
+                },
+                "directory": "modelengine_1_21_2"
+            },
+            {
+                "min_format": 55,
+                "max_format": 32767,
+                "formats": {
+                    "min_inclusive": 55,
+                    "max_inclusive": 32767
+                },
+                "directory": "modelengine_1_21_5"
+            },
+            {
+                "min_format": 63,
+                "max_format": 32767,
+                "formats": {
+                    "min_inclusive": 63,
+                    "max_inclusive": 32767
+                },
+                "directory": "modelengine_1_21_6"
+            },
+            {
+                "min_format": 84,
+                "max_format": 32767,
+                "formats": {
+                    "min_inclusive": 84,
+                    "max_inclusive": 32767
+                },
+                "directory": "modelengine_26_1"
+            },
+            {
+                "min_format": 88,
+                "max_format": 32767,
+                "formats": {
+                    "min_inclusive": 88,
+                    "max_inclusive": 32767
+                },
+                "directory": "modelengine_26_2"
             }
+        ]
+    },
+    "sodium": {
+        "ignored_shaders": [
+            "rendertype_entity_translucent.fsh",
+            "rendertype_entity_translucent.vsh"
         ]
     }
 }
