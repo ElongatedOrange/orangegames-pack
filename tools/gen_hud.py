@@ -81,7 +81,7 @@ def nextcp():
     return cp_next[0]
 
 
-spaces = {}
+spaces = {" ": 4}
 for p in SPACE_POWERS:
     spaces[chr(nextcp())] = p
 for p in SPACE_POWERS:
@@ -106,24 +106,24 @@ def add_img(name, ref, elem_id, y, height=None):
 # --- element images (positions from the proven BetterHud default layout) ---
 print(bake_head())
 
-add_img("CARD_BG", "betterhud:image_top.png", 1, 29)            # 136x72, left 12
-add_img("HEAD", "orangegames:hud/head.png", 2, 64, height=16)   # left 11
-add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 90)  # left 58
-add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 90)
-add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 90)
-add_img("LOCATION", "betterhud:glyph_location.png", 2, 48)      # left 12
-add_img("HEALTH_BG", "betterhud:image_xp.png", 1, 104)          # 122x11, left 19
-add_img("SHIELD_BG", "betterhud:image_shield.png", 1, 116)      # left 19
+add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)   # left 12
+add_img("CARD_BG", "betterhud:image_top.png", 1, 18, height=48)       # w91, left 12
+add_img("HEAD", "orangegames:hud/head.png", 2, 24, height=16)         # left 18
+add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 38, height=6)   # left 38
+add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 38, height=6)
+add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 38, height=6)
+add_img("HEALTH_BG", "betterhud:image_xp.png", 1, 48, height=7)       # w78, left 16
+add_img("SHIELD_BG", "betterhud:image_shield.png", 1, 58, height=7)   # left 16
 for i in range(1, 26):
-    add_img(f"HEALTH_FILL_{i}", f"betterhud:image_image_xpbar_left_25_{i}.png", 2, 105)
+    add_img(f"HEALTH_FILL_{i}", f"betterhud:image_image_xpbar_left_25_{i}.png", 2, 49, height=6)
 for i in range(1, 26):
-    add_img(f"SHIELD_FILL_{i}", f"betterhud:image_image_shield_bar_left_25_{i}.png", 2, 117)
+    add_img(f"SHIELD_FILL_{i}", f"betterhud:image_image_shield_bar_left_25_{i}.png", 2, 59, height=6)
 
 # ------------------------------------------------------------------ ascii font
 ASCII_ROWS = [
     "\u00c0\u00c1\u00c2\u00c8\u00ca\u00cb\u00cd\u00d3\u00d4\u00d5\u00da\u00df\u00e3\u00f5\u011f\u0130",
     "\u0131\u0152\u0153\u015e\u015f\u0174\u0175\u017e\u0207\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
-    " !\"#$%&'()*+,-./",
+    "\u0000!\"#$%&'()*+,-./",
     "0123456789:;<=>?",
     "@ABCDEFGHIJKLMNO",
     "PQRSTUVWXYZ[\\]^_",
@@ -131,7 +131,7 @@ ASCII_ROWS = [
     "pqrstuvwxyz{|}~\u0000",
 ] + ["\u0000" * 16] * 8
 
-TEXT_YS = {"COORDS": 48, "NAME": 74, "PING": 90, "HEALTH": 110, "SHIELD": 122}
+TEXT_YS = {"COORDS": 7, "NAME": 26, "PING": 39, "HEALTH": 49, "SHIELD": 59}
 
 FONT.mkdir(parents=True, exist_ok=True)
 space_provider = {"type": "space", "advances": {c: v for c, v in spaces.items()}}
@@ -180,6 +180,10 @@ for name, ch, adv in java_glyphs:
 hf = [jstr(ch) for n, ch, a in java_glyphs if n.startswith("HEALTH_FILL_")]
 sf = [jstr(ch) for n, ch, a in java_glyphs if n.startswith("SHIELD_FILL_")]
 lines.append("    public static final String[] HEALTH_FILL = {" + ", ".join(hf) + "};")
+hfa = [str(a) for n, ch, a in java_glyphs if n.startswith("HEALTH_FILL_")]
+sfa = [str(a) for n, ch, a in java_glyphs if n.startswith("SHIELD_FILL_")]
+lines.append("    public static final int[] HEALTH_FILL_ADV = {" + ", ".join(hfa) + "};")
+lines.append("    public static final int[] SHIELD_FILL_ADV = {" + ", ".join(sfa) + "};")
 lines.append("    public static final String[] SHIELD_FILL = {" + ", ".join(sf) + "};")
 lines.append("}")
 JAVA.parent.mkdir(parents=True, exist_ok=True)
