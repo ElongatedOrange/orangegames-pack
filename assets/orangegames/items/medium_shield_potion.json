@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/medium_shield_potion",
+    "tints": []
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "pack": {
+        "pack_format": 75,
+        "description": "Orange Games",
+        "supported_formats": [9, 999],
+        "min_format": 9,
+        "max_format": 999
+    },
+    "overlays": {
+        "entries": [
+            {"formats": [9, 45], "directory": "betterhud_1_21_2", "min_format": 9, "max_format": 45},
+            {"formats": [46, 55], "directory": "betterhud_1_21_4", "min_format": 46, "max_format": 55},
+            {"formats": [56, 83], "directory": "betterhud_1_21_6", "min_format": 56, "max_format": 83},
+            {"formats": [84, 87], "directory": "betterhud_26_1", "min_format": 84, "max_format": 87},
+            {"formats": [88, 999], "directory": "betterhud_26_2", "min_format": 88, "max_format": 999}
+        ]
+    }
+}

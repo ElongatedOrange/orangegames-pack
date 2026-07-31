@@ -1,0 +1,7 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "orangecosmetics:item/orange_headband",
+        "tints": []
+    }
+}

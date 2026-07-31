@@ -1,0 +1,7 @@
+{
+    "model": {
+        "type": "minecraft:model",
+        "model": "orangecosmetics:item/viking_hat",
+        "tints": []
+    }
+}

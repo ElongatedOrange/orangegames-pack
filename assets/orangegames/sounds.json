@@ -1,0 +1,22 @@
+{
+    "goatscream": {
+        "sounds": [
+            "orangegames:goatscream"
+        ]
+    },
+    "fartgun": {
+        "sounds": [
+            "orangegames:fartgun"
+        ]
+    }, 
+    "monke": {
+        "sounds": [
+            "orangegames:monke"
+        ]
+    }, 
+    "chest_open": {
+        "sounds": [
+            "orangegames:chest_open"
+        ]
+    }
+}

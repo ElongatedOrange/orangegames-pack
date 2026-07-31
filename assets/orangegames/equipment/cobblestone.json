@@ -1,0 +1,14 @@
+{
+    "layers": {
+        "humanoid": [
+            {
+                "texture": "orangegames:cobblestone"
+            }
+        ],
+        "humanoid_leggings": [
+            {
+                "texture": "orangegames:cobblestone"
+            }
+        ]
+    }
+}
