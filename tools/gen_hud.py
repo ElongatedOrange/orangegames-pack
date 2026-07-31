@@ -127,12 +127,13 @@ def save(img, name):
 
 
 # coords chip background: left cap + tiled body + right cap = 90x14
-chip = Image.new("RGBA", (90, 14))
+chip = Image.new("RGBA", (108, 14))
 chip.paste(load("betterhud:background_background_left.png"), (0, 0))
-for i in range(13):
+for i in range(16):
     chip.paste(load("betterhud:background_background_body.png"), (6 + 6 * i, 0))
-chip.paste(load("betterhud:background_background_right.png"), (84, 0))
+chip.paste(load("betterhud:background_background_right.png"), (102, 0))
 coords_bg = save(chip, "coords_bg.png")
+card_bg = save(load("betterhud:image_top.png").resize((125, 56), Image.NEAREST), "card_bg.png")
 
 # bars resized to exact boxes: bg 89x8, fills inside 87x6
 bar_refs = {}
@@ -140,18 +141,18 @@ for key, (bg_ref, fill_ref) in {
     "HEALTH": ("betterhud:image_xp.png", "betterhud:image_image_xpbar_left_25_{}.png"),
     "SHIELD": ("betterhud:image_shield.png", "betterhud:image_image_shield_bar_left_25_{}.png"),
 }.items():
-    bar_refs[key] = save(load(bg_ref).resize((100, 9), Image.NEAREST), f"bar_{key.lower()}_bg.png")
+    bar_refs[key] = save(load(bg_ref).resize((118, 9), Image.NEAREST), f"bar_{key.lower()}_bg.png")
     fills = []
     for i in range(1, 26):
         f = load(fill_ref.format(i))
-        w = max(1, round(f.width * 98 / 121))
+        w = max(1, round(f.width * 116 / 121))
         fills.append(save(f.resize((w, 7), Image.NEAREST), f"fill_{key.lower()}_{i}.png"))
     bar_refs[key + "_FILLS"] = fills
 
 # --- element glyphs (layout measured from the reference screenshot) ---
 add_img("COORDS_BG", coords_bg, 1, 3)                                  # left 12
 add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)    # left 15
-add_img("CARD_BG", "betterhud:image_top.png", 1, 20, height=56)        # w106, left 12
+add_img("CARD_BG", card_bg, 1, 20)                                     # 125x56, left 12
 add_img("HEAD", "orangegames:hud/head.png", 2, 25, height=24)          # left 17
 add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 39, height=6)   # left 46
 add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 39, height=6)
