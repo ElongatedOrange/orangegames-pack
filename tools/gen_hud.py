@@ -28,7 +28,7 @@ FONT = ROOT / "assets" / "orangegames" / "font"
 TEX = ROOT / "assets" / "orangegames" / "textures" / "hud"
 JAVA = Path(r"C:\Users\jackh\Development\OrangeGames\src\main\java\com\elongatedorange\orangegames\hud\HudGlyphs.java")
 
-CALIB = 0  # global vertical calibration, adjust after in-game screenshot
+CALIB = 10  # global vertical calibration (screenshots showed -10px drift)
 
 
 def enc(elem_id, y):
@@ -103,21 +103,56 @@ def add_img(name, ref, elem_id, y, height=None):
     java_glyphs.append((name, ch, adv))
 
 
-# --- element images (positions from the proven BetterHud default layout) ---
+# --- pre-scaled textures (PIL) so widths are exact, no font-scale rounding ---
 print(bake_head())
+from PIL import Image
 
-add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)   # left 12
-add_img("CARD_BG", "betterhud:image_top.png", 1, 18, height=48)       # w91, left 12
-add_img("HEAD", "orangegames:hud/head.png", 2, 24, height=16)         # left 18
-add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 38, height=6)   # left 38
-add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 38, height=6)
-add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 38, height=6)
-add_img("HEALTH_BG", "betterhud:image_xp.png", 1, 48, height=7)       # w78, left 16
-add_img("SHIELD_BG", "betterhud:image_shield.png", 1, 58, height=7)   # left 16
+def load(ref):
+    return Image.open(tex_path(ref)).convert("RGBA")
+
+def save(img, name):
+    img.save(TEX / name)
+    return "orangegames:hud/" + name
+
+# coords chip background: left cap + tiled body + right cap = 90x14
+l, b, r = load("betterhud:background_background_left.png"), load("betterhud:background_background_body.png"), load("betterhud:background_background_right.png")
+chip = Image.new("RGBA", (90, 14))
+chip.paste(l, (0, 0))
+for i in range(13):
+    chip.paste(b, (6 + 6 * i, 0))
+chip.paste(r, (84, 0))
+coords_bg = save(chip, "coords_bg.png")
+
+# bars resized to exact target boxes: bg 89x8, fills inside 87x6
+bar_specs = {
+    "HEALTH": ("betterhud:image_xp.png", "betterhud:image_image_xpbar_left_25_{}.png"),
+    "SHIELD": ("betterhud:image_shield.png", "betterhud:image_image_shield_bar_left_25_{}.png"),
+}
+bar_refs = {}
+for key, (bg_ref, fill_ref) in bar_specs.items():
+    bg = load(bg_ref).resize((89, 8), Image.NEAREST)
+    bar_refs[key] = save(bg, f"bar_{key.lower()}_bg.png")
+    fills = []
+    for i in range(1, 26):
+        f = load(fill_ref.format(i))
+        w = max(1, round(f.width * 87 / 121))
+        fills.append(save(f.resize((w, 6), Image.NEAREST), f"fill_{key.lower()}_{i}.png"))
+    bar_refs[key + "_FILLS"] = fills
+
+# --- element glyphs (layout measured from the reference screenshot) ---
+add_img("COORDS_BG", coords_bg, 1, 3)                                  # left 10
+add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)    # left 13
+add_img("CARD_BG", "betterhud:image_top.png", 1, 18, height=48)        # w91, left 12
+add_img("HEAD", "orangegames:hud/head.png", 2, 22, height=24)          # left 15
+add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 35, height=6)   # left 42
+add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 35, height=6)
+add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 35, height=6)
+add_img("HEALTH_BG", bar_refs["HEALTH"], 1, 45)                        # left 14
+add_img("SHIELD_BG", bar_refs["SHIELD"], 1, 55)                        # left 14
 for i in range(1, 26):
-    add_img(f"HEALTH_FILL_{i}", f"betterhud:image_image_xpbar_left_25_{i}.png", 2, 49, height=6)
+    add_img(f"HEALTH_FILL_{i}", bar_refs["HEALTH_FILLS"][i - 1], 2, 46)  # left 15
 for i in range(1, 26):
-    add_img(f"SHIELD_FILL_{i}", f"betterhud:image_image_shield_bar_left_25_{i}.png", 2, 59, height=6)
+    add_img(f"SHIELD_FILL_{i}", bar_refs["SHIELD_FILLS"][i - 1], 2, 56)  # left 15
 
 # ------------------------------------------------------------------ ascii font
 ASCII_ROWS = [
@@ -131,7 +166,7 @@ ASCII_ROWS = [
     "pqrstuvwxyz{|}~\u0000",
 ] + ["\u0000" * 16] * 8
 
-TEXT_YS = {"COORDS": 7, "NAME": 26, "PING": 39, "HEALTH": 49, "SHIELD": 59}
+TEXT_YS = {"COORDS": 6, "NAME": 25, "PING": 36, "HEALTH": 45, "SHIELD": 55}
 
 FONT.mkdir(parents=True, exist_ok=True)
 space_provider = {"type": "space", "advances": {c: v for c, v in spaces.items()}}
