@@ -16,7 +16,6 @@
 
 #moj_import <minecraft:dynamictransforms.glsl>
 #moj_import <minecraft:projection.glsl>
-#moj_import <minecraft:globals.glsl>
 
 in vec3 Position;
 in vec4 Color;
@@ -55,7 +54,6 @@ void main() {
             float yGui = 0.0;
             float layer = 0.0;
             float opacity = 1.0;
-            int property = 0;
             switch (id) {
                 case 1:
                     break;
@@ -67,32 +65,6 @@ void main() {
                     break;
             }
             vertexColor *= vec4(1.0, 1.0, 1.0, opacity);
-            if ((property & 1) > 0) {
-                pos.y += 4.0 * sin((GameTime * 1200.0 + pos.x / ui.x) * 3.1415 * 2.0);
-            }
-            if ((property & 2) > 0) {
-                int hash = int(pos.x) * int(pos.y);
-                float time = GameTime * 1200.0;
-                hash = 31 * (hash + int(vertexColor.x + time));
-                float r = float(hash % 224 + 32) / 255.0;
-                hash = 31 * (hash + int(vertexColor.y + time));
-                float g = float(hash % 224 + 32) / 255.0;
-                hash = 31 * (hash + int(vertexColor.z + time));
-                float b = float(hash % 224 + 32) / 255.0;
-                float maxValue = max(max(r, g), b);
-                vertexColor = vec4(pow(r / maxValue, 3.0), pow(g / maxValue, 3.0), pow(b / maxValue, 3.0), vertexColor.w);
-            }
-            if ((property & 4) > 0) {
-                int hash = int(pos.x) * int(pos.y);
-                float time = GameTime * 1200.0;
-                hash = 31 * (hash + int(vertexColor.x + time));
-                float r = vertexColor.x + float(hash % 64) / 255.0;
-                hash = 31 * (hash + int(vertexColor.y + time));
-                float g = vertexColor.y + float(hash % 64) / 255.0;
-                hash = 31 * (hash + int(vertexColor.z + time));
-                float b = vertexColor.z + float(hash % 64) / 255.0;
-                vertexColor = vec4(r, g, b, vertexColor.w);
-            }
             pos.x += xGui;
             pos.y += yGui;
             pos.z += layer;
