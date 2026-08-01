@@ -1,0 +1,127 @@
+{
+ "namespace": "hud",
+ "oghud_panel": {
+  "type": "panel",
+  "anchor_from": "top_left",
+  "anchor_to": "top_left",
+  "size": [
+   "100%",
+   "100%"
+  ],
+  "layer": 50,
+  "controls": [
+   {
+    "oghud_card": {
+     "type": "image",
+     "texture": "textures/oghud_card",
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      6,
+      14
+     ],
+     "size": [
+      122,
+      84
+     ],
+     "layer": 51,
+     "uv": [
+      0,
+      0
+     ],
+     "uv_size": [
+      136,
+      72
+     ],
+     "nineslice_size": 10
+    }
+   },
+   {
+    "oghud_head": {
+     "type": "image",
+     "texture": "textures/oghud_head",
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      13,
+      20
+     ],
+     "size": [
+      20,
+      20
+     ],
+     "layer": 53
+    }
+   },
+   {
+    "oghud_nameline": {
+     "type": "label",
+     "color": [
+      1.0,
+      0.9,
+      0.25
+     ],
+     "layer": 53,
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      38,
+      25
+     ],
+     "shadow": true,
+     "text": "#hud_subtitle_text_string",
+     "bindings": [
+      {
+       "binding_name": "#hud_subtitle_text_string",
+       "binding_type": "global"
+      }
+     ]
+    }
+   },
+   {
+    "oghud_stats": {
+     "type": "label",
+     "color": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "layer": 53,
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      14,
+      42
+     ],
+     "shadow": true,
+     "text": "#hud_title_text_string",
+     "bindings": [
+      {
+       "binding_name": "#hud_title_text_string",
+       "binding_type": "global"
+      }
+     ]
+    }
+   }
+  ]
+ },
+ "root_panel": {
+  "modifications": [
+   {
+    "array_name": "controls",
+    "operation": "insert_front",
+    "value": [
+     {
+      "oghud@hud.oghud_panel": {}
+     }
+    ]
+   }
+  ]
+ },
+ "hud_title_text": {
+  "visible": false
+ },
+ "hud_actionbar_text": {
+  "visible": false
+ }
+}
