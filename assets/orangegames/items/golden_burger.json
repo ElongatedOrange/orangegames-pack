@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/golden_burger",
+    "tints": []
+  }
+}

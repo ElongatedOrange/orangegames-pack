@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/smoke_bomb",
+    "tints": []
+  }
+}

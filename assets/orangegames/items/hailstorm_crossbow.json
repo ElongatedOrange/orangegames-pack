@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/hailstorm_crossbow",
+    "tints": []
+  }
+}

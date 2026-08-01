@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "orangegames:item/royal_guard_leggings"
+  }
+}

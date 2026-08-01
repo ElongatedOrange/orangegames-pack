@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/heart_of_the_mountain",
+    "tints": []
+  }
+}
