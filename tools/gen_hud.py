@@ -56,25 +56,21 @@ def alpha_cols(im):
 
 # ---------------------------------------------------------------- player head
 def bake_head():
+    """Neutral placeholder shown only until a player's own skin has loaded.
+
+    This used to fetch one hardcoded username's skin from Mojang and bake it
+    into the pack, which meant every player saw that person's face on their
+    HUD. Real heads are now drawn per player at runtime from coloured pixel
+    glyphs (HEAD_PX0..7) - see SkinHeadCache on the plugin side.
+    """
     TEX.mkdir(parents=True, exist_ok=True)
-    out = TEX / "head.png"
-    try:
-        import base64, io
-        prof = json.load(urllib.request.urlopen(
-            "https://api.mojang.com/users/profiles/minecraft/Elongated_Orange", timeout=10))
-        sess = json.load(urllib.request.urlopen(
-            "https://sessionserver.mojang.com/session/minecraft/profile/" + prof["id"], timeout=10))
-        tex_b64 = next(p for p in sess["properties"] if p["name"] == "textures")["value"]
-        url = json.loads(base64.b64decode(tex_b64))["textures"]["SKIN"]["url"]
-        skin = Image.open(io.BytesIO(urllib.request.urlopen(url, timeout=10).read())).convert("RGBA")
-        head = skin.crop((8, 8, 16, 16))
-        head.alpha_composite(skin.crop((40, 8, 48, 16)))
-        head.save(out)
-        return "fetched skin for Elongated_Orange"
-    except Exception as e:
-        import shutil
-        shutil.copy2(tex_path("betterhud:glyph_online.png"), out)
-        return f"head fetch failed ({type(e).__name__}) - placeholder used"
+    head = Image.new("RGBA", (8, 8), (0, 0, 0, 0))
+    for x in range(8):
+        for y in range(8):
+            edge = x in (0, 7) or y in (0, 7)
+            head.putpixel((x, y), (90, 90, 96, 255) if edge else (130, 130, 138, 255))
+    head.save(TEX / "head.png")
+    return "baked neutral head placeholder (real heads render per player)"
 
 
 # ------------------------------------------------------------------- builders
@@ -154,6 +150,13 @@ add_img("COORDS_BG", coords_bg, 1, 3)                                  # left 12
 add_img("LOCATION", "betterhud:glyph_location.png", 2, 6, height=8)    # left 15
 add_img("CARD_BG", card_bg, 1, 20)                                     # 125x56, left 12
 add_img("HEAD", "orangegames:hud/head.png", 2, 25, height=24)          # left 17
+
+# per-player head: 8x8 skin pixels drawn as tinted 3px squares. One glyph per
+# row so each row carries its own vertical offset; columns are positioned
+# horizontally by the caller.
+Image.new("RGBA", (3, 3), (255, 255, 255, 255)).save(TEX / "px.png")
+for _row in range(8):
+    add_img(f"HEAD_PX{_row}", "orangegames:hud/px.png", 2, 25 + 3 * _row, height=3)
 add_img("PING_GREEN", "betterhud:glyph_ping_green.png", 2, 39, height=6)   # left 46
 add_img("PING_YELLOW", "betterhud:glyph_ping_yellow.png", 2, 39, height=6)
 add_img("PING_RED", "betterhud:glyph_ping_red.png", 2, 39, height=6)
