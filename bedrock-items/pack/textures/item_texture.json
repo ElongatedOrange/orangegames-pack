@@ -142,6 +142,11 @@
     "textures/items/og/chainsaw"
    ]
   },
+  "orangegames.chainsaw_active": {
+   "textures": [
+    "textures/items/og/chainsaw_active"
+   ]
+  },
   "orangegames.chili_pepper": {
    "textures": [
     "textures/items/og/chili_pepper"

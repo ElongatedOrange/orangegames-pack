@@ -101,11 +101,6 @@
    "loop": true,
    "bones": {
     "geyser_custom_x": {
-     "rotation": [
-      -10,
-      0,
-      0
-     ],
      "position": [
       -1.5,
       3.0,
@@ -115,20 +110,6 @@
       0.5,
       0.5,
       0.5
-     ]
-    },
-    "geyser_custom_y": {
-     "rotation": [
-      0,
-      -310,
-      0
-     ]
-    },
-    "geyser_custom_z": {
-     "rotation": [
-      0,
-      0,
-      0
      ]
     },
     "geyser_custom": {
@@ -150,11 +131,6 @@
    "loop": true,
    "bones": {
     "geyser_custom_x": {
-     "rotation": [
-      -10,
-      0,
-      0
-     ],
      "position": [
       -1.5,
       3.0,
@@ -164,20 +140,6 @@
       0.5,
       0.5,
       0.5
-     ]
-    },
-    "geyser_custom_y": {
-     "rotation": [
-      0,
-      -310,
-      0
-     ]
-    },
-    "geyser_custom_z": {
-     "rotation": [
-      0,
-      0,
-      0
      ]
     },
     "geyser_custom": {

@@ -53,7 +53,10 @@ KNOWN_ARTLESS = {
 }
 
 # base materials for models applied outside ItemBuilder chains (listeners etc.)
-EXTRA_MATERIALS = {"pebble": ("SNOWBALL", "UTILITY")}
+EXTRA_MATERIALS = {
+    "pebble": ("SNOWBALL", "UTILITY"),
+    "chainsaw_active": ("NETHERITE_AXE", "MELEE"),
+}
 
 ARMOR_SLOTS = {  # EquipmentSlot -> (bedrock geometry slot, layer-visibility var, java layer dir, tex suffix)
     "HEAD": ("helmet", "helmet_layer_visible", "humanoid", "_1"),

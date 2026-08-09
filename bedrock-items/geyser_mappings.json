@@ -452,6 +452,18 @@
    },
    {
     "type": "definition",
+    "model": "orangegames:chainsaw_active",
+    "bedrock_identifier": "orangegames:chainsaw_active",
+    "display_name": "Chainsaw Active",
+    "bedrock_options": {
+     "icon": "orangegames.chainsaw_active",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:thundergods_hammer",
     "bedrock_identifier": "orangegames:thundergods_hammer",
     "display_name": "Thundergods Hammer",
