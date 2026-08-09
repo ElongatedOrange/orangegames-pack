@@ -55,6 +55,13 @@ KNOWN_ARTLESS = {
 # base materials for models applied outside ItemBuilder chains (listeners etc.)
 EXTRA_MATERIALS = {"pebble": ("SNOWBALL", "UTILITY")}
 
+ARMOR_SLOTS = {  # EquipmentSlot -> (bedrock geometry slot, layer-visibility var, java layer dir, tex suffix)
+    "HEAD": ("helmet", "helmet_layer_visible", "humanoid", "_1"),
+    "CHEST": ("chestplate", "chest_layer_visible", "humanoid", "_1"),
+    "LEGS": ("leggings", "leg_layer_visible", "humanoid_leggings", "_2"),
+    "FEET": ("boots", "boot_layer_visible", "humanoid", "_1"),
+}
+
 CATEGORY_MAP = {  # plugin ItemCategory -> bedrock creative_category
     "MELEE": "equipment", "RANGED": "equipment", "HYBRID": "equipment",
     "ARMOR": "equipment", "TOOL": "equipment",
@@ -86,6 +93,38 @@ def parse_plugin(plugin_src: Path):
         out.setdefault("orangegames:" + name,
                        ("minecraft:" + mat.lower(), CATEGORY_MAP.get(cat, "items")))
     return out
+
+
+def parse_armor(plugin_src: Path):
+    """def name -> (EquipmentSlot, equipment asset id) for worn-armor rendering."""
+    out = {}
+    impl = plugin_src / "src/main/java/com/elongatedorange/orangegames/items/impl"
+    for f in sorted(impl.glob("*.java")):
+        text = f.read_text(encoding="utf-8")
+        model = re.search(r'\.itemModel\("orangegames:([\w]+)"\)', text)
+        slot = re.search(r"EquipmentSlot\.(\w+)", text)
+        asset = re.search(r'assetId\(Key\.key\("orangegames:([\w]+)"\)', text)
+        if model and slot and asset and slot.group(1) in ARMOR_SLOTS:
+            out[model.group(1)] = (slot.group(1), asset.group(1))
+    return out
+
+
+def build_armor_attachable(ident, slot, tex_path):
+    geo_slot, layer_var, _, _ = ARMOR_SLOTS[slot]
+    return {
+        "format_version": "1.8.0",
+        "minecraft:attachable": {
+            "description": {
+                "identifier": ident,
+                "materials": {"default": "armor", "enchanted": "armor_enchanted"},
+                "textures": {"default": tex_path,
+                             "enchanted": "textures/misc/enchanted_actor_glint"},
+                "geometry": {"default": f"geometry.humanoid.armor.{geo_slot}"},
+                "scripts": {"parent_setup": f"variable.{layer_var} = 0.0;"},
+                "render_controllers": ["controller.render.armor"],
+            },
+        },
+    }
 
 
 def collect_defs():
@@ -481,9 +520,11 @@ def main():
     args = ap.parse_args()
 
     materials = parse_plugin(Path(args.plugin_src))
+    armor = parse_armor(Path(args.plugin_src))
     if PACK.exists():
         shutil.rmtree(PACK)
     (PACK / "textures" / "items" / "og").mkdir(parents=True)
+    count_armor = 0
 
     mappings = {}          # java item id -> [definitions]
     texture_data = {}      # item_texture.json entries
@@ -541,6 +582,25 @@ def main():
                 warnings.append(f"{component}: texture {layer0} missing, skipped")
                 continue
             shutil.copy(src, PACK / "textures" / "items" / "og" / f"{name}.png")
+
+        # worn-armor rendering: vanilla-style armor attachable over the java
+        # equipment layer texture (bedrock uses the same 64x32 layout)
+        if name in armor:
+            slot, asset = armor[name]
+            _, _, layer_dir, suffix = ARMOR_SLOTS[slot]
+            layer_src = (REPO / "assets" / "orangegames" / "textures" / "entity"
+                         / "equipment" / layer_dir / f"{asset}.png")
+            if layer_src.exists():
+                count_armor += 1
+                tex_rel = f"textures/models/armor/og/{asset}{suffix}"
+                dst = PACK / (tex_rel + ".png")
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy(layer_src, dst)
+                write_json(PACK / "attachables" / f"og_armor_{name}.json",
+                           build_armor_attachable(ident, slot, tex_rel))
+            else:
+                warnings.append(f"{component}: armor asset {asset} has no "
+                                f"{layer_dir} layer texture, worn look skipped")
 
         texture_data[icon_key] = {"textures": [f"textures/items/og/{name}"]}
         entry = {
@@ -606,6 +666,10 @@ def main():
                     errors.append(f"{e['model']}: texture file {tex}.png missing")
     for att in (PACK / "attachables").glob("*.json"):
         desc = json.loads(att.read_text(encoding="utf-8"))["minecraft:attachable"]["description"]
+        if att.stem.startswith("og_armor_"):  # vanilla geometry, only check texture
+            if not (PACK / (desc["textures"]["default"] + ".png")).exists():
+                errors.append(f"{att.name}: armor layer texture missing")
+            continue
         geo_file = PACK / "models" / "entity" / (att.stem + ".geo.json")
         geo = json.loads(geo_file.read_text(encoding="utf-8"))["minecraft:geometry"][0]
         if geo["description"]["identifier"] != desc["geometry"]["default"]:
@@ -623,8 +687,8 @@ def main():
                             errors.append(f"{att.name}: uv out of bounds on {face}")
 
     total = sum(len(v) for v in mappings.values())
-    print(f"mapped {total} items ({count_3d} 3D, {count_flat} flat) "
-          f"across {len(mappings)} base items")
+    print(f"mapped {total} items ({count_3d} 3D, {count_flat} flat, "
+          f"{count_armor} with worn-armor attachables) across {len(mappings)} base items")
     for w in warnings:
         expected = any(k in w for k in KNOWN_ARTLESS)
         print(("  [expected] " if expected else "  [warn] ") + w)
