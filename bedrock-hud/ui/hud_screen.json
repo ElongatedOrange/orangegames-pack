@@ -64,6 +64,43 @@
     }
    },
    {
+    "oghud_head_clip": {
+     "type": "panel",
+     "size": [
+      16,
+      16
+     ],
+     "offset": [
+      11,
+      30
+     ],
+     "layer": 54,
+     "clips_children": true,
+     "controls": [
+      {
+       "oghud_head_render": {
+        "type": "custom",
+        "renderer": "live_player_renderer",
+        "property_bag": {
+         "#look_at_cursor": false
+        },
+        "size": [
+         44,
+         64
+        ],
+        "offset": [
+         0,
+         -4
+        ],
+        "anchor_from": "top_middle",
+        "anchor_to": "top_middle",
+        "layer": 55
+       }
+      }
+     ]
+    }
+   },
+   {
     "oghud_bars": {
      "type": "label",
      "color": [
