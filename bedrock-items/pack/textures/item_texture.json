@@ -97,9 +97,29 @@
     "textures/items/og/adrenaline_shot"
    ]
   },
+  "orangegames.angelic_elixir": {
+   "textures": [
+    "textures/items/og/angelic_elixir"
+   ]
+  },
+  "orangegames.bandage": {
+   "textures": [
+    "textures/items/og/bandage"
+   ]
+  },
   "orangegames.banhammer": {
    "textures": [
     "textures/items/og/banhammer"
+   ]
+  },
+  "orangegames.battle_axe": {
+   "textures": [
+    "textures/items/og/battle_axe"
+   ]
+  },
+  "orangegames.berserk_rage": {
+   "textures": [
+    "textures/items/og/berserk_rage"
    ]
   },
   "orangegames.big_shield_potion": {
@@ -110,6 +130,16 @@
   "orangegames.black_hole_grenade": {
    "textures": [
     "textures/items/og/black_hole_grenade"
+   ]
+  },
+  "orangegames.boomerang": {
+   "textures": [
+    "textures/items/og/boomerang"
+   ]
+  },
+  "orangegames.chainsaw": {
+   "textures": [
+    "textures/items/og/chainsaw"
    ]
   },
   "orangegames.chili_pepper": {
@@ -142,9 +172,24 @@
     "textures/items/og/denim_jacket"
    ]
   },
+  "orangegames.elixir_of_life": {
+   "textures": [
+    "textures/items/og/elixir_of_life"
+   ]
+  },
+  "orangegames.energy_bar": {
+   "textures": [
+    "textures/items/og/energy_bar"
+   ]
+  },
   "orangegames.fartgun": {
    "textures": [
     "textures/items/og/fartgun"
+   ]
+  },
+  "orangegames.flame_lance": {
+   "textures": [
+    "textures/items/og/flame_lance"
    ]
   },
   "orangegames.flip_flops": {
@@ -197,6 +242,11 @@
     "textures/items/og/icicle"
    ]
   },
+  "orangegames.iron_skin_elixir": {
+   "textures": [
+    "textures/items/og/iron_skin_elixir"
+   ]
+  },
   "orangegames.juice_box": {
    "textures": [
     "textures/items/og/juice_box"
@@ -230,6 +280,11 @@
   "orangegames.reality_blender": {
    "textures": [
     "textures/items/og/reality_blender"
+   ]
+  },
+  "orangegames.regen_potion": {
+   "textures": [
+    "textures/items/og/regen_potion"
    ]
   },
   "orangegames.rocket_boots": {
@@ -282,9 +337,19 @@
     "textures/items/og/smoke_bomb"
    ]
   },
+  "orangegames.soul_reaper": {
+   "textures": [
+    "textures/items/og/soul_reaper"
+   ]
+  },
   "orangegames.starfury": {
    "textures": [
     "textures/items/og/starfury"
+   ]
+  },
+  "orangegames.strength_potion": {
+   "textures": [
+    "textures/items/og/strength_potion"
    ]
   },
   "orangegames.throwing_brick": {
@@ -292,9 +357,19 @@
     "textures/items/og/throwing_brick"
    ]
   },
+  "orangegames.thundergods_hammer": {
+   "textures": [
+    "textures/items/og/thundergods_hammer"
+   ]
+  },
   "orangegames.turtle_shell_chestplate": {
    "textures": [
     "textures/items/og/turtle_shell_chestplate"
+   ]
+  },
+  "orangegames.venom_dart": {
+   "textures": [
+    "textures/items/og/venom_dart"
    ]
   },
   "orangegames.void_blade": {

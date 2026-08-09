@@ -4,6 +4,18 @@
   "minecraft:apple": [
    {
     "type": "definition",
+    "model": "orangegames:bandage",
+    "bedrock_identifier": "orangegames:bandage",
+    "display_name": "Bandage",
+    "bedrock_options": {
+     "icon": "orangegames.bandage",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:chili_pepper",
     "bedrock_identifier": "orangegames:chili_pepper",
     "display_name": "Chili Pepper",
@@ -51,6 +63,18 @@
      "display_handheld": false,
      "creative_category": "equipment"
     }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:venom_dart",
+    "bedrock_identifier": "orangegames:venom_dart",
+    "display_name": "Venom Dart",
+    "bedrock_options": {
+     "icon": "orangegames.venom_dart",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
    }
   ],
   "minecraft:brick": [
@@ -89,6 +113,20 @@
     "display_name": "Golden Burger",
     "bedrock_options": {
      "icon": "orangegames.golden_burger",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:cookie": [
+   {
+    "type": "definition",
+    "model": "orangegames:energy_bar",
+    "bedrock_identifier": "orangegames:energy_bar",
+    "display_name": "Energy Bar",
+    "bedrock_options": {
+     "icon": "orangegames.energy_bar",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
@@ -272,6 +310,18 @@
   "minecraft:iron_sword": [
    {
     "type": "definition",
+    "model": "orangegames:flame_lance",
+    "bedrock_identifier": "orangegames:flame_lance",
+    "display_name": "Flame Lance",
+    "bedrock_options": {
+     "icon": "orangegames.flame_lance",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:machete",
     "bedrock_identifier": "orangegames:machete",
     "display_name": "Machete",
@@ -387,6 +437,46 @@
     }
    }
   ],
+  "minecraft:netherite_axe": [
+   {
+    "type": "definition",
+    "model": "orangegames:chainsaw",
+    "bedrock_identifier": "orangegames:chainsaw",
+    "display_name": "Chainsaw",
+    "bedrock_options": {
+     "icon": "orangegames.chainsaw",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:thundergods_hammer",
+    "bedrock_identifier": "orangegames:thundergods_hammer",
+    "display_name": "Thundergods Hammer",
+    "bedrock_options": {
+     "icon": "orangegames.thundergods_hammer",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:netherite_hoe": [
+   {
+    "type": "definition",
+    "model": "orangegames:soul_reaper",
+    "bedrock_identifier": "orangegames:soul_reaper",
+    "display_name": "Soul Reaper",
+    "bedrock_options": {
+     "icon": "orangegames.soul_reaper",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
   "minecraft:netherite_sword": [
    {
     "type": "definition",
@@ -416,11 +506,59 @@
    },
    {
     "type": "definition",
+    "model": "orangegames:angelic_elixir",
+    "bedrock_identifier": "orangegames:angelic_elixir",
+    "display_name": "Angelic Elixir",
+    "bedrock_options": {
+     "icon": "orangegames.angelic_elixir",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:berserk_rage",
+    "bedrock_identifier": "orangegames:berserk_rage",
+    "display_name": "Berserk Rage",
+    "bedrock_options": {
+     "icon": "orangegames.berserk_rage",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:big_shield_potion",
     "bedrock_identifier": "orangegames:big_shield_potion",
     "display_name": "Big Shield Potion",
     "bedrock_options": {
      "icon": "orangegames.big_shield_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:elixir_of_life",
+    "bedrock_identifier": "orangegames:elixir_of_life",
+    "display_name": "Elixir Of Life",
+    "bedrock_options": {
+     "icon": "orangegames.elixir_of_life",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:iron_skin_elixir",
+    "bedrock_identifier": "orangegames:iron_skin_elixir",
+    "display_name": "Iron Skin Elixir",
+    "bedrock_options": {
+     "icon": "orangegames.iron_skin_elixir",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
@@ -452,11 +590,35 @@
    },
    {
     "type": "definition",
+    "model": "orangegames:regen_potion",
+    "bedrock_identifier": "orangegames:regen_potion",
+    "display_name": "Regen Potion",
+    "bedrock_options": {
+     "icon": "orangegames.regen_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:small_shield_potion",
     "bedrock_identifier": "orangegames:small_shield_potion",
     "display_name": "Small Shield Potion",
     "bedrock_options": {
      "icon": "orangegames.small_shield_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:strength_potion",
+    "bedrock_identifier": "orangegames:strength_potion",
+    "display_name": "Strength Potion",
+    "bedrock_options": {
+     "icon": "orangegames.strength_potion",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
@@ -516,6 +678,18 @@
    }
   ],
   "minecraft:stick": [
+   {
+    "type": "definition",
+    "model": "orangegames:boomerang",
+    "bedrock_identifier": "orangegames:boomerang",
+    "display_name": "Boomerang",
+    "bedrock_options": {
+     "icon": "orangegames.boomerang",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
    {
     "type": "definition",
     "model": "orangecosmetics:beanie",
@@ -727,6 +901,20 @@
     "display_name": "Wizard Hat",
     "bedrock_options": {
      "icon": "orangecosmetics.wizard_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:stone_axe": [
+   {
+    "type": "definition",
+    "model": "orangegames:battle_axe",
+    "bedrock_identifier": "orangegames:battle_axe",
+    "display_name": "Battle Axe",
+    "bedrock_options": {
+     "icon": "orangegames.battle_axe",
      "allow_offhand": true,
      "display_handheld": true,
      "creative_category": "equipment"

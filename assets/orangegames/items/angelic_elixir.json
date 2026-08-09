@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/angelic_elixir",
+    "tints": []
+  }
+}
