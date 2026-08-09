@@ -314,7 +314,7 @@ def build_animations(model, anim_prefix):
             {"rotation": [90, 60, -40], "position": [4, 10, 4], "scale": 1.5}, fp_r),
         "first_person_off_hand": ctx(
             {"rotation": [90, 60, -40], "position": [4, 10, 4], "scale": 1.5}, fp_l),
-        "head": ctx(None, head, 0.625),
+        "head": ctx({"position": [0, 19.9, 0]}, head, 0.625),
     }
     return {"format_version": "1.8.0",
             "animations": {f"{anim_prefix}.{k}": v for k, v in anims.items()}}
