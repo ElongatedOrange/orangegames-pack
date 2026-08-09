@@ -123,54 +123,16 @@ def image(name, texture, offset, size, layer, nineslice=None):
     return {f"oghud_{name}": el}
 
 
-def live_head(offset, size):
-    """Per-player head, drawn with Bedrock's own live player renderer.
-
-    The HUD used to show a head baked into the pack, so every Bedrock player
-    saw the same face. Bedrock text has no hex colours, so the tinted-glyph
-    trick used on Java is not available here; instead this borrows the
-    paperdoll renderer the vanilla inventory screen uses, scales it up and
-    clips to just the head.
-
-    RENDER_* are framing values: the paperdoll draws a whole body, so it is
-    sized so the head alone fills the clip window. Nudge these if the crop
-    sits high or low.
-    """
-    RENDER_SIZE = [44, 64]
-    RENDER_OFFSET = [0, -4]
-    return {
-        "oghud_head_clip": {
-            "type": "panel",
-            "size": list(size),
-            "offset": list(offset),
-            "layer": 54,
-            "clips_children": True,
-            "controls": [{
-                "oghud_head_render": {
-                    "type": "custom",
-                    "renderer": "live_player_renderer",
-                    "property_bag": {"#look_at_cursor": False},
-                    "size": RENDER_SIZE,
-                    "offset": RENDER_OFFSET,
-                    "anchor_from": "top_middle",
-                    "anchor_to": "top_middle",
-                    "layer": 55,
-                },
-            }],
-        }
-    }
-
-
 def build_ui():
     # geometry: title line pitch is 10px. title lines: coords, blank, blank,
     # healthbar, shieldbar. subtitle: name, ping, " Health: N", " Shield: N".
     controls = [
         image("chip", "textures/oghud_chip", [6, 14], [108, 14], 51, 4),
         image("card", "textures/oghud_card", [6, 30], [122, 46], 51, 4),
-        # neutral placeholder sits underneath, so the slot still reads as a
-        # head if the live renderer is unavailable on this client
+        # Bedrock cannot draw a per-player head: its text has no hex colours
+        # for the tinted-glyph trick Java uses, and live_player_renderer only
+        # runs on the inventory screen. A neutral orange icon it is.
         image("head", "textures/oghud_head", [11, 30], [16, 16], 53),
-        live_head([11, 30], [16, 16]),
         label("bars", [10, 18], 52),        # title: coords + bar glyph lines
         label("text", [10, 29], 54),        # subtitle: name/ping + bar text
     ]
@@ -201,9 +163,9 @@ def main():
     bake_glyph_e9()
     shutil.copy(JAVA_HUD / "card_bg.png", HUD / "textures" / "oghud_card.png")
     shutil.copy(JAVA_HUD / "coords_bg.png", HUD / "textures" / "oghud_chip.png")
-    # the old oghud_head.png was one player's baked skin; reuse the neutral
-    # placeholder the java generator now bakes, as the under-layer only
-    shutil.copy(JAVA_HUD / "head.png", HUD / "textures" / "oghud_head.png")
+    # the old oghud_head.png was one player's baked skin
+    shutil.copy(REPO / "assets" / "orangegames" / "textures" / "hud" / "og_icon.png",
+                HUD / "textures" / "oghud_head.png")
     (HUD / "ui" / "hud_screen.json").write_text(
         json.dumps(build_ui(), indent=1), encoding="utf-8")
 
