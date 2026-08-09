@@ -560,7 +560,7 @@
     "bedrock_options": {
      "icon": "orangegames.elixir_of_life",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "items"
     }
    },
