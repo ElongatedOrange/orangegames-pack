@@ -11,9 +11,9 @@
   "layer": 50,
   "controls": [
    {
-    "oghud_card": {
+    "oghud_chip": {
      "type": "image",
-     "texture": "textures/oghud_card",
+     "texture": "textures/oghud_chip",
      "anchor_from": "top_left",
      "anchor_to": "top_left",
      "offset": [
@@ -21,19 +21,29 @@
       14
      ],
      "size": [
-      122,
-      84
+      108,
+      14
      ],
      "layer": 51,
-     "uv": [
-      0,
-      0
+     "nineslice_size": 4
+    }
+   },
+   {
+    "oghud_card": {
+     "type": "image",
+     "texture": "textures/oghud_card",
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      6,
+      30
      ],
-     "uv_size": [
-      136,
-      72
+     "size": [
+      122,
+      46
      ],
-     "nineslice_size": 10
+     "layer": 51,
+     "nineslice_size": 4
     }
    },
    {
@@ -43,61 +53,61 @@
      "anchor_from": "top_left",
      "anchor_to": "top_left",
      "offset": [
-      13,
-      20
+      11,
+      30
      ],
      "size": [
-      20,
-      20
+      16,
+      16
      ],
      "layer": 53
     }
    },
    {
-    "oghud_nameline": {
-     "type": "label",
-     "color": [
-      1.0,
-      0.9,
-      0.25
-     ],
-     "layer": 53,
-     "anchor_from": "top_left",
-     "anchor_to": "top_left",
-     "offset": [
-      38,
-      25
-     ],
-     "shadow": true,
-     "text": "#hud_subtitle_text_string",
-     "bindings": [
-      {
-       "binding_name": "#hud_subtitle_text_string",
-       "binding_type": "global"
-      }
-     ]
-    }
-   },
-   {
-    "oghud_stats": {
+    "oghud_bars": {
      "type": "label",
      "color": [
       1.0,
       1.0,
       1.0
      ],
-     "layer": 53,
+     "layer": 52,
      "anchor_from": "top_left",
      "anchor_to": "top_left",
      "offset": [
-      14,
-      42
+      10,
+      18
      ],
      "shadow": true,
      "text": "#hud_title_text_string",
      "bindings": [
       {
        "binding_name": "#hud_title_text_string",
+       "binding_type": "global"
+      }
+     ]
+    }
+   },
+   {
+    "oghud_text": {
+     "type": "label",
+     "color": [
+      1.0,
+      1.0,
+      1.0
+     ],
+     "layer": 54,
+     "anchor_from": "top_left",
+     "anchor_to": "top_left",
+     "offset": [
+      10,
+      29
+     ],
+     "shadow": true,
+     "text": "#hud_subtitle_text_string",
+     "bindings": [
+      {
+       "binding_name": "#hud_subtitle_text_string",
        "binding_type": "global"
       }
      ]
