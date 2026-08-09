@@ -447,13 +447,26 @@ def render_icon(model, atlas, key_place, size=ICON_SIZE):
     half = canvas / 2.0
     # model spans 16px in a 16px gui slot at scale 1; leave a small margin
     factor = canvas / 19.0
+    off_x = off_y = 0.0
+
+    # Models larger than the standard 16-unit cube (long weapons, tools) would
+    # project off-canvas. Shrink and recentre those to fit; models that already
+    # fit are left exactly as they were.
+    if tris:
+        xs_all = [p[0] for pts, _, _ in tris for p in pts]
+        ys_all = [p[1] for pts, _, _ in tris for p in pts]
+        span = max(max(xs_all) - min(xs_all), max(ys_all) - min(ys_all))
+        if span * factor > canvas * 0.94:
+            factor = canvas * 0.94 / span
+            off_x = (max(xs_all) + min(xs_all)) / 2.0
+            off_y = (max(ys_all) + min(ys_all)) / 2.0
     px = [[(0, 0, 0, 0)] * canvas for _ in range(canvas)]
     zbuf = [[-1e9] * canvas for _ in range(canvas)]
     apx = atlas.load()
     aw, ah = atlas.size
     for pts, uvs, shade in tris:
-        xs = [half + p[0] * factor for p in pts]
-        ys = [half - p[1] * factor for p in pts]
+        xs = [half + (p[0] - off_x) * factor for p in pts]
+        ys = [half - (p[1] - off_y) * factor for p in pts]
         zs = [p[2] for p in pts]
         minx = max(int(min(xs)), 0)
         maxx = min(int(max(xs)) + 1, canvas - 1)
