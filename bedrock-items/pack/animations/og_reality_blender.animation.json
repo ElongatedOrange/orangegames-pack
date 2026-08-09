@@ -1,0 +1,116 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.og.reality_blender.third_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      2.5,
+      -2.5
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.reality_blender.third_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      2.5,
+      -2.5
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.reality_blender.first_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.75,
+      4.75,
+      1.5
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.reality_blender.first_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.75,
+      4.75,
+      1.5
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.reality_blender.head": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 0.625
+    }
+   }
+  }
+ }
+}

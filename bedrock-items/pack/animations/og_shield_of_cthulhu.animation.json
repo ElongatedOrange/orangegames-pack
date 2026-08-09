@@ -1,0 +1,187 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.og.shield_of_cthulhu.third_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      -89,
+      0,
+      0
+     ],
+     "position": [
+      -2.0,
+      -1.5,
+      4.25
+     ],
+     "scale": [
+      1.3262,
+      1.3262,
+      1.3262
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.shield_of_cthulhu.third_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      -89,
+      0,
+      0
+     ],
+     "position": [
+      -2.0,
+      -1.5,
+      4.25
+     ],
+     "scale": [
+      1.3262,
+      1.3262,
+      1.3262
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.shield_of_cthulhu.first_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      -0.75,
+      -2.0,
+      0.0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.shield_of_cthulhu.first_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      -0.75,
+      -2.0,
+      0.0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.shield_of_cthulhu.head": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      180,
+      0,
+      0
+     ],
+     "position": [
+      -0.3125,
+      -9.2188,
+      2.0312
+     ],
+     "scale": [
+      0.6482,
+      0.6482,
+      0.6482
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      -0.5,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      -180
+     ]
+    }
+   }
+  }
+ }
+}

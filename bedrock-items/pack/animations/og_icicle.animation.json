@@ -1,0 +1,154 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.og.icicle.third_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      3.25,
+      0.0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.icicle.third_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      3.25,
+      0.0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.icicle.first_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      -20.59,
+      0,
+      0
+     ],
+     "position": [
+      -0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      -10.86,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      4.36
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.icicle.first_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      -20.59,
+      0,
+      0
+     ],
+     "position": [
+      -0.5,
+      0.0,
+      0.0
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      -10.86,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      4.36
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.icicle.head": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 0.625
+    }
+   }
+  }
+ }
+}

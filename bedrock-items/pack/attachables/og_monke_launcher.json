@@ -1,0 +1,53 @@
+{
+ "format_version": "1.10.0",
+ "minecraft:attachable": {
+  "description": {
+   "identifier": "orangegames:monke_launcher",
+   "materials": {
+    "default": "entity_alphatest",
+    "enchanted": "entity_alphatest_glint"
+   },
+   "textures": {
+    "default": "textures/attachables/og/monke_launcher",
+    "enchanted": "textures/misc/enchanted_actor_glint"
+   },
+   "geometry": {
+    "default": "geometry.og.monke_launcher"
+   },
+   "animations": {
+    "third_person_main_hand": "animation.og.monke_launcher.third_person_main_hand",
+    "third_person_off_hand": "animation.og.monke_launcher.third_person_off_hand",
+    "first_person_main_hand": "animation.og.monke_launcher.first_person_main_hand",
+    "first_person_off_hand": "animation.og.monke_launcher.first_person_off_hand",
+    "head": "animation.og.monke_launcher.head"
+   },
+   "scripts": {
+    "pre_animation": [
+     "v.main_hand = c.item_slot == 'main_hand';",
+     "v.off_hand = c.item_slot == 'off_hand';",
+     "v.head = c.item_slot == 'head';"
+    ],
+    "animate": [
+     {
+      "third_person_main_hand": "v.main_hand && !c.is_first_person"
+     },
+     {
+      "third_person_off_hand": "v.off_hand && !c.is_first_person"
+     },
+     {
+      "first_person_main_hand": "v.main_hand && c.is_first_person"
+     },
+     {
+      "first_person_off_hand": "v.off_hand && c.is_first_person"
+     },
+     {
+      "head": "v.head"
+     }
+    ]
+   },
+   "render_controllers": [
+    "controller.render.item_default"
+   ]
+  }
+ }
+}

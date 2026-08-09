@@ -1,0 +1,311 @@
+{
+ "resource_pack_name": "OrangeGames Items",
+ "texture_name": "atlas.items",
+ "texture_data": {
+  "orangecosmetics.beanie": {
+   "textures": [
+    "textures/items/og/beanie"
+   ]
+  },
+  "orangecosmetics.cap": {
+   "textures": [
+    "textures/items/og/cap"
+   ]
+  },
+  "orangecosmetics.cowboy_hat": {
+   "textures": [
+    "textures/items/og/cowboy_hat"
+   ]
+  },
+  "orangecosmetics.farmer_hat": {
+   "textures": [
+    "textures/items/og/farmer_hat"
+   ]
+  },
+  "orangecosmetics.gas_mask": {
+   "textures": [
+    "textures/items/og/gas_mask"
+   ]
+  },
+  "orangecosmetics.headset": {
+   "textures": [
+    "textures/items/og/headset"
+   ]
+  },
+  "orangecosmetics.mining_hat": {
+   "textures": [
+    "textures/items/og/mining_hat"
+   ]
+  },
+  "orangecosmetics.orange_headband": {
+   "textures": [
+    "textures/items/og/orange_headband"
+   ]
+  },
+  "orangecosmetics.pipe": {
+   "textures": [
+    "textures/items/og/pipe"
+   ]
+  },
+  "orangecosmetics.pot_hat": {
+   "textures": [
+    "textures/items/og/pot_hat"
+   ]
+  },
+  "orangecosmetics.robinhood_hat": {
+   "textures": [
+    "textures/items/og/robinhood_hat"
+   ]
+  },
+  "orangecosmetics.russian_hat": {
+   "textures": [
+    "textures/items/og/russian_hat"
+   ]
+  },
+  "orangecosmetics.thor_hat": {
+   "textures": [
+    "textures/items/og/thor_hat"
+   ]
+  },
+  "orangecosmetics.underwater_hat": {
+   "textures": [
+    "textures/items/og/underwater_hat"
+   ]
+  },
+  "orangecosmetics.uni_hat": {
+   "textures": [
+    "textures/items/og/uni_hat"
+   ]
+  },
+  "orangecosmetics.viking_hat": {
+   "textures": [
+    "textures/items/og/viking_hat"
+   ]
+  },
+  "orangecosmetics.wanderer_hat": {
+   "textures": [
+    "textures/items/og/wanderer_hat"
+   ]
+  },
+  "orangecosmetics.wizard_hat": {
+   "textures": [
+    "textures/items/og/wizard_hat"
+   ]
+  },
+  "orangegames.adrenaline_shot": {
+   "textures": [
+    "textures/items/og/adrenaline_shot"
+   ]
+  },
+  "orangegames.banhammer": {
+   "textures": [
+    "textures/items/og/banhammer"
+   ]
+  },
+  "orangegames.big_shield_potion": {
+   "textures": [
+    "textures/items/og/big_shield_potion"
+   ]
+  },
+  "orangegames.black_hole_grenade": {
+   "textures": [
+    "textures/items/og/black_hole_grenade"
+   ]
+  },
+  "orangegames.chili_pepper": {
+   "textures": [
+    "textures/items/og/chili_pepper"
+   ]
+  },
+  "orangegames.club": {
+   "textures": [
+    "textures/items/og/club"
+   ]
+  },
+  "orangegames.cobblestone_boots": {
+   "textures": [
+    "textures/items/og/cobblestone_boots"
+   ]
+  },
+  "orangegames.cobblestone_chestplate": {
+   "textures": [
+    "textures/items/og/cobblestone_chestplate"
+   ]
+  },
+  "orangegames.cobblestone_leggings": {
+   "textures": [
+    "textures/items/og/cobblestone_leggings"
+   ]
+  },
+  "orangegames.denim_jacket": {
+   "textures": [
+    "textures/items/og/denim_jacket"
+   ]
+  },
+  "orangegames.fartgun": {
+   "textures": [
+    "textures/items/og/fartgun"
+   ]
+  },
+  "orangegames.flip_flops": {
+   "textures": [
+    "textures/items/og/flip_flops"
+   ]
+  },
+  "orangegames.frying_pan": {
+   "textures": [
+    "textures/items/og/frying_pan"
+   ]
+  },
+  "orangegames.goatmace": {
+   "textures": [
+    "textures/items/og/goatmace"
+   ]
+  },
+  "orangegames.golden_burger": {
+   "textures": [
+    "textures/items/og/golden_burger"
+   ]
+  },
+  "orangegames.grappling_hook": {
+   "textures": [
+    "textures/items/og/grappling_hook"
+   ]
+  },
+  "orangegames.hailstorm_crossbow": {
+   "textures": [
+    "textures/items/og/hailstorm_crossbow"
+   ]
+  },
+  "orangegames.heart_of_the_mountain": {
+   "textures": [
+    "textures/items/og/heart_of_the_mountain"
+   ]
+  },
+  "orangegames.hermes_boots": {
+   "textures": [
+    "textures/items/og/hermes_boots"
+   ]
+  },
+  "orangegames.hog_rider_leggings": {
+   "textures": [
+    "textures/items/og/hog_rider_leggings"
+   ]
+  },
+  "orangegames.icicle": {
+   "textures": [
+    "textures/items/og/icicle"
+   ]
+  },
+  "orangegames.juice_box": {
+   "textures": [
+    "textures/items/og/juice_box"
+   ]
+  },
+  "orangegames.machete": {
+   "textures": [
+    "textures/items/og/machete"
+   ]
+  },
+  "orangegames.medium_shield_potion": {
+   "textures": [
+    "textures/items/og/medium_shield_potion"
+   ]
+  },
+  "orangegames.monke_launcher": {
+   "textures": [
+    "textures/items/og/monke_launcher"
+   ]
+  },
+  "orangegames.pebble": {
+   "textures": [
+    "textures/items/og/pebble"
+   ]
+  },
+  "orangegames.railgun": {
+   "textures": [
+    "textures/items/og/railgun"
+   ]
+  },
+  "orangegames.reality_blender": {
+   "textures": [
+    "textures/items/og/reality_blender"
+   ]
+  },
+  "orangegames.rocket_boots": {
+   "textures": [
+    "textures/items/og/rocket_boots"
+   ]
+  },
+  "orangegames.royal_guard_chestplate": {
+   "textures": [
+    "textures/items/og/royal_guard_chestplate"
+   ]
+  },
+  "orangegames.royal_guard_leggings": {
+   "textures": [
+    "textures/items/og/royal_guard_leggings"
+   ]
+  },
+  "orangegames.rusty_dagger": {
+   "textures": [
+    "textures/items/og/rusty_dagger"
+   ]
+  },
+  "orangegames.shield_of_cthulhu": {
+   "textures": [
+    "textures/items/og/shield_of_cthulhu"
+   ]
+  },
+  "orangegames.shock_baton": {
+   "textures": [
+    "textures/items/og/shock_baton"
+   ]
+  },
+  "orangegames.slime_boots": {
+   "textures": [
+    "textures/items/og/slime_boots"
+   ]
+  },
+  "orangegames.slingshot": {
+   "textures": [
+    "textures/items/og/slingshot"
+   ]
+  },
+  "orangegames.small_shield_potion": {
+   "textures": [
+    "textures/items/og/small_shield_potion"
+   ]
+  },
+  "orangegames.smoke_bomb": {
+   "textures": [
+    "textures/items/og/smoke_bomb"
+   ]
+  },
+  "orangegames.starfury": {
+   "textures": [
+    "textures/items/og/starfury"
+   ]
+  },
+  "orangegames.throwing_brick": {
+   "textures": [
+    "textures/items/og/throwing_brick"
+   ]
+  },
+  "orangegames.turtle_shell_chestplate": {
+   "textures": [
+    "textures/items/og/turtle_shell_chestplate"
+   ]
+  },
+  "orangegames.void_blade": {
+   "textures": [
+    "textures/items/og/void_blade"
+   ]
+  },
+  "orangegames.wings_of_icarus": {
+   "textures": [
+    "textures/items/og/wings_of_icarus"
+   ]
+  }
+ }
+}

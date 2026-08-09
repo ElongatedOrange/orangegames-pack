@@ -1,0 +1,174 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.og.fartgun.third_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      5.75,
+      0.75
+     ],
+     "scale": [
+      1.2,
+      1.2,
+      1.2
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.fartgun.third_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      5.75,
+      0.75
+     ],
+     "scale": [
+      1.2,
+      1.2,
+      1.2
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.fartgun.first_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      -11.5,
+      5.75,
+      0.5
+     ],
+     "scale": [
+      1.5,
+      1.5,
+      1.5
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      15,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.fartgun.first_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      -11.5,
+      5.75,
+      0.5
+     ],
+     "scale": [
+      1.5,
+      1.5,
+      1.5
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      15,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.fartgun.head": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": 0.625
+    }
+   }
+  }
+ }
+}

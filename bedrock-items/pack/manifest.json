@@ -1,0 +1,29 @@
+{
+ "format_version": 2,
+ "header": {
+  "name": "OrangeGames Items",
+  "description": "Generated from orangegames-pack (gen_bedrock.py)",
+  "uuid": "95cf59ec-5885-5b28-bb7b-3140e9a7a263",
+  "version": [
+   1,
+   64,
+   9
+  ],
+  "min_engine_version": [
+   1,
+   16,
+   100
+  ]
+ },
+ "modules": [
+  {
+   "type": "resources",
+   "uuid": "cadcee76-c9ac-530a-ba24-345e7f35fca5",
+   "version": [
+    1,
+    64,
+    9
+   ]
+  }
+ ]
+}

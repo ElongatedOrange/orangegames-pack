@@ -1,0 +1,791 @@
+{
+ "format_version": 2,
+ "items": {
+  "minecraft:apple": [
+   {
+    "type": "definition",
+    "model": "orangegames:chili_pepper",
+    "bedrock_identifier": "orangegames:chili_pepper",
+    "display_name": "Chili Pepper",
+    "bedrock_options": {
+     "icon": "orangegames.chili_pepper",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:heart_of_the_mountain",
+    "bedrock_identifier": "orangegames:heart_of_the_mountain",
+    "display_name": "Heart Of The Mountain",
+    "bedrock_options": {
+     "icon": "orangegames.heart_of_the_mountain",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:juice_box",
+    "bedrock_identifier": "orangegames:juice_box",
+    "display_name": "Juice Box",
+    "bedrock_options": {
+     "icon": "orangegames.juice_box",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:bow": [
+   {
+    "type": "definition",
+    "model": "orangegames:slingshot",
+    "bedrock_identifier": "orangegames:slingshot",
+    "display_name": "Slingshot",
+    "bedrock_options": {
+     "icon": "orangegames.slingshot",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:brick": [
+   {
+    "type": "definition",
+    "model": "orangegames:throwing_brick",
+    "bedrock_identifier": "orangegames:throwing_brick",
+    "display_name": "Throwing Brick",
+    "bedrock_options": {
+     "icon": "orangegames.throwing_brick",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:chainmail_leggings": [
+   {
+    "type": "definition",
+    "model": "orangegames:hog_rider_leggings",
+    "bedrock_identifier": "orangegames:hog_rider_leggings",
+    "display_name": "Hog Rider Leggings",
+    "bedrock_options": {
+     "icon": "orangegames.hog_rider_leggings",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:cooked_beef": [
+   {
+    "type": "definition",
+    "model": "orangegames:golden_burger",
+    "bedrock_identifier": "orangegames:golden_burger",
+    "display_name": "Golden Burger",
+    "bedrock_options": {
+     "icon": "orangegames.golden_burger",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:crossbow": [
+   {
+    "type": "definition",
+    "model": "orangegames:fartgun",
+    "bedrock_identifier": "orangegames:fartgun",
+    "display_name": "Fartgun",
+    "bedrock_options": {
+     "icon": "orangegames.fartgun",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:hailstorm_crossbow",
+    "bedrock_identifier": "orangegames:hailstorm_crossbow",
+    "display_name": "Hailstorm Crossbow",
+    "bedrock_options": {
+     "icon": "orangegames.hailstorm_crossbow",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:railgun",
+    "bedrock_identifier": "orangegames:railgun",
+    "display_name": "Railgun",
+    "bedrock_options": {
+     "icon": "orangegames.railgun",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:diamond_chestplate": [
+   {
+    "type": "definition",
+    "model": "orangegames:royal_guard_chestplate",
+    "bedrock_identifier": "orangegames:royal_guard_chestplate",
+    "display_name": "Royal Guard Chestplate",
+    "bedrock_options": {
+     "icon": "orangegames.royal_guard_chestplate",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:wings_of_icarus",
+    "bedrock_identifier": "orangegames:wings_of_icarus",
+    "display_name": "Wings Of Icarus",
+    "bedrock_options": {
+     "icon": "orangegames.wings_of_icarus",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:diamond_leggings": [
+   {
+    "type": "definition",
+    "model": "orangegames:royal_guard_leggings",
+    "bedrock_identifier": "orangegames:royal_guard_leggings",
+    "display_name": "Royal Guard Leggings",
+    "bedrock_options": {
+     "icon": "orangegames.royal_guard_leggings",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:feather": [
+   {
+    "type": "definition",
+    "model": "orangegames:monke_launcher",
+    "bedrock_identifier": "orangegames:monke_launcher",
+    "display_name": "Monke Launcher",
+    "bedrock_options": {
+     "icon": "orangegames.monke_launcher",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:fishing_rod": [
+   {
+    "type": "definition",
+    "model": "orangegames:grappling_hook",
+    "bedrock_identifier": "orangegames:grappling_hook",
+    "display_name": "Grappling Hook",
+    "bedrock_options": {
+     "icon": "orangegames.grappling_hook",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:golden_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:shock_baton",
+    "bedrock_identifier": "orangegames:shock_baton",
+    "display_name": "Shock Baton",
+    "bedrock_options": {
+     "icon": "orangegames.shock_baton",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:iron_boots": [
+   {
+    "type": "definition",
+    "model": "orangegames:hermes_boots",
+    "bedrock_identifier": "orangegames:hermes_boots",
+    "display_name": "Hermes Boots",
+    "bedrock_options": {
+     "icon": "orangegames.hermes_boots",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:rocket_boots",
+    "bedrock_identifier": "orangegames:rocket_boots",
+    "display_name": "Rocket Boots",
+    "bedrock_options": {
+     "icon": "orangegames.rocket_boots",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:iron_chestplate": [
+   {
+    "type": "definition",
+    "model": "orangegames:turtle_shell_chestplate",
+    "bedrock_identifier": "orangegames:turtle_shell_chestplate",
+    "display_name": "Turtle Shell Chestplate",
+    "bedrock_options": {
+     "icon": "orangegames.turtle_shell_chestplate",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:iron_shovel": [
+   {
+    "type": "definition",
+    "model": "orangegames:frying_pan",
+    "bedrock_identifier": "orangegames:frying_pan",
+    "display_name": "Frying Pan",
+    "bedrock_options": {
+     "icon": "orangegames.frying_pan",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:iron_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:machete",
+    "bedrock_identifier": "orangegames:machete",
+    "display_name": "Machete",
+    "bedrock_options": {
+     "icon": "orangegames.machete",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:leather_boots": [
+   {
+    "type": "definition",
+    "model": "orangegames:cobblestone_boots",
+    "bedrock_identifier": "orangegames:cobblestone_boots",
+    "display_name": "Cobblestone Boots",
+    "bedrock_options": {
+     "icon": "orangegames.cobblestone_boots",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:flip_flops",
+    "bedrock_identifier": "orangegames:flip_flops",
+    "display_name": "Flip Flops",
+    "bedrock_options": {
+     "icon": "orangegames.flip_flops",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:slime_boots",
+    "bedrock_identifier": "orangegames:slime_boots",
+    "display_name": "Slime Boots",
+    "bedrock_options": {
+     "icon": "orangegames.slime_boots",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:leather_chestplate": [
+   {
+    "type": "definition",
+    "model": "orangegames:cobblestone_chestplate",
+    "bedrock_identifier": "orangegames:cobblestone_chestplate",
+    "display_name": "Cobblestone Chestplate",
+    "bedrock_options": {
+     "icon": "orangegames.cobblestone_chestplate",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:denim_jacket",
+    "bedrock_identifier": "orangegames:denim_jacket",
+    "display_name": "Denim Jacket",
+    "bedrock_options": {
+     "icon": "orangegames.denim_jacket",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:leather_leggings": [
+   {
+    "type": "definition",
+    "model": "orangegames:cobblestone_leggings",
+    "bedrock_identifier": "orangegames:cobblestone_leggings",
+    "display_name": "Cobblestone Leggings",
+    "bedrock_options": {
+     "icon": "orangegames.cobblestone_leggings",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:mace": [
+   {
+    "type": "definition",
+    "model": "orangegames:banhammer",
+    "bedrock_identifier": "orangegames:banhammer",
+    "display_name": "Banhammer",
+    "bedrock_options": {
+     "icon": "orangegames.banhammer",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:goatmace",
+    "bedrock_identifier": "orangegames:goatmace",
+    "display_name": "Goatmace",
+    "bedrock_options": {
+     "icon": "orangegames.goatmace",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:netherite_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:void_blade",
+    "bedrock_identifier": "orangegames:void_blade",
+    "display_name": "Void Blade",
+    "bedrock_options": {
+     "icon": "orangegames.void_blade",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:potion": [
+   {
+    "type": "definition",
+    "model": "orangegames:adrenaline_shot",
+    "bedrock_identifier": "orangegames:adrenaline_shot",
+    "display_name": "Adrenaline Shot",
+    "bedrock_options": {
+     "icon": "orangegames.adrenaline_shot",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:big_shield_potion",
+    "bedrock_identifier": "orangegames:big_shield_potion",
+    "display_name": "Big Shield Potion",
+    "bedrock_options": {
+     "icon": "orangegames.big_shield_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:medium_shield_potion",
+    "bedrock_identifier": "orangegames:medium_shield_potion",
+    "display_name": "Medium Shield Potion",
+    "bedrock_options": {
+     "icon": "orangegames.medium_shield_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:reality_blender",
+    "bedrock_identifier": "orangegames:reality_blender",
+    "display_name": "Reality Blender",
+    "bedrock_options": {
+     "icon": "orangegames.reality_blender",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:small_shield_potion",
+    "bedrock_identifier": "orangegames:small_shield_potion",
+    "display_name": "Small Shield Potion",
+    "bedrock_options": {
+     "icon": "orangegames.small_shield_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:shield": [
+   {
+    "type": "definition",
+    "model": "orangegames:shield_of_cthulhu",
+    "bedrock_identifier": "orangegames:shield_of_cthulhu",
+    "display_name": "Shield Of Cthulhu",
+    "bedrock_options": {
+     "icon": "orangegames.shield_of_cthulhu",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:snowball": [
+   {
+    "type": "definition",
+    "model": "orangegames:black_hole_grenade",
+    "bedrock_identifier": "orangegames:black_hole_grenade",
+    "display_name": "Black Hole Grenade",
+    "bedrock_options": {
+     "icon": "orangegames.black_hole_grenade",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:pebble",
+    "bedrock_identifier": "orangegames:pebble",
+    "display_name": "Pebble",
+    "bedrock_options": {
+     "icon": "orangegames.pebble",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:smoke_bomb",
+    "bedrock_identifier": "orangegames:smoke_bomb",
+    "display_name": "Smoke Bomb",
+    "bedrock_options": {
+     "icon": "orangegames.smoke_bomb",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:stick": [
+   {
+    "type": "definition",
+    "model": "orangecosmetics:beanie",
+    "bedrock_identifier": "orangecosmetics:beanie",
+    "display_name": "Beanie",
+    "bedrock_options": {
+     "icon": "orangecosmetics.beanie",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:cap",
+    "bedrock_identifier": "orangecosmetics:cap",
+    "display_name": "Cap",
+    "bedrock_options": {
+     "icon": "orangecosmetics.cap",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:cowboy_hat",
+    "bedrock_identifier": "orangecosmetics:cowboy_hat",
+    "display_name": "Cowboy Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.cowboy_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:farmer_hat",
+    "bedrock_identifier": "orangecosmetics:farmer_hat",
+    "display_name": "Farmer Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.farmer_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:gas_mask",
+    "bedrock_identifier": "orangecosmetics:gas_mask",
+    "display_name": "Gas Mask",
+    "bedrock_options": {
+     "icon": "orangecosmetics.gas_mask",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:headset",
+    "bedrock_identifier": "orangecosmetics:headset",
+    "display_name": "Headset",
+    "bedrock_options": {
+     "icon": "orangecosmetics.headset",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:mining_hat",
+    "bedrock_identifier": "orangecosmetics:mining_hat",
+    "display_name": "Mining Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.mining_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:orange_headband",
+    "bedrock_identifier": "orangecosmetics:orange_headband",
+    "display_name": "Orange Headband",
+    "bedrock_options": {
+     "icon": "orangecosmetics.orange_headband",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:pipe",
+    "bedrock_identifier": "orangecosmetics:pipe",
+    "display_name": "Pipe",
+    "bedrock_options": {
+     "icon": "orangecosmetics.pipe",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:pot_hat",
+    "bedrock_identifier": "orangecosmetics:pot_hat",
+    "display_name": "Pot Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.pot_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:robinhood_hat",
+    "bedrock_identifier": "orangecosmetics:robinhood_hat",
+    "display_name": "Robinhood Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.robinhood_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:russian_hat",
+    "bedrock_identifier": "orangecosmetics:russian_hat",
+    "display_name": "Russian Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.russian_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:thor_hat",
+    "bedrock_identifier": "orangecosmetics:thor_hat",
+    "display_name": "Thor Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.thor_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:underwater_hat",
+    "bedrock_identifier": "orangecosmetics:underwater_hat",
+    "display_name": "Underwater Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.underwater_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:uni_hat",
+    "bedrock_identifier": "orangecosmetics:uni_hat",
+    "display_name": "Uni Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.uni_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:viking_hat",
+    "bedrock_identifier": "orangecosmetics:viking_hat",
+    "display_name": "Viking Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.viking_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:wanderer_hat",
+    "bedrock_identifier": "orangecosmetics:wanderer_hat",
+    "display_name": "Wanderer Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.wanderer_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangecosmetics:wizard_hat",
+    "bedrock_identifier": "orangecosmetics:wizard_hat",
+    "display_name": "Wizard Hat",
+    "bedrock_options": {
+     "icon": "orangecosmetics.wizard_hat",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:stone_shovel": [
+   {
+    "type": "definition",
+    "model": "orangegames:club",
+    "bedrock_identifier": "orangegames:club",
+    "display_name": "Club",
+    "bedrock_options": {
+     "icon": "orangegames.club",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:stone_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:icicle",
+    "bedrock_identifier": "orangegames:icicle",
+    "display_name": "Icicle",
+    "bedrock_options": {
+     "icon": "orangegames.icicle",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:starfury",
+    "bedrock_identifier": "orangegames:starfury",
+    "display_name": "Starfury",
+    "bedrock_options": {
+     "icon": "orangegames.starfury",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:wooden_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:rusty_dagger",
+    "bedrock_identifier": "orangegames:rusty_dagger",
+    "display_name": "Rusty Dagger",
+    "bedrock_options": {
+     "icon": "orangegames.rusty_dagger",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   }
+  ]
+ }
+}
