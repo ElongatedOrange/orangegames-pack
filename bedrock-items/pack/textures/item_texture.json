@@ -7,9 +7,19 @@
     "textures/items/og/beanie"
    ]
   },
+  "orangecosmetics.blood_crown": {
+   "textures": [
+    "textures/items/og/blood_crown"
+   ]
+  },
   "orangecosmetics.cap": {
    "textures": [
     "textures/items/og/cap"
+   ]
+  },
+  "orangecosmetics.citrus_wreath": {
+   "textures": [
+    "textures/items/og/citrus_wreath"
    ]
   },
   "orangecosmetics.cowboy_hat": {
@@ -27,6 +37,11 @@
     "textures/items/og/gas_mask"
    ]
   },
+  "orangecosmetics.golden_crown": {
+   "textures": [
+    "textures/items/og/golden_crown"
+   ]
+  },
   "orangecosmetics.headset": {
    "textures": [
     "textures/items/og/headset"
@@ -35,6 +50,16 @@
   "orangecosmetics.mining_hat": {
    "textures": [
     "textures/items/og/mining_hat"
+   ]
+  },
+  "orangecosmetics.neon_visor": {
+   "textures": [
+    "textures/items/og/neon_visor"
+   ]
+  },
+  "orangecosmetics.orange_halo": {
+   "textures": [
+    "textures/items/og/orange_halo"
    ]
   },
   "orangecosmetics.orange_headband": {
@@ -55,6 +80,11 @@
   "orangecosmetics.robinhood_hat": {
    "textures": [
     "textures/items/og/robinhood_hat"
+   ]
+  },
+  "orangecosmetics.royal_beret": {
+   "textures": [
+    "textures/items/og/royal_beret"
    ]
   },
   "orangecosmetics.russian_hat": {
