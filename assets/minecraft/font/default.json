@@ -5,7 +5,16 @@
       "file": "orangegames:hud/orange_prefix.png",
       "ascent": 7,
       "height": 9,
-      "chars": [""]
+      "chars": [
+        "\uea00"
+      ]
+    },
+    {
+      "type": "space",
+      "advances": {
+        "\uea01": 0,
+        "\uea02": 0
+      }
     }
   ]
 }

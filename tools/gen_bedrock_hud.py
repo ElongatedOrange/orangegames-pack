@@ -124,17 +124,23 @@ def image(name, texture, offset, size, layer, nineslice=None):
 
 
 def bake_glyph_ea():
-    """0xEA00: the ORANGE rank prefix badge, shown via the LuckPerms prefix
-    in chat/tab/nametags. Source is the same image the Java pack's font
-    provider uses (textures/hud/orange_prefix.png, 41x9). This page uses
-    1024px so each cell is 64px: art scaled to 32px tall (half the cell)
-    renders text-sized, same calibration as the 8px-in-16px rule above."""
+    """0xEA00-0xEA02: the ORANGE rank prefix badge (LuckPerms prefix, chat/
+    tab/nametags), sliced across three 16px cells. Bedrock maps glyph-page
+    pixels 1:1 to logical pixels, so a big-cell page renders huge (verified
+    in game); native-resolution slices in standard 16px cells render
+    text-sized, and adjacent glyphs butt seamlessly exactly like the E8 bar
+    segments. Java renders the whole badge from 0xEA00 and defines
+    0xEA01/0xEA02 as zero-advance spaces, so one prefix string serves both
+    editions. Source: textures/hud/orange_prefix.png (41x9)."""
     src = Image.open(JAVA_HUD / "orange_prefix.png").convert("RGBA")
-    scaled_h = 32
-    scaled_w = round(src.width * scaled_h / src.height)
-    badge = src.resize((scaled_w, scaled_h), Image.NEAREST)
-    img = Image.new("RGBA", (1024, 1024))
-    img.paste(badge, (0, 12), badge)  # cell (0,0) = U+EA00, band top 3*4
+    img = Image.new("RGBA", (256, 256))
+    for i in range(3):
+        x0 = i * CELL
+        slice_w = min(CELL, src.width - x0)
+        if slice_w <= 0:
+            break
+        part = src.crop((x0, 0, x0 + slice_w, src.height))
+        img.paste(part, (i * CELL, BAND_TOP), part)  # cells (0,0..2)
     img.save(HUD / "font" / "glyph_EA.png")
 
 
