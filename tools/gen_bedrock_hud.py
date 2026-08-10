@@ -123,6 +123,21 @@ def image(name, texture, offset, size, layer, nineslice=None):
     return {f"oghud_{name}": el}
 
 
+def bake_glyph_ea():
+    """0xEA00: the ORANGE rank prefix badge, shown via the LuckPerms prefix
+    in chat/tab/nametags. Source is the same image the Java pack's font
+    provider uses (textures/hud/orange_prefix.png, 41x9). This page uses
+    1024px so each cell is 64px: art scaled to 32px tall (half the cell)
+    renders text-sized, same calibration as the 8px-in-16px rule above."""
+    src = Image.open(JAVA_HUD / "orange_prefix.png").convert("RGBA")
+    scaled_h = 32
+    scaled_w = round(src.width * scaled_h / src.height)
+    badge = src.resize((scaled_w, scaled_h), Image.NEAREST)
+    img = Image.new("RGBA", (1024, 1024))
+    img.paste(badge, (0, 12), badge)  # cell (0,0) = U+EA00, band top 3*4
+    img.save(HUD / "font" / "glyph_EA.png")
+
+
 def build_ui():
     # geometry: title line pitch is 10px. title lines: coords, blank, blank,
     # healthbar, shieldbar. subtitle: name, ping, " Health: N", " Shield: N".
@@ -161,6 +176,7 @@ def build_ui():
 def main():
     bake_glyph_e8()
     bake_glyph_e9()
+    bake_glyph_ea()
     shutil.copy(JAVA_HUD / "card_bg.png", HUD / "textures" / "oghud_card.png")
     shutil.copy(JAVA_HUD / "coords_bg.png", HUD / "textures" / "oghud_chip.png")
     # the old oghud_head.png was one player's baked skin
