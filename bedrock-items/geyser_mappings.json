@@ -970,35 +970,11 @@
    },
    {
     "type": "definition",
-    "model": "orangecosmetics:blood_crown",
-    "bedrock_identifier": "orangecosmetics:blood_crown",
-    "display_name": "Blood Crown",
-    "bedrock_options": {
-     "icon": "orangecosmetics.blood_crown",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
     "model": "orangecosmetics:cap",
     "bedrock_identifier": "orangecosmetics:cap",
     "display_name": "Cap",
     "bedrock_options": {
      "icon": "orangecosmetics.cap",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
-    "model": "orangecosmetics:citrus_wreath",
-    "bedrock_identifier": "orangecosmetics:citrus_wreath",
-    "display_name": "Citrus Wreath",
-    "bedrock_options": {
-     "icon": "orangecosmetics.citrus_wreath",
      "allow_offhand": true,
      "display_handheld": true,
      "creative_category": "equipment"
@@ -1042,18 +1018,6 @@
    },
    {
     "type": "definition",
-    "model": "orangecosmetics:golden_crown",
-    "bedrock_identifier": "orangecosmetics:golden_crown",
-    "display_name": "Golden Crown",
-    "bedrock_options": {
-     "icon": "orangecosmetics.golden_crown",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
     "model": "orangecosmetics:headset",
     "bedrock_identifier": "orangecosmetics:headset",
     "display_name": "Headset",
@@ -1071,30 +1035,6 @@
     "display_name": "Mining Hat",
     "bedrock_options": {
      "icon": "orangecosmetics.mining_hat",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
-    "model": "orangecosmetics:neon_visor",
-    "bedrock_identifier": "orangecosmetics:neon_visor",
-    "display_name": "Neon Visor",
-    "bedrock_options": {
-     "icon": "orangecosmetics.neon_visor",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
-    "model": "orangecosmetics:orange_halo",
-    "bedrock_identifier": "orangecosmetics:orange_halo",
-    "display_name": "Orange Halo",
-    "bedrock_options": {
-     "icon": "orangecosmetics.orange_halo",
      "allow_offhand": true,
      "display_handheld": true,
      "creative_category": "equipment"
@@ -1143,18 +1083,6 @@
     "display_name": "Robinhood Hat",
     "bedrock_options": {
      "icon": "orangecosmetics.robinhood_hat",
-     "allow_offhand": true,
-     "display_handheld": true,
-     "creative_category": "equipment"
-    }
-   },
-   {
-    "type": "definition",
-    "model": "orangecosmetics:royal_beret",
-    "bedrock_identifier": "orangecosmetics:royal_beret",
-    "display_name": "Royal Beret",
-    "bedrock_options": {
-     "icon": "orangecosmetics.royal_beret",
      "allow_offhand": true,
      "display_handheld": true,
      "creative_category": "equipment"

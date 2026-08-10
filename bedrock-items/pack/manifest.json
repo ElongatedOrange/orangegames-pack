@@ -3,11 +3,11 @@
  "header": {
   "name": "OrangeGames Items",
   "description": "Generated from orangegames-pack (gen_bedrock.py)",
-  "uuid": "c29ae7e7-2dc8-5e85-a41a-c80c5f004335",
+  "uuid": "2a76c267-577a-5adf-9f3a-415466433f79",
   "version": [
    1,
-   34,
-   10
+   60,
+   59
   ],
   "min_engine_version": [
    1,
@@ -18,11 +18,11 @@
  "modules": [
   {
    "type": "resources",
-   "uuid": "8f4b6339-b5b2-5c08-b63d-7cc3400dd2fb",
+   "uuid": "f9855c96-9983-5f8c-ae07-164114879cab",
    "version": [
     1,
-    34,
-    10
+    60,
+    59
    ]
   }
  ]
