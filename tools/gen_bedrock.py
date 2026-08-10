@@ -532,7 +532,9 @@ def title(slug):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--plugin-src", default=str(REPO.parent / "OrangeGames"))
+    # since the multi-module split the paper sources live one level down
+    ap.add_argument("--plugin-src",
+                    default=str(REPO.parent / "OrangeGames" / "orangegames-paper"))
     args = ap.parse_args()
 
     materials = parse_plugin(Path(args.plugin_src))

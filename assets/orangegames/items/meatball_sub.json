@@ -1,0 +1,7 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/meatball_sub",
+    "tints": []
+  }
+}

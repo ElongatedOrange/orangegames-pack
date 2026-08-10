@@ -137,6 +137,11 @@
     "textures/items/og/boomerang"
    ]
   },
+  "orangegames.campfire_stew": {
+   "textures": [
+    "textures/items/og/campfire_stew"
+   ]
+  },
   "orangegames.chainsaw": {
    "textures": [
     "textures/items/og/chainsaw"
@@ -177,9 +182,19 @@
     "textures/items/og/denim_jacket"
    ]
   },
+  "orangegames.dragonfruit": {
+   "textures": [
+    "textures/items/og/dragonfruit"
+   ]
+  },
   "orangegames.elixir_of_life": {
    "textures": [
     "textures/items/og/elixir_of_life"
+   ]
+  },
+  "orangegames.enchanted_golden_orange": {
+   "textures": [
+    "textures/items/og/enchanted_golden_orange"
    ]
   },
   "orangegames.energy_bar": {
@@ -190,6 +205,11 @@
   "orangegames.fartgun": {
    "textures": [
     "textures/items/og/fartgun"
+   ]
+  },
+  "orangegames.fizzy_lemonade": {
+   "textures": [
+    "textures/items/og/fizzy_lemonade"
    ]
   },
   "orangegames.flame_lance": {
@@ -207,6 +227,11 @@
     "textures/items/og/frying_pan"
    ]
   },
+  "orangegames.glazed_donut": {
+   "textures": [
+    "textures/items/og/glazed_donut"
+   ]
+  },
   "orangegames.goatmace": {
    "textures": [
     "textures/items/og/goatmace"
@@ -217,9 +242,24 @@
     "textures/items/og/golden_burger"
    ]
   },
+  "orangegames.golden_kebab": {
+   "textures": [
+    "textures/items/og/golden_kebab"
+   ]
+  },
+  "orangegames.golden_orange": {
+   "textures": [
+    "textures/items/og/golden_orange"
+   ]
+  },
   "orangegames.grappling_hook": {
    "textures": [
     "textures/items/og/grappling_hook"
+   ]
+  },
+  "orangegames.grilled_cheese": {
+   "textures": [
+    "textures/items/og/grilled_cheese"
    ]
   },
   "orangegames.hailstorm_crossbow": {
@@ -242,6 +282,16 @@
     "textures/items/og/hog_rider_leggings"
    ]
   },
+  "orangegames.honey_roast_chicken": {
+   "textures": [
+    "textures/items/og/honey_roast_chicken"
+   ]
+  },
+  "orangegames.iced_coffee": {
+   "textures": [
+    "textures/items/og/iced_coffee"
+   ]
+  },
   "orangegames.icicle": {
    "textures": [
     "textures/items/og/icicle"
@@ -262,6 +312,11 @@
     "textures/items/og/machete"
    ]
   },
+  "orangegames.meatball_sub": {
+   "textures": [
+    "textures/items/og/meatball_sub"
+   ]
+  },
   "orangegames.medium_shield_potion": {
    "textures": [
     "textures/items/og/medium_shield_potion"
@@ -272,9 +327,39 @@
     "textures/items/og/monke_launcher"
    ]
   },
+  "orangegames.orange_pie": {
+   "textures": [
+    "textures/items/og/orange_pie"
+   ]
+  },
+  "orangegames.orange_slice": {
+   "textures": [
+    "textures/items/og/orange_slice"
+   ]
+  },
+  "orangegames.orange_smoothie": {
+   "textures": [
+    "textures/items/og/orange_smoothie"
+   ]
+  },
+  "orangegames.orange_soda": {
+   "textures": [
+    "textures/items/og/orange_soda"
+   ]
+  },
   "orangegames.pebble": {
    "textures": [
     "textures/items/og/pebble"
+   ]
+  },
+  "orangegames.popcorn": {
+   "textures": [
+    "textures/items/og/popcorn"
+   ]
+  },
+  "orangegames.protein_shake": {
+   "textures": [
+    "textures/items/og/protein_shake"
    ]
   },
   "orangegames.railgun": {
@@ -295,6 +380,11 @@
   "orangegames.rocket_boots": {
    "textures": [
     "textures/items/og/rocket_boots"
+   ]
+  },
+  "orangegames.royal_feast": {
+   "textures": [
+    "textures/items/og/royal_feast"
    ]
   },
   "orangegames.royal_guard_chestplate": {
@@ -347,6 +437,11 @@
     "textures/items/og/soul_reaper"
    ]
   },
+  "orangegames.spicy_noodles": {
+   "textures": [
+    "textures/items/og/spicy_noodles"
+   ]
+  },
   "orangegames.starfury": {
    "textures": [
     "textures/items/og/starfury"
@@ -365,6 +460,11 @@
   "orangegames.thundergods_hammer": {
    "textures": [
     "textures/items/og/thundergods_hammer"
+   ]
+  },
+  "orangegames.trail_mix": {
+   "textures": [
+    "textures/items/og/trail_mix"
    ]
   },
   "orangegames.turtle_shell_chestplate": {

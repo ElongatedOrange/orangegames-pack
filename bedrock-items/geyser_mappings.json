@@ -28,6 +28,42 @@
    },
    {
     "type": "definition",
+    "model": "orangegames:enchanted_golden_orange",
+    "bedrock_identifier": "orangegames:enchanted_golden_orange",
+    "display_name": "Enchanted Golden Orange",
+    "bedrock_options": {
+     "icon": "orangegames.enchanted_golden_orange",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:fizzy_lemonade",
+    "bedrock_identifier": "orangegames:fizzy_lemonade",
+    "display_name": "Fizzy Lemonade",
+    "bedrock_options": {
+     "icon": "orangegames.fizzy_lemonade",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:golden_orange",
+    "bedrock_identifier": "orangegames:golden_orange",
+    "display_name": "Golden Orange",
+    "bedrock_options": {
+     "icon": "orangegames.golden_orange",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:heart_of_the_mountain",
     "bedrock_identifier": "orangegames:heart_of_the_mountain",
     "display_name": "Heart Of The Mountain",
@@ -40,11 +76,73 @@
    },
    {
     "type": "definition",
+    "model": "orangegames:iced_coffee",
+    "bedrock_identifier": "orangegames:iced_coffee",
+    "display_name": "Iced Coffee",
+    "bedrock_options": {
+     "icon": "orangegames.iced_coffee",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:juice_box",
     "bedrock_identifier": "orangegames:juice_box",
     "display_name": "Juice Box",
     "bedrock_options": {
      "icon": "orangegames.juice_box",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:orange_smoothie",
+    "bedrock_identifier": "orangegames:orange_smoothie",
+    "display_name": "Orange Smoothie",
+    "bedrock_options": {
+     "icon": "orangegames.orange_smoothie",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:orange_soda",
+    "bedrock_identifier": "orangegames:orange_soda",
+    "display_name": "Orange Soda",
+    "bedrock_options": {
+     "icon": "orangegames.orange_soda",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:protein_shake",
+    "bedrock_identifier": "orangegames:protein_shake",
+    "display_name": "Protein Shake",
+    "bedrock_options": {
+     "icon": "orangegames.protein_shake",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:baked_potato": [
+   {
+    "type": "definition",
+    "model": "orangegames:campfire_stew",
+    "bedrock_identifier": "orangegames:campfire_stew",
+    "display_name": "Campfire Stew",
+    "bedrock_options": {
+     "icon": "orangegames.campfire_stew",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
@@ -74,6 +172,20 @@
      "allow_offhand": true,
      "display_handheld": true,
      "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:bread": [
+   {
+    "type": "definition",
+    "model": "orangegames:grilled_cheese",
+    "bedrock_identifier": "orangegames:grilled_cheese",
+    "display_name": "Grilled Cheese",
+    "bedrock_options": {
+     "icon": "orangegames.grilled_cheese",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
     }
    }
   ],
@@ -117,6 +229,70 @@
      "display_handheld": false,
      "creative_category": "items"
     }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:meatball_sub",
+    "bedrock_identifier": "orangegames:meatball_sub",
+    "display_name": "Meatball Sub",
+    "bedrock_options": {
+     "icon": "orangegames.meatball_sub",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:royal_feast",
+    "bedrock_identifier": "orangegames:royal_feast",
+    "display_name": "Royal Feast",
+    "bedrock_options": {
+     "icon": "orangegames.royal_feast",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:cooked_chicken": [
+   {
+    "type": "definition",
+    "model": "orangegames:honey_roast_chicken",
+    "bedrock_identifier": "orangegames:honey_roast_chicken",
+    "display_name": "Honey Roast Chicken",
+    "bedrock_options": {
+     "icon": "orangegames.honey_roast_chicken",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:spicy_noodles",
+    "bedrock_identifier": "orangegames:spicy_noodles",
+    "display_name": "Spicy Noodles",
+    "bedrock_options": {
+     "icon": "orangegames.spicy_noodles",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:cooked_mutton": [
+   {
+    "type": "definition",
+    "model": "orangegames:golden_kebab",
+    "bedrock_identifier": "orangegames:golden_kebab",
+    "display_name": "Golden Kebab",
+    "bedrock_options": {
+     "icon": "orangegames.golden_kebab",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
    }
   ],
   "minecraft:cookie": [
@@ -127,6 +303,30 @@
     "display_name": "Energy Bar",
     "bedrock_options": {
      "icon": "orangegames.energy_bar",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:glazed_donut",
+    "bedrock_identifier": "orangegames:glazed_donut",
+    "display_name": "Glazed Donut",
+    "bedrock_options": {
+     "icon": "orangegames.glazed_donut",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:trail_mix",
+    "bedrock_identifier": "orangegames:trail_mix",
+    "display_name": "Trail Mix",
+    "bedrock_options": {
+     "icon": "orangegames.trail_mix",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
@@ -208,6 +408,20 @@
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "equipment"
+    }
+   }
+  ],
+  "minecraft:dried_kelp": [
+   {
+    "type": "definition",
+    "model": "orangegames:popcorn",
+    "bedrock_identifier": "orangegames:popcorn",
+    "display_name": "Popcorn",
+    "bedrock_options": {
+     "icon": "orangegames.popcorn",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
     }
    }
   ],
@@ -437,6 +651,32 @@
     }
    }
   ],
+  "minecraft:melon_slice": [
+   {
+    "type": "definition",
+    "model": "orangegames:dragonfruit",
+    "bedrock_identifier": "orangegames:dragonfruit",
+    "display_name": "Dragonfruit",
+    "bedrock_options": {
+     "icon": "orangegames.dragonfruit",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:orange_slice",
+    "bedrock_identifier": "orangegames:orange_slice",
+    "display_name": "Orange Slice",
+    "bedrock_options": {
+     "icon": "orangegames.orange_slice",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
   "minecraft:netherite_axe": [
    {
     "type": "definition",
@@ -631,6 +871,20 @@
     "display_name": "Strength Potion",
     "bedrock_options": {
      "icon": "orangegames.strength_potion",
+     "allow_offhand": true,
+     "display_handheld": false,
+     "creative_category": "items"
+    }
+   }
+  ],
+  "minecraft:pumpkin_pie": [
+   {
+    "type": "definition",
+    "model": "orangegames:orange_pie",
+    "bedrock_identifier": "orangegames:orange_pie",
+    "display_name": "Orange Pie",
+    "bedrock_options": {
+     "icon": "orangegames.orange_pie",
      "allow_offhand": true,
      "display_handheld": false,
      "creative_category": "items"
