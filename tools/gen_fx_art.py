@@ -4,9 +4,9 @@
 Deterministic; rerun after any change. Pillow only.
 
 Marker convention (shared with tools/gen_fx_shaders.py):
-    tint RGB (255, 254 - sub, FXID)   sub = 0..14 element sub-index (bolt segment)
+    tint RGB (255, 254 - sub, FXID)   sub = 0..54 element sub-index (bolt segment, spark index)
     FX ids: 1 prism core, 2 prism slash, 3 nova orb, 4 nova ring, 5 tesla bolt,
-            6 tesla coil orb
+            6 tesla coil orb, 10 screen overlay, 11 gpu sparks, 12 blade ghost, 13 holo edge
 FX elements carry tintindex k; the item def's tints[k] is the marker colour.
 Textures under the marker are drawn to look right UNSHADED (Bedrock, old Java).
 """
@@ -149,6 +149,8 @@ def paint_all():
     tex_radial("fx_nova_orb", 32, (255, 255, 255), (80, 150, 255), power=0.45)
     tex_ring("fx_nova_ring")
     tex_bolt("fx_tesla_bolt")
+    tex_radial("fx_screen", 16, (255, 255, 255), (255, 255, 255), hard=True)   # plain white, shader paints it
+    tex_radial("fx_spark", 8, (255, 255, 255), (255, 230, 160), hard=True)
 
 
 # ----------------------------------------------------------------- models ----
@@ -205,16 +207,24 @@ DIAG = {"angle": -45, "axis": "z", "origin": [8, 8, 8]}  # vertical -> sprite di
 def build_models():
     # Prism Blade: built vertical (+y), every element tilted -45 about z so it
     # lies on the handheld sprite diagonal and vanilla handheld transforms apply.
-    model("prism_blade",
-          {"hilt": "prism_hilt", "guard": "prism_guard", "edge": "prism_edge", "core": "prism_core"}, [
-              cube([7.25, 0, 7.25], [8.75, 1, 8.75], "guard", rot=DIAG),                 # pommel
-              cube([7.3, 1, 7.4], [8.7, 4.5, 8.6], "hilt", rot=DIAG),                    # grip
-              cube([5.5, 4.5, 7], [10.5, 5.8, 9], "guard", rot=DIAG),                    # crossguard
-              cube([6.6, 5.8, 7.6], [9.4, 14.2, 8.4], "edge", rot=DIAG),                 # blade
-              cube([7.35, 5.8, 7.3], [8.65, 13.6, 8.7], "core", tint=0, rot=DIAG),       # rainbow core (FX 1)
-              cube([7.0, 14.2, 7.7], [9.0, 15.2, 8.3], "edge", rot=DIAG),                # taper
-              cube([7.5, 15.2, 7.8], [8.5, 16.2, 8.2], "edge", rot=DIAG),                # tip
-          ], {**HANDHELD, "gui": {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [1.3, 1.3, 1.3]}})
+    blade_tex = {"hilt": "prism_hilt", "guard": "prism_guard", "edge": "prism_edge", "core": "prism_core"}
+    blade_elems = [
+        cube([7.25, 0, 7.25], [8.75, 1, 8.75], "guard", rot=DIAG),                 # pommel
+        cube([7.3, 1, 7.4], [8.7, 4.5, 8.6], "hilt", rot=DIAG),                    # grip
+        cube([5.5, 4.5, 7], [10.5, 5.8, 9], "guard", rot=DIAG),                    # crossguard
+        cube([6.6, 5.8, 7.6], [9.4, 14.2, 8.4], "edge", tint=1, rot=DIAG),         # blade (holo edge, FX 13)
+        cube([7.35, 5.8, 7.3], [8.65, 13.6, 8.7], "core", tint=0, rot=DIAG),       # rainbow core (FX 1)
+        cube([7.0, 14.2, 7.7], [9.0, 15.2, 8.3], "edge", tint=1, rot=DIAG),        # taper
+        cube([7.5, 15.2, 7.8], [8.5, 16.2, 8.2], "edge", tint=1, rot=DIAG),        # tip
+    ]
+    model("prism_blade", blade_tex, blade_elems,
+          {**HANDHELD, "gui": {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [1.3, 1.3, 1.3]}})
+    # swing ghost: identical geometry, every face tinted -> one marker (FX 12), no display section
+    ghost = json.loads(json.dumps(blade_elems))
+    for e in ghost:
+        for f in e["faces"].values():
+            f["tintindex"] = 0
+    model("fx_prism_ghost", blade_tex, ghost, gui_light="front")
 
     # Nova Cannon: barrel along -z (forward), chainsaw-style framing.
     model("nova_cannon",
@@ -256,10 +266,20 @@ def build_models():
         segs.append(cube([i * 2, 7, 8], [i * 2 + 2, 9, 8], "t",
                          uv=[i * 2, 0, i * 2 + 2, 16], tint=i, faces=("north", "south")))
     model("fx_tesla_bolt", {"t": "fx_tesla_bolt"}, segs, gui_light="front")
+    # screen overlay: one double-sided quad; the vsh re-positions it across the viewport (FX 10)
+    model("fx_screen", {"t": "fx_screen"},
+          [cube([0, 0, 8], [16, 16, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+    # gpu sparks: 48 micro-cubes at the origin, element i -> tintindex i -> marker sub i (FX 11);
+    # the vsh scatters each cube along its own hashed trajectory
+    sparks = [cube([7.4, 7.4, 7.4], [8.6, 8.6, 8.6], "t", tint=i) for i in range(48)]
+    model("fx_sparks", {"t": "fx_spark"}, sparks, gui_light="front")
 
 
 def build_defs():
-    item_def("prism_blade", [marker(1)])
+    item_def("prism_blade", [marker(1), marker(13)])
+    item_def("fx_prism_ghost", [marker(12)])
+    item_def("fx_screen", [marker(10)])
+    item_def("fx_sparks", [marker(11, i) for i in range(48)])
     item_def("nova_cannon", [])
     item_def("tesla_coil", [marker(6)])
     item_def("fx_prism_slash", [marker(2)])
@@ -272,4 +292,4 @@ if __name__ == "__main__":
     paint_all()
     build_models()
     build_defs()
-    print("fx art: 16 textures, 7 models, 7 item defs written")
+    print("fx art: 18 textures, 10 models, 10 item defs written")

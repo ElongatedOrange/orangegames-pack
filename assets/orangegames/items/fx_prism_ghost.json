@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_prism_ghost",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776716
+      }
+    ]
+  }
+}

@@ -235,7 +235,7 @@ void main() {
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
     ogPosV = (ModelViewMat * vec4(Position, 1.0)).xyz;
     float ogG = Color.g * 255.0;
-    if (Color.r > 0.999 && ogG > 239.5 && ogG < 254.5) {
+    if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5) {
         ogFx = int(Color.b * 255.0 + 0.5);
         float ogSub = 254.0 - floor(ogG + 0.5);
         ogChain = (ogSub + ogLocal.x) / 8.0;
@@ -251,12 +251,31 @@ void main() {
                 ogDisp = Normal * (0.02 + 0.05 * ogParam.x) * sin(ogT * 0.9 + ogLocal.x * 6.2831 + ogLocal.y * 3.1);
             } else if (ogFx == 5) {
                 // tesla bolt: per-frame jitter, pinned at both ends of the chain
-                float ogSeed = floor(ogT * 3.0) * 17.0 + ogSub * 5.0 + float(ogCorner >= 2 ? 1 : 0) * 3.0;
+                float ogSeed = floor(ogT * 3.0) * 17.0 + ogSub * 5.0 + float(ogCorner >= 2 ? 1 : 0) * 3.0 + ogParam.y * 97.0;
                 vec3 ogH = fract(sin(vec3(ogSeed * 12.9898, ogSeed * 78.233, ogSeed * 37.719)) * 43758.5453) - 0.5;
                 ogDisp = ogH * 0.45 * sin(3.14159 * ogChain);
             }
             if (ogFx == 3 || ogFx == 5) {
                 gl_Position = ProjMat * ModelViewMat * vec4(Position + ogDisp, 1.0);
+            }
+            if (ogFx == 11) {
+                // gpu sparks: every micro-cube (sub-index) flies its own hashed trajectory;
+                // age = coarse per-tick param + sub-tick smoothing from GameTime
+                float ogAge = clamp(ogParam.x + fract(ogT) / 15.0, 0.0, 1.0);
+                vec3 ogHs = fract(sin(vec3(ogSub * 12.9898 + 1.0, ogSub * 78.233 + 2.0, ogSub * 37.719 + 3.0)) * 43758.5453);
+                vec3 ogDir = normalize(ogHs - 0.5 + vec3(0.0, 0.15, 0.0));
+                float ogSpd = 0.8 + fract(ogHs.x * 7.13) * 1.6;
+                float ogEase = 1.0 - (1.0 - ogAge) * (1.0 - ogAge);
+                vec3 ogFly = ogDir * ogSpd * ogEase * 2.2 + vec3(0.0, -1.6 * ogAge * ogAge, 0.0);
+                gl_Position = ProjMat * ModelViewMat * vec4(Position + ogFly, 1.0);
+            }
+        }
+        if (ogFx == 10) {
+            // screen overlay: pin the quad just past the near plane, spanning the view
+            if (ogGui == 0) {
+                gl_Position = ProjMat * vec4((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06, 1.0);
+            } else {
+                gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
         }
     }

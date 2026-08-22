@@ -1,0 +1,47 @@
+{
+  "credit": "OrangeGames tools/gen_fx_art.py",
+  "texture_size": [
+    16,
+    16
+  ],
+  "textures": {
+    "t": "orangegames:item/fx_screen"
+  },
+  "gui_light": "front",
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        8
+      ],
+      "to": [
+        16,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t",
+          "tintindex": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            16,
+            16
+          ],
+          "texture": "#t",
+          "tintindex": 0
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_sparks",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776715
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16776459
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16776203
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775947
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775691
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775435
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775179
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16774923
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16774667
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16774411
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16774155
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16773899
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16773643
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16773387
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16773131
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16772875
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16772619
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16772363
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16772107
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16771851
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16771595
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16771339
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16771083
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16770827
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16770571
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16770315
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16770059
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16769803
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16769547
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16769291
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16769035
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16768779
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16768523
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16768267
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16768011
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16767755
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16767499
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16767243
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16766987
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16766731
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16766475
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16766219
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16765963
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16765707
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16765451
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16765195
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16764939
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16764683
+      }
+    ]
+  }
+}

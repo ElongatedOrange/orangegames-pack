@@ -86,8 +86,8 @@ vec4 og_fx(vec4 tex) {
         vec3 hot = vec3(0.95, 0.98, 1.0);
         vec3 c = mix(cold, hot, clamp(w * 0.6 + ogParam.x * 0.6, 0.0, 1.0));
         c += rim * rim * vec3(0.6, 0.8, 1.0);
-        float a = clamp(0.55 + 0.45 * w + rim * 0.4, 0.0, 1.0) * tex.a;
-        return vec4(c * 1.2, a);
+        float a = clamp(0.55 + 0.45 * w + rim * 0.4, 0.0, 1.0) * tex.a * (1.0 - ogParam.y);
+        return vec4(c * (1.2 - 0.5 * ogParam.y), a);
     }
     if (ogFx == 4) {
         // nova ring: band from the texture, dissolves as param.x rises, hue by charge (param.y)
@@ -124,7 +124,87 @@ vec4 og_fx(vec4 tex) {
         vec3 c = tex.rgb * pulse + spark * vec3(0.8, 0.9, 1.0);
         return vec4(c, tex.a);
     }
+    if (ogFx == 10) {
+        // per-viewer screen overlay. param.x = age/intensity, param.y = variant
+        vec2 uv = gl_FragCoord.xy / ScreenSize;
+        vec2 cuv = (uv - 0.5) * vec2(ScreenSize.x / ScreenSize.y, 1.0);
+        float r = length(cuv);
+        float age = ogParam.x;
+        int variant = int(ogParam.y * 15.0 + 0.5);
+        vec4 o = vec4(0.0);
+        if (variant == 0) {
+            // shockwave ring expanding from the centre
+            float radius = age * 1.3;
+            float band = exp(-pow((r - radius) * 14.0, 2.0));
+            float inner = smoothstep(radius, radius - 0.25, r) * 0.25;
+            o = vec4(mix(vec3(1.0, 0.9, 0.6), vec3(1.0), band), (band * 0.85 + inner) * (1.0 - age));
+        } else if (variant == 1) {
+            // rainbow vignette sweep
+            float ang = atan(cuv.y, cuv.x) / 6.2831;
+            vec3 c = og_hsv2rgb(vec3(fract(ang + t * 0.04 + r * 0.5), 0.8, 1.0));
+            float vig = smoothstep(0.35, 0.95, r);
+            o = vec4(c, vig * 0.65 * (1.0 - age));
+        } else if (variant == 2) {
+            // charge vignette, intensity = age
+            float vig = smoothstep(0.3, 0.9, r);
+            float pulse = 0.8 + 0.2 * sin(t * 0.9);
+            o = vec4(vec3(0.35, 0.6, 1.0), vig * age * 0.55 * pulse);
+        } else if (variant == 3) {
+            // glitch: scanline bands with rgb split + red vignette
+            float row = floor(uv.y * 48.0);
+            float g = og_hash(row * 3.7 + floor(t * 4.0));
+            float band = step(0.82, g);
+            float stripe = step(0.5, fract(uv.x * 6.0 + (g - 0.5) * 0.8));
+            vec3 c = mix(vec3(0.2, 0.9, 1.0), vec3(1.0, 0.2, 0.25), stripe);
+            float vig = smoothstep(0.4, 1.0, r) * 0.5;
+            o = vec4(mix(vec3(1.0, 0.3, 0.3), c, band), (band * 0.35 + vig) * (1.0 - age));
+        } else {
+            // white flash
+            o = vec4(1.0, 1.0, 1.0, 0.7 * (1.0 - age) * (1.0 - age));
+        }
+        if (o.a < 0.03) {
+            return vec4(0.0); // discard: keeps depth untouched where nothing is drawn
+        }
+        return o;
+    }
+    if (ogFx == 11) {
+        // gpu sparks: palette by param.y (0 rainbow, 1 plasma, 2 electric), fade by age
+        float age = clamp(ogParam.x + fract(t) / 15.0, 0.0, 1.0);
+        int pal = int(ogParam.y * 15.0 + 0.5);
+        vec3 c;
+        if (pal == 0) {
+            c = og_hsv2rgb(vec3(fract(ogChain * 8.0 + t * 0.05), 0.8, 1.0));
+        } else if (pal == 1) {
+            c = mix(vec3(0.4, 0.7, 1.0), vec3(1.0), og_hash(ogChain * 31.0));
+        } else {
+            c = mix(vec3(0.6, 0.8, 1.0), vec3(1.0), step(0.5, og_hash(floor(t * 2.0) + ogChain * 13.0)));
+        }
+        float flick = 0.7 + 0.3 * og_hash(floor(t * 2.0) + ogChain * 5.0);
+        return vec4(c * 1.4 * flick, (1.0 - age) * (1.0 - age) * tex.a);
+    }
+    if (ogFx == 12) {
+        // blade swing ghost: hue-shifted translucent copy, fades with param.x, hue offset param.y
+        float h = fract(og_hue(tex.rgb) + t * 0.03 + ogParam.y * 0.3);
+        vec3 c = og_hsv2rgb(vec3(h, 0.55, 1.0));
+        float a = tex.a * 0.55 * (1.0 - ogParam.x);
+        if (a < 0.02) {
+            return vec4(0.0);
+        }
+        return vec4(c * 1.1, a);
+    }
     return tex;
+}
+
+// holo edge (FX 13): chromatic split (neighbour samples passed in from main), scanlines, rare flicker
+vec4 og_holo(vec4 tex, float rr, float bb) {
+    float t = GameTime * 24000.0;
+    if (ogGui == 1) {
+        return tex;
+    }
+    vec3 c = vec3(rr, tex.g, bb);
+    float scan = 0.88 + 0.12 * sin(gl_FragCoord.y * 1.7 + t * 1.5);
+    float flick = 1.0 - 0.25 * step(0.985, og_hash(floor(t * 1.5)));
+    return vec4(c * 1.12 * scan * flick, tex.a);
 }
 // ---- end OrangeGames FX decl ----
 
@@ -162,7 +242,16 @@ void main() {
 
     // ---- OrangeGames FX ----
     if (ogFx != 0) {
-        vec4 ogC = og_fx(color);
+        vec4 ogC;
+        if (ogFx == 13) {
+            vec2 ogPx = 1.0 / vec2(textureSize(Sampler0, 0));
+            float ogOff = 0.6 + 0.6 * sin(GameTime * 24000.0 * 0.7);
+            ogC = og_holo(color,
+                          texture(Sampler0, texCoord0 + vec2(ogPx.x * ogOff, 0.0)).r,
+                          texture(Sampler0, texCoord0 - vec2(ogPx.x * ogOff, 0.0)).b);
+        } else {
+            ogC = og_fx(color);
+        }
         if (ogC.a <= 0.0) {
             discard;
         }
