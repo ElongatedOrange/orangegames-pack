@@ -12,6 +12,7 @@ in vec2 ogParam;
 in float ogChain;
 in vec3 ogNrmV;
 in vec3 ogPosV;
+in vec3 ogCenterV;
 
 vec3 og_hsv2rgb(vec3 c) {
     vec3 p = abs(fract(c.xxx + vec3(0.0, 2.0 / 3.0, 1.0 / 3.0)) * 6.0 - 3.0);
@@ -50,6 +51,43 @@ float og_bayer(vec2 p) {
 
 float og_hash(float n) {
     return fract(sin(n) * 43758.5453);
+}
+
+vec3 og_rotY(vec3 v, float a) {
+    float c = cos(a);
+    float s = sin(a);
+    return vec3(c * v.x + s * v.z, v.y, -s * v.x + c * v.z);
+}
+
+vec3 og_rotX(vec3 v, float a) {
+    float c = cos(a);
+    float s = sin(a);
+    return vec3(v.x, c * v.y - s * v.z, s * v.y + c * v.z);
+}
+
+// End-portal style parallax starfield looked up by world-space direction: eight
+// layers of hashed specks, each rotating at its own speed, teal -> violet, over
+// deep space. charge warms the field toward white-gold.
+vec3 og_portal(vec3 dir, float t, float charge) {
+    vec3 col = vec3(0.015, 0.01, 0.05);
+    for (int i = 0; i < 8; i++) {
+        float fi = float(i);
+        vec3 d = og_rotY(dir, t * (0.004 + 0.0025 * fi) + fi * 0.9);
+        d = og_rotX(d, fi * 0.55 + t * 0.0015 * fi);
+        vec2 uv = vec2(atan(d.z, d.x), asin(clamp(d.y, -1.0, 1.0))) * (2.5 + fi * 1.3);
+        vec2 cell = floor(uv);
+        vec2 f = fract(uv) - 0.5;
+        float h = og_hash(dot(cell, vec2(127.1, 311.7)) + fi * 19.19);
+        vec2 sp = (vec2(og_hash(h * 7.0), og_hash(h * 13.0)) - 0.5) * 0.8;
+        float dist = length(f - sp);
+        float star = smoothstep(0.16 - fi * 0.01, 0.0, dist) * step(0.55, h);
+        float tw = 0.7 + 0.3 * sin(t * 0.3 + h * 40.0);
+        vec3 lc = mix(vec3(0.05, 0.45, 0.6), vec3(0.75, 0.35, 1.0), fract(fi * 0.37 + 0.15));
+        lc = mix(lc, vec3(1.0), step(0.93, h) * 0.6);
+        col += star * lc * tw * (0.55 - fi * 0.04);
+    }
+    col = mix(col, col * vec3(1.5, 1.25, 0.9) + vec3(0.18, 0.1, 0.02), charge * 0.55);
+    return col;
 }
 
 // Returns the FX colour; alpha <= 0 means the caller discards.
@@ -181,6 +219,33 @@ vec4 og_fx(vec4 tex) {
         }
         float flick = 0.7 + 0.3 * og_hash(floor(t * 2.0) + ogChain * 5.0);
         return vec4(c * 1.4 * flick, (1.0 - age) * (1.0 - age) * tex.a);
+    }
+    if (ogFx == 14) {
+        // nova sphere: ray-cast a sphere of radius (charge) around the billboard centre;
+        // surface = refracted parallax starfield + fresnel rim in the charge colour
+        vec3 rd = normalize(ogPosV);
+        vec3 c = ogCenterV;
+        float r = (0.16 + 0.34 * ogParam.x) * (1.0 - 0.85 * ogParam.y);
+        float b = dot(rd, c);
+        float det = b * b - dot(c, c) + r * r;
+        if (det < 0.0) {
+            return vec4(0.0);
+        }
+        float th = b - sqrt(det);
+        if (th < 0.05) {
+            return vec4(0.0);
+        }
+        vec3 p = rd * th;
+        vec3 n = (p - c) / r;
+        vec3 refr = refract(rd, n, 0.74);
+        vec3 dw = transpose(mat3(ModelViewMat)) * refr;
+        vec3 col = og_portal(dw, t, ogParam.x);
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 3.0);
+        vec3 rimCol = mix(vec3(0.3, 0.6, 1.0), vec3(1.0, 0.92, 0.7), ogParam.x);
+        col += fres * rimCol * 1.3;
+        col += (0.15 + 0.25 * ogParam.x) * rimCol * (0.6 + 0.4 * sin(t * 0.5));
+        float a = (0.9 + 0.1 * fres) * (1.0 - ogParam.y);
+        return vec4(col, a);
     }
     if (ogFx == 12) {
         // blade swing ghost: hue-shifted translucent copy, fades with param.x, hue offset param.y

@@ -6,7 +6,8 @@ Deterministic; rerun after any change. Pillow only.
 Marker convention (shared with tools/gen_fx_shaders.py):
     tint RGB (255, 254 - sub, FXID)   sub = 0..54 element sub-index (bolt segment, spark index)
     FX ids: 1 prism core, 2 prism slash, 3 nova orb, 4 nova ring, 5 tesla bolt,
-            6 tesla coil orb, 10 screen overlay, 11 gpu sparks, 12 blade ghost, 13 holo edge
+            6 tesla coil orb, 10 screen overlay, 11 gpu sparks, 12 blade ghost, 13 holo edge,
+            14 nova sphere (ray-cast billboard, end-portal starfield)
 FX elements carry tintindex k; the item def's tints[k] is the marker colour.
 Textures under the marker are drawn to look right UNSHADED (Bedrock, old Java).
 """
@@ -256,8 +257,10 @@ def build_models():
     # model space 0..16 maps to -0.5..0.5 around the entity position.
     model("fx_prism_slash", {"t": "fx_prism_slash"},
           [cube([0, 0, 8], [16, 16, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+    # nova orb: a single 2x2-block quad; FX 14 billboards it in view space and ray-casts a sphere
+    # (radius from the charge param) whose surface is a parallax starfield "window"
     model("fx_nova_orb", {"t": "fx_nova_orb"},
-          [cube([4, 4, 4], [12, 12, 12], "t", tint=0)], gui_light="front")
+          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
     model("fx_nova_ring", {"t": "fx_nova_ring"},
           [cube([0, 8, 0], [16, 8, 16], "t", tint=0, faces=("up", "down"))], gui_light="front")
     # bolt: 8 zero-thickness segments along +x, element i -> tintindex i -> marker sub i
@@ -283,7 +286,7 @@ def build_defs():
     item_def("nova_cannon", [])
     item_def("tesla_coil", [marker(6)])
     item_def("fx_prism_slash", [marker(2)])
-    item_def("fx_nova_orb", [marker(3)])
+    item_def("fx_nova_orb", [marker(14)])
     item_def("fx_nova_ring", [marker(4)])
     item_def("fx_tesla_bolt", [marker(5, i) for i in range(8)])
 

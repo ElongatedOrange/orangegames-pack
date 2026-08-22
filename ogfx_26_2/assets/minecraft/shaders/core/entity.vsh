@@ -16,6 +16,7 @@ out vec2 ogParam;
 out float ogChain;
 out vec3 ogNrmV;
 out vec3 ogPosV;
+out vec3 ogCenterV;
 // ---- end OrangeGames FX decl ----
 #moj_import <minecraft:sample_lightmap.glsl>
 
@@ -268,6 +269,7 @@ void main() {
     ogParam = vec2(float(UV2.x >> 4), float(UV2.y >> 4)) / 15.0;
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
     ogPosV = (ModelViewMat * vec4(Position, 1.0)).xyz;
+    ogCenterV = ogPosV;
     float ogG = Color.g * 255.0;
     if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5) {
         ogFx = int(Color.b * 255.0 + 0.5);
@@ -316,6 +318,19 @@ void main() {
             } else {
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
+        }
+        if (ogFx == 14 && ogGui == 0) {
+            // nova sphere: the model is one 2x2 quad in the XY plane (identity display transform).
+            // Recover the quad centre from this vertex's corner (vanilla face vertex order), then
+            // rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
+            float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;
+            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y);
+            vec3 ogCw = Position - vec3(ogOff, 0.0);
+            vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
+            vec3 ogPv = ogCv + vec3(ogOff, 0.0);
+            ogCenterV = ogCv;
+            ogPosV = ogPv;
+            gl_Position = ProjMat * vec4(ogPv, 1.0);
         }
     }
     // ---- end OrangeGames FX ----
