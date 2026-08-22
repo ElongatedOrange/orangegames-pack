@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/tesla_coil",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776710
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/prism_blade",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776705
+      }
+    ]
+  }
+}

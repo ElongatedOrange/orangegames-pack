@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_nova_ring",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776708
+      }
+    ]
+  }
+}

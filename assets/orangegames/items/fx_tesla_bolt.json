@@ -1,0 +1,40 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_tesla_bolt",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776709
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16776453
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16776197
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775941
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775685
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775429
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16775173
+      },
+      {
+        "type": "minecraft:constant",
+        "value": 16774917
+      }
+    ]
+  }
+}

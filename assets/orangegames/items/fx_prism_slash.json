@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_prism_slash",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776706
+      }
+    ]
+  }
+}
