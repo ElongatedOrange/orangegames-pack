@@ -108,7 +108,7 @@ void main() {
             vec3 ogCw = Position - vec3(ogOff, 0.0);
             vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
             ogCenterV = ogCv;
-            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.4) {
+            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.6) {
                 // camera inside the chrono shell: cover the view, the fsh shades the far wall
                 vec3 ogNear = vec3((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06);
                 ogPosV = ogNear;
