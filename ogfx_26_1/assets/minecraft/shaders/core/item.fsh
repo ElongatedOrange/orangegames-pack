@@ -136,6 +136,31 @@ vec4 og_hexcoords(vec2 uv) {
     return vec4(x, y, id.x, id.y);
 }
 
+// Frame trust (domain-expansion dome technique): recover the quad's view-space tangents from
+// screen derivatives; a trustworthy billboard has perpendicular, equal-length tangents.
+// Pipeline-replacing clients (Lunar) may re-emit quads in an order that shears the corner
+// labels, in which case the vsh's centre reconstruction is wrong - callers fail soft.
+bool og_frame_ok(float tol) {
+    vec3 dPx = dFdx(ogPosV);
+    vec3 dPy = dFdy(ogPosV);
+    vec2 dLx = dFdx(ogLocal);
+    vec2 dLy = dFdy(ogLocal);
+    float det = dLx.x * dLy.y - dLy.x * dLx.y;
+    if (abs(det) < 1e-12) {
+        return false;
+    }
+    vec3 A = (dPx * dLy.y - dPy * dLx.y) / det;
+    vec3 B = (-dPx * dLy.x + dPy * dLx.x) / det;
+    float la = length(A);
+    float lb = length(B);
+    float h = 0.5 * (la + lb);
+    if (h < 1e-5) {
+        return false;
+    }
+    float conf = abs(dot(A, B)) / (h * h) + abs(la - lb) / h;
+    return conf < tol;
+}
+
 // Returns the FX colour; alpha <= 0 means the caller discards.
 vec4 og_fx(vec4 tex) {
     float t = GameTime * 24000.0; // ticks
@@ -314,6 +339,9 @@ vec4 og_fx(vec4 tex) {
         }
         vec3 A = (dPx * dLy.y - dPy * dLx.y) / det;   // dP / dlocal.x
         vec3 B = (-dPx * dLy.x + dPy * dLx.x) / det;  // dP / dlocal.y
+        if (abs(dot(A, B)) > 0.2 * length(A) * length(B)) {
+            return vec4(tex.rgb, tex.a); // sheared frame (re-emitted quad order): plain blade sprite
+        }
         vec3 p0;
         vec3 axis;
         float w;
@@ -348,6 +376,9 @@ vec4 og_fx(vec4 tex) {
         return vec4(c, a);
     }
     if (ogFx == 17) {
+        if (!og_frame_ok(0.25)) {
+            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
+        }
         // chrono shell: big sphere, shaded from outside and inside; hex lattice + clock sweep
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -391,6 +422,9 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 18) {
+        if (!og_frame_ok(0.25)) {
+            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
+        }
         // fireball: sphere with animated fire noise, dark smoky rim
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -420,6 +454,9 @@ vec4 og_fx(vec4 tex) {
         return vec4(col * 1.3, (1.0 - ogParam.y) * tex.a);
     }
     if (ogFx == 19) {
+        if (!og_frame_ok(0.25)) {
+            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
+        }
         // gravity well: black sphere with violet horizon, lensed starfield halo around the silhouette
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -460,6 +497,9 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 15) {
+        if (!og_frame_ok(0.25)) {
+            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
+        }
         // tesla sphere: ray-cast like the nova orb; electric cyan starfield, jumping crackle
         // flecks, flickering rim; param.y = zap surge (bigger + whiter for a few ticks)
         vec3 rd = normalize(ogPosV);
@@ -493,6 +533,9 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 14) {
+        if (!og_frame_ok(0.25)) {
+            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
+        }
         // nova sphere: ray-cast a sphere of radius (charge) around the billboard centre;
         // surface = refracted parallax starfield + fresnel rim in the charge colour
         vec3 rd = normalize(ogPosV);
