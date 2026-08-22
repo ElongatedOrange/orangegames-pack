@@ -5,195 +5,195 @@
     "tints": [
       {
         "type": "minecraft:constant",
-        "value": 16776715
+        "value": 16776948
       },
       {
         "type": "minecraft:constant",
-        "value": 16776459
+        "value": 16776692
       },
       {
         "type": "minecraft:constant",
-        "value": 16776203
+        "value": 16776436
       },
       {
         "type": "minecraft:constant",
-        "value": 16775947
+        "value": 16776180
       },
       {
         "type": "minecraft:constant",
-        "value": 16775691
+        "value": 16775924
       },
       {
         "type": "minecraft:constant",
-        "value": 16775435
+        "value": 16775668
       },
       {
         "type": "minecraft:constant",
-        "value": 16775179
+        "value": 16775412
       },
       {
         "type": "minecraft:constant",
-        "value": 16774923
+        "value": 16775156
       },
       {
         "type": "minecraft:constant",
-        "value": 16774667
+        "value": 16774900
       },
       {
         "type": "minecraft:constant",
-        "value": 16774411
+        "value": 16774644
       },
       {
         "type": "minecraft:constant",
-        "value": 16774155
+        "value": 16774388
       },
       {
         "type": "minecraft:constant",
-        "value": 16773899
+        "value": 16774132
       },
       {
         "type": "minecraft:constant",
-        "value": 16773643
+        "value": 16773876
       },
       {
         "type": "minecraft:constant",
-        "value": 16773387
+        "value": 16773620
       },
       {
         "type": "minecraft:constant",
-        "value": 16773131
+        "value": 16773364
       },
       {
         "type": "minecraft:constant",
-        "value": 16772875
+        "value": 16773108
       },
       {
         "type": "minecraft:constant",
-        "value": 16772619
+        "value": 16772852
       },
       {
         "type": "minecraft:constant",
-        "value": 16772363
+        "value": 16772596
       },
       {
         "type": "minecraft:constant",
-        "value": 16772107
+        "value": 16772340
       },
       {
         "type": "minecraft:constant",
-        "value": 16771851
+        "value": 16772084
       },
       {
         "type": "minecraft:constant",
-        "value": 16771595
+        "value": 16771828
       },
       {
         "type": "minecraft:constant",
-        "value": 16771339
+        "value": 16771572
       },
       {
         "type": "minecraft:constant",
-        "value": 16771083
+        "value": 16771316
       },
       {
         "type": "minecraft:constant",
-        "value": 16770827
+        "value": 16771060
       },
       {
         "type": "minecraft:constant",
-        "value": 16770571
+        "value": 16770804
       },
       {
         "type": "minecraft:constant",
-        "value": 16770315
+        "value": 16770548
       },
       {
         "type": "minecraft:constant",
-        "value": 16770059
+        "value": 16770292
       },
       {
         "type": "minecraft:constant",
-        "value": 16769803
+        "value": 16770036
       },
       {
         "type": "minecraft:constant",
-        "value": 16769547
+        "value": 16769780
       },
       {
         "type": "minecraft:constant",
-        "value": 16769291
+        "value": 16769524
       },
       {
         "type": "minecraft:constant",
-        "value": 16769035
+        "value": 16769268
       },
       {
         "type": "minecraft:constant",
-        "value": 16768779
+        "value": 16769012
       },
       {
         "type": "minecraft:constant",
-        "value": 16768523
+        "value": 16768756
       },
       {
         "type": "minecraft:constant",
-        "value": 16768267
+        "value": 16768500
       },
       {
         "type": "minecraft:constant",
-        "value": 16768011
+        "value": 16768244
       },
       {
         "type": "minecraft:constant",
-        "value": 16767755
+        "value": 16767988
       },
       {
         "type": "minecraft:constant",
-        "value": 16767499
+        "value": 16767732
       },
       {
         "type": "minecraft:constant",
-        "value": 16767243
+        "value": 16767476
       },
       {
         "type": "minecraft:constant",
-        "value": 16766987
+        "value": 16767220
       },
       {
         "type": "minecraft:constant",
-        "value": 16766731
+        "value": 16766964
       },
       {
         "type": "minecraft:constant",
-        "value": 16766475
+        "value": 16766708
       },
       {
         "type": "minecraft:constant",
-        "value": 16766219
+        "value": 16766452
       },
       {
         "type": "minecraft:constant",
-        "value": 16765963
+        "value": 16766196
       },
       {
         "type": "minecraft:constant",
-        "value": 16765707
+        "value": 16765940
       },
       {
         "type": "minecraft:constant",
-        "value": 16765451
+        "value": 16765684
       },
       {
         "type": "minecraft:constant",
-        "value": 16765195
+        "value": 16765428
       },
       {
         "type": "minecraft:constant",
-        "value": 16764939
+        "value": 16765172
       },
       {
         "type": "minecraft:constant",
-        "value": 16764683
+        "value": 16764916
       }
     ]
   }

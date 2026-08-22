@@ -121,11 +121,20 @@
             },
             {
                 "formats": [
-                    63,
+                    64,
+                    64
+                ],
+                "directory": "ogfx_1_21_8",
+                "min_format": 64,
+                "max_format": 64
+            },
+            {
+                "formats": [
+                    75,
                     83
                 ],
-                "directory": "ogfx_1_21_6",
-                "min_format": 63,
+                "directory": "ogfx_1_21_11",
+                "min_format": 75,
                 "max_format": 83
             },
             {

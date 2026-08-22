@@ -4,7 +4,7 @@
 Deterministic; rerun after any change. Pillow only.
 
 Marker convention (shared with tools/gen_fx_shaders.py):
-    tint RGB (255, 254 - sub, FXID)   sub = 0..54 element sub-index (bolt segment, spark index)
+    tint RGB (255, 254 - sub, 255 - FXID)   sub = 0..54 element sub-index (bolt segment, spark index)
     FX ids: 1 prism core, 2 prism slash, 3 nova orb, 4 nova ring, 5 tesla bolt,
             6 tesla coil orb, 10 screen overlay, 11 gpu sparks, 12 blade ghost, 13 holo edge,
             14 nova sphere (ray-cast billboard, end-portal starfield)
@@ -25,7 +25,9 @@ ITEMS = REPO / "assets/orangegames/items"
 
 
 def marker(fxid, sub=0):
-    return (255 << 16) | ((254 - sub) << 8) | fxid
+    """Constant tint the shader recognises: (255, 254 - sub, 255 - fxid) -> near-white unshaded."""
+    assert 1 <= fxid <= 15 and 0 <= sub <= 54
+    return (255 << 16) | ((254 - sub) << 8) | (255 - fxid)
 
 
 def save(img, name):
