@@ -339,9 +339,6 @@ vec4 og_fx(vec4 tex) {
         }
         vec3 A = (dPx * dLy.y - dPy * dLx.y) / det;   // dP / dlocal.x
         vec3 B = (-dPx * dLy.x + dPy * dLx.x) / det;  // dP / dlocal.y
-        if (abs(dot(A, B)) > 0.2 * length(A) * length(B)) {
-            return vec4(tex.rgb, tex.a); // sheared frame (re-emitted quad order): plain blade sprite
-        }
         vec3 p0;
         vec3 axis;
         float w;
@@ -376,9 +373,6 @@ vec4 og_fx(vec4 tex) {
         return vec4(c, a);
     }
     if (ogFx == 17) {
-        if (!og_frame_ok(0.25)) {
-            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
-        }
         // chrono shell: big sphere, shaded from outside and inside; hex lattice + clock sweep
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -422,9 +416,6 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 18) {
-        if (!og_frame_ok(0.25)) {
-            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
-        }
         // fireball: sphere with animated fire noise, dark smoky rim
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -454,9 +445,6 @@ vec4 og_fx(vec4 tex) {
         return vec4(col * 1.3, (1.0 - ogParam.y) * tex.a);
     }
     if (ogFx == 19) {
-        if (!og_frame_ok(0.25)) {
-            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
-        }
         // gravity well: black sphere with violet horizon, lensed starfield halo around the silhouette
         vec3 rd = normalize(ogPosV);
         vec3 c = ogCenterV;
@@ -497,9 +485,6 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 15) {
-        if (!og_frame_ok(0.25)) {
-            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
-        }
         // tesla sphere: ray-cast like the nova orb; electric cyan starfield, jumping crackle
         // flecks, flickering rim; param.y = zap surge (bigger + whiter for a few ticks)
         vec3 rd = normalize(ogPosV);
@@ -533,9 +518,6 @@ vec4 og_fx(vec4 tex) {
         return vec4(col, a);
     }
     if (ogFx == 14) {
-        if (!og_frame_ok(0.25)) {
-            return vec4(tex.rgb, tex.a * (1.0 - ogParam.y)); // untrusted quad frame: plain sprite
-        }
         // nova sphere: ray-cast a sphere of radius (charge) around the billboard centre;
         // surface = refracted parallax starfield + fresnel rim in the charge colour
         vec3 rd = normalize(ogPosV);
