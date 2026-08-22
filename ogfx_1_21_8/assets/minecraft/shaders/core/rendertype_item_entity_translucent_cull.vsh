@@ -96,8 +96,8 @@ void main() {
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
         }
-        if (ogFx == 14 && ogGui == 0) {
-            // nova sphere: the model is one 2x2 quad in the XY plane (identity display transform).
+        if ((ogFx == 14 || ogFx == 15) && ogGui == 0) {
+            // nova / tesla sphere: the model is one 2x2 quad in the XY plane (identity display transform).
             // Recover the quad centre from this vertex's corner (vanilla face vertex order), then
             // rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
             float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;

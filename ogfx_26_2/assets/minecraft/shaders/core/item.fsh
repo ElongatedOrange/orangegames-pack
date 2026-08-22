@@ -220,6 +220,38 @@ vec4 og_fx(vec4 tex) {
         float flick = 0.7 + 0.3 * og_hash(floor(t * 2.0) + ogChain * 5.0);
         return vec4(c * 1.4 * flick, (1.0 - age) * (1.0 - age) * tex.a);
     }
+    if (ogFx == 15) {
+        // tesla sphere: ray-cast like the nova orb; electric cyan starfield, jumping crackle
+        // flecks, flickering rim; param.y = zap surge (bigger + whiter for a few ticks)
+        vec3 rd = normalize(ogPosV);
+        vec3 c = ogCenterV;
+        float surge = ogParam.y;
+        float r = 0.2 * (1.0 + 0.3 * surge) + 0.012 * sin(t * 0.6);
+        float b = dot(rd, c);
+        float det = b * b - dot(c, c) + r * r;
+        if (det < 0.0) {
+            return vec4(0.0);
+        }
+        float th = b - sqrt(det);
+        if (th < 0.05) {
+            return vec4(0.0);
+        }
+        vec3 p = rd * th;
+        vec3 n = (p - c) / r;
+        vec3 refr = refract(rd, n, 0.74);
+        vec3 dw = transpose(mat3(ModelViewMat)) * refr;
+        vec3 col = og_portal(dw, t * 1.7, 0.0) * vec3(0.55, 1.0, 1.25);
+        float seed = floor(t * 2.5);
+        float fleck = step(0.965, og_hash(seed * 3.1 + floor(dot(n, vec3(3.0, 5.0, 7.0)) * 9.0) * 0.37));
+        col += fleck * vec3(0.8, 0.95, 1.0) * 1.5;
+        float flick = 0.75 + 0.25 * og_hash(seed + 0.5);
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.5);
+        col += fres * vec3(0.45, 0.85, 1.0) * 1.4 * flick;
+        col += vec3(0.05, 0.12, 0.2) * flick;
+        col = mix(col, vec3(1.0), surge * 0.45);
+        float a = (0.9 + 0.1 * fres) * (1.0 - ogParam.x);
+        return vec4(col, a);
+    }
     if (ogFx == 14) {
         // nova sphere: ray-cast a sphere of radius (charge) around the billboard centre;
         // surface = refracted parallax starfield + fresnel rim in the charge colour

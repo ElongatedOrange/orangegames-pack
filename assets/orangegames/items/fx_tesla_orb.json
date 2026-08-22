@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_tesla_orb",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776944
+      }
+    ]
+  }
+}
