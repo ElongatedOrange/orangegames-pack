@@ -149,6 +149,20 @@
     }
    }
   ],
+  "minecraft:blaze_rod": [
+   {
+    "type": "definition",
+    "model": "orangegames:tesla_coil",
+    "bedrock_identifier": "orangegames:tesla_coil",
+    "display_name": "Tesla Coil",
+    "bedrock_options": {
+     "icon": "orangegames.tesla_coil",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "items"
+    }
+   }
+  ],
   "minecraft:bow": [
    {
     "type": "definition",
@@ -355,6 +369,18 @@
      "icon": "orangegames.hailstorm_crossbow",
      "allow_offhand": true,
      "display_handheld": false,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
+    "model": "orangegames:nova_cannon",
+    "bedrock_identifier": "orangegames:nova_cannon",
+    "display_name": "Nova Cannon",
+    "bedrock_options": {
+     "icon": "orangegames.nova_cannon",
+     "allow_offhand": true,
+     "display_handheld": true,
      "creative_category": "equipment"
     }
    },
@@ -730,6 +756,18 @@
    }
   ],
   "minecraft:netherite_sword": [
+   {
+    "type": "definition",
+    "model": "orangegames:prism_blade",
+    "bedrock_identifier": "orangegames:prism_blade",
+    "display_name": "Prism Blade",
+    "bedrock_options": {
+     "icon": "orangegames.prism_blade",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
    {
     "type": "definition",
     "model": "orangegames:void_blade",

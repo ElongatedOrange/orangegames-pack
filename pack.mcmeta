@@ -118,6 +118,33 @@
                     "max_inclusive": 32767
                 },
                 "directory": "modelengine_26_2"
+            },
+            {
+                "formats": [
+                    63,
+                    83
+                ],
+                "directory": "ogfx_1_21_6",
+                "min_format": 63,
+                "max_format": 83
+            },
+            {
+                "formats": [
+                    84,
+                    87
+                ],
+                "directory": "ogfx_26_1",
+                "min_format": 84,
+                "max_format": 87
+            },
+            {
+                "formats": [
+                    88,
+                    999
+                ],
+                "directory": "ogfx_26_2",
+                "min_format": 88,
+                "max_format": 999
             }
         ]
     },

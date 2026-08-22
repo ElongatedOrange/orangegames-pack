@@ -327,6 +327,11 @@
     "textures/items/og/monke_launcher"
    ]
   },
+  "orangegames.nova_cannon": {
+   "textures": [
+    "textures/items/og/nova_cannon"
+   ]
+  },
   "orangegames.orange_pie": {
    "textures": [
     "textures/items/og/orange_pie"
@@ -355,6 +360,11 @@
   "orangegames.popcorn": {
    "textures": [
     "textures/items/og/popcorn"
+   ]
+  },
+  "orangegames.prism_blade": {
+   "textures": [
+    "textures/items/og/prism_blade"
    ]
   },
   "orangegames.protein_shake": {
@@ -450,6 +460,11 @@
   "orangegames.strength_potion": {
    "textures": [
     "textures/items/og/strength_potion"
+   ]
+  },
+  "orangegames.tesla_coil": {
+   "textures": [
+    "textures/items/og/tesla_coil"
    ]
   },
   "orangegames.throwing_brick": {

@@ -214,7 +214,7 @@ def build_models():
               cube([7.35, 5.8, 7.3], [8.65, 13.6, 8.7], "core", tint=0, rot=DIAG),       # rainbow core (FX 1)
               cube([7.0, 14.2, 7.7], [9.0, 15.2, 8.3], "edge", rot=DIAG),                # taper
               cube([7.5, 15.2, 7.8], [8.5, 16.2, 8.2], "edge", rot=DIAG),                # tip
-          ], HANDHELD)
+          ], {**HANDHELD, "gui": {"rotation": [0, 0, 0], "translation": [0, 0, 0], "scale": [1.3, 1.3, 1.3]}})
 
     # Nova Cannon: barrel along -z (forward), chainsaw-style framing.
     model("nova_cannon",

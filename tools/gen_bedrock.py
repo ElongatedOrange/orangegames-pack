@@ -52,6 +52,9 @@ KNOWN_ARTLESS = {
     "venom_dart", "thundergods_hammer",
 }
 
+# display-entity FX meshes (fx_*): never held, never mapped - Geyser cannot show display entities
+FX_ONLY_PREFIX = "fx_"
+
 # base materials for models applied outside ItemBuilder chains (listeners etc.)
 EXTRA_MATERIALS = {
     "pebble": ("SNOWBALL", "UTILITY"),
@@ -552,6 +555,8 @@ def main():
     for ns, name, model_ref, def_path in collect_defs():
         component = f"{ns}:{name}"
         ident = component
+        if ns == "orangegames" and name.startswith(FX_ONLY_PREFIX):
+            continue
         icon_key = f"{ns}.{name}"
         if not model_ref:
             warnings.append(f"{def_path.name}: no model ref found, skipped")
