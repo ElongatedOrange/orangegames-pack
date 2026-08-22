@@ -11,6 +11,7 @@ flat out int ogFx;
 flat out int ogGui;
 flat out int ogSubI;
 out vec2 ogLocal;
+out vec2 ogLocalB;
 out vec2 ogParam;
 out float ogChain;
 out vec3 ogNrmV;
@@ -48,6 +49,11 @@ void main() {
     ogGui = (abs(ProjMat[2][3]) < 10e-6) ? 1 : 0;
     int ogCorner = gl_VertexID % 4;
     ogLocal = vec2(ogCorner >= 2 ? 1.0 : 0.0, (ogCorner == 1 || ogCorner == 2) ? 1.0 : 0.0);
+    // second candidate labelling: quads expanded to two triangles (v0,v1,v2, v2,v3,v0) with no
+    // index buffer - pipeline-replacing clients do this and it shears the %4 labels on tri 2
+    int ogC6 = gl_VertexID % 6;
+    int ogCornerB = ogC6 < 3 ? ogC6 : (ogC6 == 3 ? 2 : (ogC6 == 4 ? 3 : 0));
+    ogLocalB = vec2(ogCornerB >= 2 ? 1.0 : 0.0, (ogCornerB == 1 || ogCornerB == 2) ? 1.0 : 0.0);
     ogChain = ogLocal.x;
     ogParam = vec2(float(UV2.x >> 4), float(UV2.y >> 4)) / 15.0;
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
@@ -95,26 +101,6 @@ void main() {
                 gl_Position = ProjMat * vec4((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06, 1.0);
             } else {
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
-            }
-        }
-        if ((ogFx == 14 || ogFx == 15 || ogFx == 17 || ogFx == 18 || ogFx == 19) && ogGui == 0) {
-            // sphere FX: the model is one 2x2 quad in the XY plane, display scale = sub+1, identity
-            // rotation. Recover the quad centre from this vertex's corner (vanilla face vertex order),
-            // then rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
-            float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;
-            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y) * (ogSub + 1.0);
-            vec3 ogCw = Position - vec3(ogOff, 0.0);
-            vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
-            ogCenterV = ogCv;
-            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.6) {
-                // camera inside the chrono shell: cover the view, the fsh shades the far wall
-                vec3 ogNear = vec3((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06);
-                ogPosV = ogNear;
-                gl_Position = ProjMat * vec4(ogNear, 1.0);
-            } else {
-                vec3 ogPv = ogCv + vec3(ogOff, 0.0);
-                ogPosV = ogPv;
-                gl_Position = ProjMat * vec4(ogPv, 1.0);
             }
         }
     }

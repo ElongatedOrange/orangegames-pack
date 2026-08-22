@@ -27,7 +27,11 @@ Marker convention (shared with tools/gen_fx_art.py):
                3 orange display; param.y fade for subs 1..3),
             17 chrono shell (big sphere shaded outside AND inside; hex lattice),
             18 fireball (fire-noise sphere), 19 gravity well (black sphere, lensing halo)
-    Sphere FX read the display scale from the marker sub (off *= sub+1).
+    Sphere FX (14/15/17/18/19) use the domain-expansion canvas technique: the model is a
+    full cube, the plugin spawns it with NEGATIVE scale (mirrored -> faces visible from
+    inside and the far faces from outside), and the fsh rebuilds each face's frame from
+    screen derivatives (two candidate vertex-label orders), derives the cube centre and
+    ray-casts the sphere. No vsh billboard, no scale assumptions, no gl_VertexID trust.
     FXID range 1..31 (B = 255 - id > 223).
 Per-entity parameters ride in UV2 (ItemDisplay brightness): block light ->
 ogParam.x, sky light -> ogParam.y, each 0..1 in 1/15 steps.
@@ -51,6 +55,7 @@ flat out int ogFx;
 flat out int ogGui;
 flat out int ogSubI;
 out vec2 ogLocal;
+out vec2 ogLocalB;
 out vec2 ogParam;
 out float ogChain;
 out vec3 ogNrmV;
@@ -65,6 +70,11 @@ VSH_MAIN_TAIL = """
     ogGui = (abs(ProjMat[2][3]) < 10e-6) ? 1 : 0;
     int ogCorner = gl_VertexID % 4;
     ogLocal = vec2(ogCorner >= 2 ? 1.0 : 0.0, (ogCorner == 1 || ogCorner == 2) ? 1.0 : 0.0);
+    // second candidate labelling: quads expanded to two triangles (v0,v1,v2, v2,v3,v0) with no
+    // index buffer - pipeline-replacing clients do this and it shears the %4 labels on tri 2
+    int ogC6 = gl_VertexID % 6;
+    int ogCornerB = ogC6 < 3 ? ogC6 : (ogC6 == 3 ? 2 : (ogC6 == 4 ? 3 : 0));
+    ogLocalB = vec2(ogCornerB >= 2 ? 1.0 : 0.0, (ogCornerB == 1 || ogCornerB == 2) ? 1.0 : 0.0);
     ogChain = ogLocal.x;
     ogParam = vec2(float(UV2.x >> 4), float(UV2.y >> 4)) / 15.0;
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
@@ -114,26 +124,6 @@ VSH_MAIN_TAIL = """
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
         }
-        if ((ogFx == 14 || ogFx == 15 || ogFx == 17 || ogFx == 18 || ogFx == 19) && ogGui == 0) {
-            // sphere FX: the model is one 2x2 quad in the XY plane, display scale = sub+1, identity
-            // rotation. Recover the quad centre from this vertex's corner (vanilla face vertex order),
-            // then rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
-            float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;
-            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y) * (ogSub + 1.0);
-            vec3 ogCw = Position - vec3(ogOff, 0.0);
-            vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
-            ogCenterV = ogCv;
-            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.6) {
-                // camera inside the chrono shell: cover the view, the fsh shades the far wall
-                vec3 ogNear = vec3((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06);
-                ogPosV = ogNear;
-                gl_Position = ProjMat * vec4(ogNear, 1.0);
-            } else {
-                vec3 ogPv = ogCv + vec3(ogOff, 0.0);
-                ogPosV = ogPv;
-                gl_Position = ProjMat * vec4(ogPv, 1.0);
-            }
-        }
     }
     // ---- end OrangeGames FX ----
 """
@@ -146,6 +136,7 @@ flat in int ogFx;
 flat in int ogGui;
 flat in int ogSubI;
 in vec2 ogLocal;
+in vec2 ogLocalB;
 in vec2 ogParam;
 in float ogChain;
 in vec3 ogNrmV;
@@ -276,25 +267,51 @@ vec4 og_hexcoords(vec2 uv) {
 // screen derivatives; a trustworthy billboard has perpendicular, equal-length tangents.
 // Pipeline-replacing clients (Lunar) may re-emit quads in an order that shears the corner
 // labels, in which case the vsh's centre reconstruction is wrong - callers fail soft.
-bool og_frame_ok(float tol) {
+// Try to rebuild the canvas face frame from one label set: A1/A2 = view-space edge vectors
+// (per unit label), conf = how far from a square the fit is. Returns the centre/half-extent of
+// the mirrored cube the face belongs to (domain-expansion technique).
+bool og_canvas_try(vec2 lab, out vec3 center, out float halfExt, out float conf) {
     vec3 dPx = dFdx(ogPosV);
     vec3 dPy = dFdy(ogPosV);
-    vec2 dLx = dFdx(ogLocal);
-    vec2 dLy = dFdy(ogLocal);
+    vec2 dLx = dFdx(lab);
+    vec2 dLy = dFdy(lab);
     float det = dLx.x * dLy.y - dLy.x * dLx.y;
-    if (abs(det) < 1e-12) {
+    center = ogPosV;
+    halfExt = 0.0;
+    conf = 1e9;
+    if (abs(det) < 1e-14) {
         return false;
     }
-    vec3 A = (dPx * dLy.y - dPy * dLx.y) / det;
-    vec3 B = (-dPx * dLy.x + dPy * dLx.x) / det;
-    float la = length(A);
-    float lb = length(B);
-    float h = 0.5 * (la + lb);
+    vec3 A1 = (dPx * dLy.y - dPy * dLx.y) / det;
+    vec3 A2 = (-dPx * dLy.x + dPy * dLx.x) / det;
+    float la = length(A1);
+    float lb = length(A2);
+    float h = 0.25 * (la + lb);      // labels span 0..1 across the face, so half extent = edge / 2
     if (h < 1e-5) {
         return false;
     }
-    float conf = abs(dot(A, B)) / (h * h) + abs(la - lb) / h;
-    return conf < tol;
+    conf = abs(dot(A1, A2)) / (la * lb) + abs(la - lb) / (la + lb);
+    if (conf > 0.2) {
+        return false;
+    }
+    vec3 faceCenter = ogPosV - (lab.x - 0.5) * A1 - (lab.y - 0.5) * A2;
+    // mirrored canvas: a face is visible when its outward normal points along the view ray
+    vec3 outward = normalize(cross(A1, A2));
+    if (dot(outward, ogPosV) < 0.0) {
+        outward = -outward;
+    }
+    center = faceCenter - outward * h;
+    halfExt = h;
+    return true;
+}
+
+// Cube-canvas reconstruction with both candidate label orders. False -> caller fails soft.
+bool og_canvas(out vec3 center, out float halfExt) {
+    float conf;
+    if (og_canvas_try(ogLocal, center, halfExt, conf)) {
+        return true;
+    }
+    return og_canvas_try(ogLocalB, center, halfExt, conf);
 }
 
 // Returns the FX colour; alpha <= 0 means the caller discards.
@@ -511,7 +528,11 @@ vec4 og_fx(vec4 tex) {
     if (ogFx == 17) {
         // chrono shell: big sphere, shaded from outside and inside; hex lattice + clock sweep
         vec3 rd = normalize(ogPosV);
-        vec3 c = ogCenterV;
+        vec3 c;
+        float ogHalf;
+        if (!og_canvas(c, ogHalf)) {
+            return vec4(tex.rgb * vec3(1.0, 0.7, 1.0), tex.a); // canvas frame unreadable: tinted sprite
+        }
         float r = 0.3 + 3.2 * ogParam.x;
         float fade = ogParam.y;
         float b = dot(rd, c);
@@ -554,7 +575,11 @@ vec4 og_fx(vec4 tex) {
     if (ogFx == 18) {
         // fireball: sphere with animated fire noise, dark smoky rim
         vec3 rd = normalize(ogPosV);
-        vec3 c = ogCenterV;
+        vec3 c;
+        float ogHalf;
+        if (!og_canvas(c, ogHalf)) {
+            return vec4(tex.rgb * vec3(1.0, 0.7, 1.0), tex.a); // canvas frame unreadable: tinted sprite
+        }
         float r = 0.25 + 0.65 * ogParam.x;
         float b = dot(rd, c);
         float det = b * b - dot(c, c) + r * r;
@@ -583,7 +608,11 @@ vec4 og_fx(vec4 tex) {
     if (ogFx == 19) {
         // gravity well: black sphere with violet horizon, lensed starfield halo around the silhouette
         vec3 rd = normalize(ogPosV);
-        vec3 c = ogCenterV;
+        vec3 c;
+        float ogHalf;
+        if (!og_canvas(c, ogHalf)) {
+            return vec4(tex.rgb * vec3(1.0, 0.7, 1.0), tex.a); // canvas frame unreadable: tinted sprite
+        }
         float collapse = ogParam.y;
         float r = (0.15 + 0.5 * ogParam.x) * (1.0 - 0.9 * collapse);
         float b = dot(rd, c);
@@ -624,7 +653,11 @@ vec4 og_fx(vec4 tex) {
         // tesla sphere: ray-cast like the nova orb; electric cyan starfield, jumping crackle
         // flecks, flickering rim; param.y = zap surge (bigger + whiter for a few ticks)
         vec3 rd = normalize(ogPosV);
-        vec3 c = ogCenterV;
+        vec3 c;
+        float ogHalf;
+        if (!og_canvas(c, ogHalf)) {
+            return vec4(tex.rgb * vec3(1.0, 0.7, 1.0), tex.a); // canvas frame unreadable: tinted sprite
+        }
         float surge = ogParam.y;
         float r = 0.2 * (1.0 + 0.3 * surge) + 0.012 * sin(t * 0.6);
         float b = dot(rd, c);
@@ -657,7 +690,11 @@ vec4 og_fx(vec4 tex) {
         // nova sphere: ray-cast a sphere of radius (charge) around the billboard centre;
         // surface = refracted parallax starfield + fresnel rim in the charge colour
         vec3 rd = normalize(ogPosV);
-        vec3 c = ogCenterV;
+        vec3 c;
+        float ogHalf;
+        if (!og_canvas(c, ogHalf)) {
+            return vec4(tex.rgb * vec3(1.0, 0.7, 1.0), tex.a); // canvas frame unreadable: tinted sprite
+        }
         float r = (0.16 + 0.34 * ogParam.x) * (1.0 - 0.85 * ogParam.y);
         float b = dot(rd, c);
         float det = b * b - dot(c, c) + r * r;

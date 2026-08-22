@@ -289,11 +289,13 @@ def build_models():
           [cube([0, 0, 8], [16, 16, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
     # nova orb: a single 2x2-block quad; FX 14 billboards it in view space and ray-casts a sphere
     # (radius from the charge param) whose surface is a parallax starfield "window"
+    # sphere canvases: a full 2-block cube (domain-expansion technique); the plugin spawns it with
+    # NEGATIVE scale and the fsh ray-casts the sphere inside it from any face, inside or outside
     model("fx_nova_orb", {"t": "fx_nova_orb"},
-          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+          [cube([-8, -8, -8], [24, 24, 24], "t", tint=0)], gui_light="front")
     # tesla orb: same billboard/ray-cast sphere (FX 15), electric palette, hovers over a placed coil
     model("fx_tesla_orb", {"t": "fx_nova_orb"},
-          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+          [cube([-8, -8, -8], [24, 24, 24], "t", tint=0)], gui_light="front")
     model("fx_nova_ring", {"t": "fx_nova_ring"},
           [cube([0, 8, 0], [16, 8, 16], "t", tint=0, faces=("up", "down"))], gui_light="front")
     # bolt: 8 zero-thickness segments along +x, element i -> tintindex i -> marker sub i
@@ -358,11 +360,11 @@ def build_models():
         ], gui_light="front")
     # sphere FX quads (display scale = sub + 1)
     model("fx_chrono_shell", {"t": "fx_chrono_shell"},
-          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+          [cube([-8, -8, -8], [24, 24, 24], "t", tint=0)], gui_light="front")
     model("fx_fireball", {"t": "fx_fireball"},
-          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+          [cube([-8, -8, -8], [24, 24, 24], "t", tint=0)], gui_light="front")
     model("fx_gravity", {"t": "fx_gravity"},
-          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+          [cube([-8, -8, -8], [24, 24, 24], "t", tint=0)], gui_light="front")
     # accretion disc: the nova ring mesh with marker sub 1 -> doppler mode in the shader
     model("fx_accretion_disc", {"t": "fx_nova_ring"},
           [cube([0, 8, 0], [16, 8, 16], "t", tint=0, faces=("up", "down"))], gui_light="front")
@@ -388,9 +390,9 @@ def build_defs():
     item_def("fx_capsule", [marker(16, 3)])
     item_def("fx_capsule_fire", [marker(16, 1)])
     item_def("fx_capsule_void", [marker(16, 2)])
-    item_def("fx_chrono_shell", [marker(17, 5)])
-    item_def("fx_fireball", [marker(18, 1)])
-    item_def("fx_gravity", [marker(19, 1)])
+    item_def("fx_chrono_shell", [marker(17)])
+    item_def("fx_fireball", [marker(18)])
+    item_def("fx_gravity", [marker(19)])
     item_def("fx_accretion_disc", [marker(4, 1)])
 
 
