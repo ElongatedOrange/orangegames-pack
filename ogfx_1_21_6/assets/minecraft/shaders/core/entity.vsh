@@ -240,12 +240,7 @@ void main() {
         float ogSub = 254.0 - floor(ogG + 0.5);
         ogChain = (ogSub + ogLocal.x) / 8.0;
         float ogT = GameTime * 24000.0; // ticks, fractional
-#ifdef PER_FACE_LIGHTING
-        vertexPerFaceColorBack = vec4(1.0);
-        vertexPerFaceColorFront = vec4(1.0);
-#else
         vertexColor = vec4(1.0);
-#endif
 #ifndef EMISSIVE
         lightMapColor = vec4(1.0);
 #endif

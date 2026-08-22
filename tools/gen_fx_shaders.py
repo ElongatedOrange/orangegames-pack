@@ -53,12 +53,7 @@ VSH_MAIN_TAIL = """
         float ogSub = 254.0 - floor(ogG + 0.5);
         ogChain = (ogSub + ogLocal.x) / 8.0;
         float ogT = GameTime * 24000.0; // ticks, fractional
-#ifdef PER_FACE_LIGHTING
-        vertexPerFaceColorBack = vec4(1.0);
-        vertexPerFaceColorFront = vec4(1.0);
-#else
-        vertexColor = vec4(1.0);
-#endif
+%%VERTEX_COLOR%%
 #ifndef EMISSIVE
         lightMapColor = vec4(1.0);
 #endif
@@ -251,8 +246,24 @@ def gen(ver):
     fsh = (src / "entity.fsh").read_text(encoding="utf-8")
 
     vsh = inject(vsh, "#moj_import <minecraft:projection.glsl>\n", VSH_DECL, f"{ver} vsh decl")
+    # ME's 1.21.6-family shader predates PER_FACE_LIGHTING and never declares the
+    # per-face varyings; referencing them (even under #ifdef) breaks every no-cull
+    # pipeline on 1.21.9+ clients, which define PER_FACE_LIGHTING. Guard only when
+    # the source actually declares them.
+    if "vertexPerFaceColorBack" in vsh:
+        vcolor = chr(10).join([
+            "#ifdef PER_FACE_LIGHTING",
+            "        vertexPerFaceColorBack = vec4(1.0);",
+            "        vertexPerFaceColorFront = vec4(1.0);",
+            "#else",
+            "        vertexColor = vec4(1.0);",
+            "#endif",
+        ])
+    else:
+        vcolor = "        vertexColor = vec4(1.0);"
+    tail = VSH_MAIN_TAIL.replace("%%VERTEX_COLOR%%", vcolor)
     last = vsh.rstrip().rfind("}")
-    vsh = vsh[:last] + VSH_MAIN_TAIL + vsh[last:]
+    vsh = vsh[:last] + tail + vsh[last:]
     for must in ("vertexColor", "Position", "Normal", "UV2", "ProjMat", "ModelViewMat"):
         if must not in vsh:
             sys.exit(f"{ver} vsh: expected symbol {must} missing")
