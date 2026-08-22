@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/fx_chrono_shell",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776174
+      }
+    ]
+  }
+}

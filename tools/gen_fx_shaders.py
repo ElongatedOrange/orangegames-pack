@@ -21,7 +21,13 @@ Marker convention (shared with tools/gen_fx_art.py):
             fullscreen quad), 11 gpu sparks, 12 blade ghost, 13 holo edge,
             14 nova sphere (billboarded quad ray-cast as a sphere whose surface
             is a refracted parallax starfield - the end-portal look),
-            15 tesla sphere (same, electric palette + crackle; param.y = zap surge)
+            15 tesla sphere (same, electric palette + crackle; param.y = zap surge),
+            16 capsule impostor (axis rebuilt from dFdx/dFdy -> glowing rod; works
+               in hand; sub 0 orange, 1 fire, 2 void; param.y fade),
+            17 chrono shell (big sphere shaded outside AND inside; hex lattice),
+            18 fireball (fire-noise sphere), 19 gravity well (black sphere, lensing halo)
+    Sphere FX read the display scale from the marker sub (off *= sub+1).
+    FXID range 1..31 (B = 255 - id > 223).
 Per-entity parameters ride in UV2 (ItemDisplay brightness): block light ->
 ogParam.x, sky light -> ogParam.y, each 0..1 in 1/15 steps.
 """
@@ -42,6 +48,7 @@ VSH_DECL = """
 #moj_import <minecraft:globals.glsl>
 flat out int ogFx;
 flat out int ogGui;
+flat out int ogSubI;
 out vec2 ogLocal;
 out vec2 ogParam;
 out float ogChain;
@@ -62,11 +69,13 @@ VSH_MAIN_TAIL = """
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
     ogPosV = (ModelViewMat * vec4(Position, 1.0)).xyz;
     ogCenterV = ogPosV;
+    ogSubI = 0;
     float ogG = Color.g * 255.0;
     float ogB = Color.b * 255.0;
-    if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5 && ogB > 239.5 && ogB < 254.5) {
+    if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5 && ogB > 223.5 && ogB < 254.5) {
         ogFx = 255 - int(ogB + 0.5);
         float ogSub = 254.0 - floor(ogG + 0.5);
+        ogSubI = int(ogSub + 0.5);
         ogChain = (ogSub + ogLocal.x) / 8.0;
         float ogT = GameTime * 24000.0; // ticks, fractional
 %%VERTEX_COLOR%%
@@ -104,18 +113,25 @@ VSH_MAIN_TAIL = """
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
         }
-        if ((ogFx == 14 || ogFx == 15) && ogGui == 0) {
-            // nova / tesla sphere: the model is one 2x2 quad in the XY plane (identity display transform).
-            // Recover the quad centre from this vertex's corner (vanilla face vertex order), then
-            // rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
+        if ((ogFx == 14 || ogFx == 15 || ogFx == 17 || ogFx == 18 || ogFx == 19) && ogGui == 0) {
+            // sphere FX: the model is one 2x2 quad in the XY plane, display scale = sub+1, identity
+            // rotation. Recover the quad centre from this vertex's corner (vanilla face vertex order),
+            // then rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
             float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;
-            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y);
+            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y) * (ogSub + 1.0);
             vec3 ogCw = Position - vec3(ogOff, 0.0);
             vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
-            vec3 ogPv = ogCv + vec3(ogOff, 0.0);
             ogCenterV = ogCv;
-            ogPosV = ogPv;
-            gl_Position = ProjMat * vec4(ogPv, 1.0);
+            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.4) {
+                // camera inside the chrono shell: cover the view, the fsh shades the far wall
+                vec3 ogNear = vec3((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06);
+                ogPosV = ogNear;
+                gl_Position = ProjMat * vec4(ogNear, 1.0);
+            } else {
+                vec3 ogPv = ogCv + vec3(ogOff, 0.0);
+                ogPosV = ogPv;
+                gl_Position = ProjMat * vec4(ogPv, 1.0);
+            }
         }
     }
     // ---- end OrangeGames FX ----
@@ -126,6 +142,7 @@ FSH_DECL = """
 #moj_import <minecraft:globals.glsl>
 flat in int ogFx;
 flat in int ogGui;
+flat in int ogSubI;
 in vec2 ogLocal;
 in vec2 ogParam;
 in float ogChain;
@@ -209,6 +226,39 @@ vec3 og_portal(vec3 dir, float t, float charge) {
     return col;
 }
 
+// Distance from the view ray (origin, direction rd) to the segment qa-qb.
+float og_ray_seg(vec3 rd, vec3 qa, vec3 qb) {
+    vec3 v = qb - qa;
+    float a = dot(rd, rd);
+    float b = dot(rd, v);
+    float c = dot(v, v);
+    float d = dot(rd, -qa);
+    float e = dot(v, -qa);
+    float den = a * c - b * b;
+    float tt = den > 1e-6 ? clamp((a * e - b * d) / den, 0.0, 1.0) : 0.0;
+    vec3 q = qa + v * tt;
+    float s = max(dot(q, rd) / a, 0.0);
+    return length(rd * s - q);
+}
+
+float og_hexdist(vec2 p) {
+    p = abs(p);
+    return max(dot(p, normalize(vec2(1.0, 1.73))), p.x);
+}
+
+// x,y = cell-local polar angle / distance-to-edge (0 at edges, 0.5 at centre), zw = cell id
+vec4 og_hexcoords(vec2 uv) {
+    vec2 r = vec2(1.0, 1.73);
+    vec2 h = r * 0.5;
+    vec2 a = mod(uv, r) - h;
+    vec2 b = mod(uv - h, r) - h;
+    vec2 gv = dot(a, a) < dot(b, b) ? a : b;
+    float x = atan(gv.x, gv.y);
+    float y = 0.5 - og_hexdist(gv);
+    vec2 id = uv - gv;
+    return vec4(x, y, id.x, id.y);
+}
+
 // Returns the FX colour; alpha <= 0 means the caller discards.
 vec4 og_fx(vec4 tex) {
     float t = GameTime * 24000.0; // ticks
@@ -257,6 +307,14 @@ vec4 og_fx(vec4 tex) {
         }
         vec2 d = ogLocal - 0.5;
         float r = length(d) * 2.0;
+        if (ogSubI == 1) {
+            // accretion disc: spinning streaks, doppler-shifted (blue approaching, red receding)
+            float ang = atan(d.y, d.x) + t * 0.25;
+            float dop = sin(ang) * 0.5 + 0.5;
+            vec3 cA = mix(vec3(1.0, 0.35, 0.2), vec3(0.45, 0.7, 1.0), dop);
+            float streaks = 0.7 + 0.3 * sin(ang * 9.0 + r * 22.0 - t * 0.6);
+            return vec4(cA * 1.5 * streaks, tex.a * (1.0 - fade) * (0.45 + 0.55 * streaks));
+        }
         float h = mix(0.58, 0.08, ogParam.y); // blue at low charge -> orange at full
         vec3 c = og_hsv2rgb(vec3(h, 0.5, 1.0));
         float pulse = 0.8 + 0.2 * sin(t * 0.8 + r * 12.0);
@@ -315,6 +373,29 @@ vec4 og_fx(vec4 tex) {
             vec3 c = mix(vec3(0.2, 0.9, 1.0), vec3(1.0, 0.2, 0.25), stripe);
             float vig = smoothstep(0.4, 1.0, r) * 0.5;
             o = vec4(mix(vec3(1.0, 0.3, 0.3), c, band), (band * 0.35 + vig) * (1.0 - age));
+        } else if (variant == 5) {
+            // chrono: cool vignette, sweeping clock hand, faint scanlines
+            float ang = fract(atan(cuv.y, cuv.x) / 6.2831 - t * 0.02);
+            float hand = smoothstep(0.05, 0.0, ang) * smoothstep(0.02, 0.08, r) * (1.0 - smoothstep(0.45, 0.6, r));
+            float vig = smoothstep(0.35, 1.0, r);
+            float scan = 0.5 + 0.5 * sin(gl_FragCoord.y * 1.2 + t);
+            o = vec4(vec3(0.55, 0.8, 1.0), (vig * 0.45 + hand * 0.6 + vig * scan * 0.08) * (1.0 - age));
+        } else if (variant == 6) {
+            // void pull: violet vignette breathing inward
+            float pulse = 0.8 + 0.2 * sin(t * 0.6);
+            float vig = smoothstep(0.25 * pulse, 0.95, r);
+            o = vec4(vec3(0.45, 0.2, 0.8), vig * 0.6 * (1.0 - age));
+        } else if (variant == 7) {
+            // implosion: ring contracting to the centre, then a violet-white pop
+            float radius = (1.0 - age) * 1.2;
+            float band = exp(-pow((r - radius) * 12.0, 2.0));
+            float pop = smoothstep(0.7, 1.0, age) * smoothstep(0.5, 0.0, r);
+            o = vec4(mix(vec3(0.7, 0.4, 1.0), vec3(1.0), pop), band * 0.8 + pop * 0.8 * (1.0 - age));
+        } else if (variant == 8) {
+            // quake: orange flash + horizontal jitter bands
+            float band = step(0.9, og_hash(floor(uv.y * 30.0) + floor(t * 6.0)));
+            float vig = smoothstep(0.2, 1.0, r);
+            o = vec4(vec3(1.0, 0.6, 0.25), 0.35 * (1.0 - age) * (1.0 - age) + vig * 0.4 * (1.0 - age) + band * 0.25 * (1.0 - age));
         } else {
             // white flash
             o = vec4(1.0, 1.0, 1.0, 0.7 * (1.0 - age) * (1.0 - age));
@@ -333,11 +414,167 @@ vec4 og_fx(vec4 tex) {
             c = og_hsv2rgb(vec3(fract(ogChain * 8.0 + t * 0.05), 0.8, 1.0));
         } else if (pal == 1) {
             c = mix(vec3(0.4, 0.7, 1.0), vec3(1.0), og_hash(ogChain * 31.0));
+        } else if (pal == 3) {
+            c = mix(vec3(0.55, 0.25, 1.0), vec3(1.0, 0.9, 1.0), og_hash(ogChain * 17.0));
+        } else if (pal == 4) {
+            c = mix(vec3(1.0, 0.45, 0.1), vec3(1.0, 0.9, 0.4), og_hash(ogChain * 23.0));
         } else {
             c = mix(vec3(0.6, 0.8, 1.0), vec3(1.0), step(0.5, og_hash(floor(t * 2.0) + ogChain * 13.0)));
         }
         float flick = 0.7 + 0.3 * og_hash(floor(t * 2.0) + ogChain * 5.0);
         return vec4(c * 1.4 * flick, (1.0 - age) * (1.0 - age) * tex.a);
+    }
+    if (ogFx == 16) {
+        // capsule impostor: rebuild the quad's axes from screen-space derivatives, ray-cast a glowing
+        // capsule along the longer axis. Works wherever the model ends up (hand transforms included).
+        vec3 dPx = dFdx(ogPosV);
+        vec3 dPy = dFdy(ogPosV);
+        vec2 dLx = dFdx(ogLocal);
+        vec2 dLy = dFdy(ogLocal);
+        float det = dLx.x * dLy.y - dLy.x * dLx.y;
+        if (abs(det) < 1e-9) {
+            return vec4(0.0);
+        }
+        vec3 A = (dPx * dLy.y - dPy * dLx.y) / det;   // dP / dlocal.x
+        vec3 B = (-dPx * dLy.x + dPy * dLx.x) / det;  // dP / dlocal.y
+        vec3 p0;
+        vec3 axis;
+        float w;
+        if (dot(A, A) >= dot(B, B)) {
+            p0 = ogPosV - ogLocal.x * A - (ogLocal.y - 0.5) * B;
+            axis = A;
+            w = length(B);
+        } else {
+            p0 = ogPosV - ogLocal.y * B - (ogLocal.x - 0.5) * A;
+            axis = B;
+            w = length(A);
+        }
+        vec3 rd = normalize(ogPosV);
+        float d = og_ray_seg(rd, p0, p0 + axis);
+        vec3 col = vec3(1.0, 0.6, 0.2);
+        if (ogSubI == 1) {
+            col = vec3(1.0, 0.5, 0.12);
+        } else if (ogSubI == 2) {
+            col = vec3(0.6, 0.3, 1.0);
+        }
+        float core = smoothstep(0.18 * w, 0.0, d);
+        float halo = exp(-pow(d / (0.36 * w), 2.0));
+        float hum = 0.85 + 0.15 * sin(t * 0.8);
+        float facing = abs(dot(normalize(ogNrmV), rd));
+        vec3 c = col * halo * 1.7 + vec3(1.0) * core;
+        float a = clamp((core + halo * 0.9) * hum, 0.0, 1.0) * (0.35 + 0.65 * facing) * (1.0 - ogParam.y);
+        if (a < 0.02) {
+            return vec4(0.0);
+        }
+        return vec4(c, a);
+    }
+    if (ogFx == 17) {
+        // chrono shell: big sphere, shaded from outside and inside; hex lattice + clock sweep
+        vec3 rd = normalize(ogPosV);
+        vec3 c = ogCenterV;
+        float r = 0.3 + 3.2 * ogParam.x;
+        float fade = ogParam.y;
+        float b = dot(rd, c);
+        float cc = dot(c, c);
+        float det = b * b - cc + r * r;
+        if (det < 0.0) {
+            return vec4(0.0);
+        }
+        bool inside = cc < r * r;
+        float th = inside ? b + sqrt(det) : b - sqrt(det);
+        if (th < 0.05) {
+            return vec4(0.0);
+        }
+        vec3 p = rd * th;
+        vec3 nOut = (p - c) / r;
+        vec3 n = inside ? -nOut : nOut;
+        vec3 nw = transpose(mat3(ModelViewMat)) * nOut;
+        vec2 uv = vec2(atan(nw.z, nw.x) * 2.2, asin(clamp(nw.y, -1.0, 1.0)) * 2.2) * 1.6;
+        vec4 hx = og_hexcoords(uv);
+        float line = smoothstep(0.07, 0.0, hx.y);
+        float cell = og_hash(dot(hx.zw, vec2(12.9898, 78.233)));
+        float pulse = 0.5 + 0.5 * sin(t * 0.3 + cell * 6.2831);
+        float band = fract(atan(nw.z, nw.x) / 6.2831 - t * 0.012);
+        float clock = smoothstep(0.05, 0.0, band);
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.0);
+        vec3 refr = refract(rd, n, 0.85);
+        vec3 dw = transpose(mat3(ModelViewMat)) * refr;
+        vec3 star = og_portal(dw, t * 0.5, 0.0) * vec3(0.5, 0.9, 1.0) * 0.4;
+        vec3 col = vec3(0.3, 0.85, 1.0) * (line * 1.4 + clock * 1.2 + pulse * 0.08) + star + fres * vec3(0.4, 0.8, 1.0) * 0.8;
+        float a = inside
+            ? clamp(line * 0.8 + clock * 0.5 + 0.06, 0.0, 0.7)
+            : clamp(0.22 + line * 0.7 + clock * 0.5 + fres * 0.5, 0.0, 0.9);
+        a *= (1.0 - fade);
+        if (a < 0.03) {
+            return vec4(0.0);
+        }
+        return vec4(col, a);
+    }
+    if (ogFx == 18) {
+        // fireball: sphere with animated fire noise, dark smoky rim
+        vec3 rd = normalize(ogPosV);
+        vec3 c = ogCenterV;
+        float r = 0.25 + 0.65 * ogParam.x;
+        float b = dot(rd, c);
+        float det = b * b - dot(c, c) + r * r;
+        if (det < 0.0) {
+            return vec4(0.0);
+        }
+        float th = b - sqrt(det);
+        if (th < 0.05) {
+            return vec4(0.0);
+        }
+        vec3 p = rd * th;
+        vec3 n = (p - c) / r;
+        vec3 nw = transpose(mat3(ModelViewMat)) * n;
+        float f = sin(nw.x * 6.0 + t * 0.9) * sin(nw.y * 5.0 - t * 0.7);
+        f += 0.5 * sin(nw.z * 9.0 + t * 1.3 + nw.x * 4.0);
+        f += 0.6 * og_hash(floor(nw.x * 8.0) + floor(nw.y * 8.0) * 7.0 + floor(nw.z * 8.0) * 13.0 + floor(t * 1.5));
+        f = clamp(f * 0.45 + 0.5, 0.0, 1.0);
+        vec3 col = mix(vec3(0.9, 0.15, 0.02), vec3(1.0, 0.6, 0.1), smoothstep(0.2, 0.6, f));
+        col = mix(col, vec3(1.0, 0.95, 0.7), smoothstep(0.7, 0.95, f));
+        float fres = pow(1.0 - max(dot(n, -rd), 0.0), 2.0);
+        col = mix(col, vec3(0.25, 0.08, 0.02), fres * 0.7);
+        col += fres * vec3(1.0, 0.5, 0.1) * 0.3;
+        return vec4(col * 1.3, (1.0 - ogParam.y) * tex.a);
+    }
+    if (ogFx == 19) {
+        // gravity well: black sphere with violet horizon, lensed starfield halo around the silhouette
+        vec3 rd = normalize(ogPosV);
+        vec3 c = ogCenterV;
+        float collapse = ogParam.y;
+        float r = (0.15 + 0.5 * ogParam.x) * (1.0 - 0.9 * collapse);
+        float b = dot(rd, c);
+        float cc = dot(c, c);
+        float det = b * b - cc + r * r;
+        float dist = sqrt(max(cc - b * b, 0.0));
+        if (det >= 0.0) {
+            float th = b - sqrt(det);
+            if (th < 0.05) {
+                return vec4(0.0);
+            }
+            vec3 p = rd * th;
+            vec3 n = (p - c) / r;
+            float fres = pow(1.0 - max(dot(n, -rd), 0.0), 4.0);
+            vec3 col = vec3(0.01, 0.0, 0.02) + fres * vec3(0.7, 0.35, 1.0) * (1.5 + 3.0 * collapse);
+            return vec4(col, 1.0);
+        }
+        float halo = 2.2 * r;
+        if (dist > halo || b < 0.05) {
+            return vec4(0.0);
+        }
+        vec3 closest = rd * b;
+        vec3 toC = normalize(c - closest);
+        vec3 bent = normalize(rd + toC * (r / max(dist, 1e-3)) * 0.8);
+        vec3 dw = transpose(mat3(ModelViewMat)) * bent;
+        vec3 star = og_portal(dw, t, 0.0) * 2.2;
+        float ring = smoothstep(halo, r, dist);
+        float a = ring * ring * 0.9 * (1.0 - collapse * 0.3);
+        vec3 col = star * (0.6 + 0.4 * ring) + vec3(0.5, 0.25, 0.9) * ring * ring * 0.5;
+        if (a < 0.03) {
+            return vec4(0.0);
+        }
+        return vec4(col, a);
     }
     if (ogFx == 15) {
         // tesla sphere: ray-cast like the nova orb; electric cyan starfield, jumping crackle

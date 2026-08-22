@@ -26,7 +26,7 @@ ITEMS = REPO / "assets/orangegames/items"
 
 def marker(fxid, sub=0):
     """Constant tint the shader recognises: (255, 254 - sub, 255 - fxid) -> near-white unshaded."""
-    assert 1 <= fxid <= 15 and 0 <= sub <= 54
+    assert 1 <= fxid <= 31 and 0 <= sub <= 54
     return (255 << 16) | ((254 - sub) << 8) | (255 - fxid)
 
 
@@ -93,6 +93,16 @@ def tex_rainbow(name, size=16):
     save(im, name)
 
 
+def tex_vgrad(name, top, bottom, size=16):
+    im = Image.new("RGBA", (size, size))
+    for y in range(size):
+        t = y / (size - 1)
+        rgb = tuple(int(top[i] * (1 - t) + bottom[i] * t) for i in range(3))
+        for x in range(size):
+            im.putpixel((x, y), rgb + (255,))
+    save(im, name)
+
+
 def tex_radial(name, size=32, inner=(255, 255, 255), outer=(90, 160, 255), hard=False, power=0.6):
     im = Image.new("RGBA", (size, size))
     c = (size - 1) / 2
@@ -154,6 +164,24 @@ def paint_all():
     tex_bolt("fx_tesla_bolt")
     tex_radial("fx_screen", 16, (255, 255, 255), (255, 255, 255), hard=True)   # plain white, shader paints it
     tex_radial("fx_spark", 8, (255, 255, 255), (255, 230, 160), hard=True)
+    # wave 2
+    tex_solid("saber_hilt", (48, 48, 58), rivets=True)
+    tex_solid("saber_ring", (255, 140, 40))
+    tex_solid("saber_emitter", (200, 200, 215))
+    tex_vgrad("saber_blade", (255, 250, 230), (255, 150, 50))
+    tex_solid("chrono_frame", (70, 95, 120), rivets=True)
+    tex_radial("chrono_core", 16, (255, 255, 255), (90, 220, 255), hard=True)
+    tex_solid("comet_shaft", (75, 48, 30), rivets=True)
+    tex_solid("comet_head", (110, 40, 25))
+    tex_radial("comet_core", 16, (255, 230, 140), (255, 110, 30), hard=True)
+    tex_solid("gravity_shell", (38, 28, 60), rivets=True)
+    tex_radial("gravity_core", 16, (240, 200, 255), (110, 40, 200), hard=True)
+    tex_radial("fx_capsule", 16, (255, 255, 255), (255, 170, 80), hard=True)
+    tex_radial("fx_capsule_fire", 16, (255, 240, 200), (255, 110, 30), hard=True)
+    tex_radial("fx_capsule_void", 16, (240, 220, 255), (120, 60, 220), hard=True)
+    tex_radial("fx_fireball", 32, (255, 240, 180), (255, 90, 20), power=0.5)
+    tex_radial("fx_gravity", 32, (20, 10, 30), (120, 60, 200), hard=True)
+    tex_radial("fx_chrono_shell", 32, (255, 255, 255), (120, 220, 255), power=0.5)
 
 
 # ----------------------------------------------------------------- models ----
@@ -282,6 +310,63 @@ def build_models():
     sparks = [cube([7.4, 7.4, 7.4], [8.6, 8.6, 8.6], "t", tint=i) for i in range(48)]
     model("fx_sparks", {"t": "fx_spark"}, sparks, gui_light="front")
 
+    # ---- wave 2 -------------------------------------------------------------
+    # Photon Saber: hilt cuboids + two crossed zero-thickness blade quads (FX 16, sub 0). The fsh
+    # rebuilds each quad's axes from derivatives, so the hand transform is irrelevant.
+    saber_tex = {"hilt": "saber_hilt", "ring": "saber_ring", "emitter": "saber_emitter", "blade": "saber_blade"}
+    model("photon_saber", saber_tex, [
+        cube([7.25, 0, 7.25], [8.75, 1, 8.75], "ring", rot=DIAG),                          # pommel
+        cube([7.2, 1, 7.2], [8.8, 4.6, 8.8], "hilt", rot=DIAG),                             # grip
+        cube([7.0, 4.6, 7.0], [9.0, 5.2, 9.0], "ring", rot=DIAG),                           # activation ring
+        cube([7.3, 5.2, 7.3], [8.7, 5.9, 8.7], "emitter", rot=DIAG),                        # emitter
+        cube([4.0, 5.9, 8.0], [12.0, 19.5, 8.0], "blade", tint=0, faces=("north", "south"), rot=DIAG),
+        cube([8.0, 5.9, 4.0], [8.0, 19.5, 12.0], "blade", tint=0, faces=("east", "west"), rot=DIAG),
+    ], {**HANDHELD, "gui": {"rotation": [0, 0, 0], "translation": [0, -1, 0], "scale": [1.1, 1.1, 1.1]}},
+        gui_light="front")
+
+    # Chrono Sphere: three intersecting frame bands around a crackling core (FX 6)
+    model("chrono_sphere", {"frame": "chrono_frame", "core": "chrono_core"}, [
+        cube([4, 7.5, 4], [12, 8.5, 12], "frame"),
+        cube([7.5, 4, 4], [8.5, 12, 12], "frame"),
+        cube([4, 4, 7.5], [12, 12, 8.5], "frame"),
+        cube([6, 6, 6], [10, 10, 10], "core", tint=0),
+    ], UPRIGHT, gui_light="front")
+
+    # Comet Caller: staff (diagonal like a sword) with an ember core (FX 6) in a cage
+    model("comet_caller", {"shaft": "comet_shaft", "head": "comet_head", "core": "comet_core"}, [
+        cube([7.25, 0, 7.25], [8.75, 13, 8.75], "shaft", rot=DIAG),
+        cube([6.4, 13, 6.4], [9.6, 13.6, 9.6], "head", rot=DIAG),
+        cube([6.4, 15.8, 6.4], [9.6, 16.4, 9.6], "head", rot=DIAG),
+        cube([6.4, 13.6, 7.7], [6.9, 15.8, 8.3], "head", rot=DIAG),
+        cube([9.1, 13.6, 7.7], [9.6, 15.8, 8.3], "head", rot=DIAG),
+        cube([7.0, 13.6, 7.0], [9.0, 15.8, 9.0], "core", tint=0, rot=DIAG),
+    ], HANDHELD, gui_light="front")
+
+    # Gravity Well: dark shell bands around a void core (FX 6)
+    model("gravity_well", {"shell": "gravity_shell", "core": "gravity_core"}, [
+        cube([4, 7, 4], [12, 9, 12], "shell"),
+        cube([7, 4, 4], [9, 12, 12], "shell"),
+        cube([6, 6, 6], [10, 10, 10], "core", tint=0),
+    ], UPRIGHT, gui_light="front")
+
+    # capsule impostor: two crossed quads along +x; the plugin scales x = length, y/z = thickness
+    for name, tex in (("fx_capsule", "fx_capsule"), ("fx_capsule_fire", "fx_capsule_fire"),
+                      ("fx_capsule_void", "fx_capsule_void")):
+        model(name, {"t": tex}, [
+            cube([0, 5, 8], [16, 11, 8], "t", tint=0, faces=("north", "south")),
+            cube([0, 8, 5], [16, 8, 11], "t", tint=0, faces=("up", "down")),
+        ], gui_light="front")
+    # sphere FX quads (display scale = sub + 1)
+    model("fx_chrono_shell", {"t": "fx_chrono_shell"},
+          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+    model("fx_fireball", {"t": "fx_fireball"},
+          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+    model("fx_gravity", {"t": "fx_gravity"},
+          [cube([-8, -8, 8], [24, 24, 8], "t", tint=0, faces=("north", "south"))], gui_light="front")
+    # accretion disc: the nova ring mesh with marker sub 1 -> doppler mode in the shader
+    model("fx_accretion_disc", {"t": "fx_nova_ring"},
+          [cube([0, 8, 0], [16, 8, 16], "t", tint=0, faces=("up", "down"))], gui_light="front")
+
 
 def build_defs():
     item_def("prism_blade", [marker(1), marker(13)])
@@ -295,10 +380,22 @@ def build_defs():
     item_def("fx_tesla_orb", [marker(15)])
     item_def("fx_nova_ring", [marker(4)])
     item_def("fx_tesla_bolt", [marker(5, i) for i in range(8)])
+    # wave 2
+    item_def("photon_saber", [marker(16, 0)])
+    item_def("chrono_sphere", [marker(6)])
+    item_def("comet_caller", [marker(6)])
+    item_def("gravity_well", [marker(6)])
+    item_def("fx_capsule", [marker(16, 0)])
+    item_def("fx_capsule_fire", [marker(16, 1)])
+    item_def("fx_capsule_void", [marker(16, 2)])
+    item_def("fx_chrono_shell", [marker(17, 3)])
+    item_def("fx_fireball", [marker(18, 1)])
+    item_def("fx_gravity", [marker(19, 1)])
+    item_def("fx_accretion_disc", [marker(4, 1)])
 
 
 if __name__ == "__main__":
     paint_all()
     build_models()
     build_defs()
-    print("fx art: 18 textures, 11 models, 11 item defs written")
+    print("fx art: 35 textures, 22 models, 22 item defs written")

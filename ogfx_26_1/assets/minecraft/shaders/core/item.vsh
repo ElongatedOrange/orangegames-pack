@@ -9,6 +9,7 @@
 #moj_import <minecraft:globals.glsl>
 flat out int ogFx;
 flat out int ogGui;
+flat out int ogSubI;
 out vec2 ogLocal;
 out vec2 ogParam;
 out float ogChain;
@@ -52,11 +53,13 @@ void main() {
     ogNrmV = normalize((ModelViewMat * vec4(Normal, 0.0)).xyz);
     ogPosV = (ModelViewMat * vec4(Position, 1.0)).xyz;
     ogCenterV = ogPosV;
+    ogSubI = 0;
     float ogG = Color.g * 255.0;
     float ogB = Color.b * 255.0;
-    if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5 && ogB > 239.5 && ogB < 254.5) {
+    if (Color.r > 0.999 && ogG > 199.5 && ogG < 254.5 && ogB > 223.5 && ogB < 254.5) {
         ogFx = 255 - int(ogB + 0.5);
         float ogSub = 254.0 - floor(ogG + 0.5);
+        ogSubI = int(ogSub + 0.5);
         ogChain = (ogSub + ogLocal.x) / 8.0;
         float ogT = GameTime * 24000.0; // ticks, fractional
         vertexColor = vec4(1.0);
@@ -94,18 +97,25 @@ void main() {
                 gl_Position = vec4(0.0, 0.0, 0.0, 1.0); // degenerate: never drawn in inventories
             }
         }
-        if ((ogFx == 14 || ogFx == 15) && ogGui == 0) {
-            // nova / tesla sphere: the model is one 2x2 quad in the XY plane (identity display transform).
-            // Recover the quad centre from this vertex's corner (vanilla face vertex order), then
-            // rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
+        if ((ogFx == 14 || ogFx == 15 || ogFx == 17 || ogFx == 18 || ogFx == 19) && ogGui == 0) {
+            // sphere FX: the model is one 2x2 quad in the XY plane, display scale = sub+1, identity
+            // rotation. Recover the quad centre from this vertex's corner (vanilla face vertex order),
+            // then rebuild the quad as a camera-facing billboard around it; the fsh ray-casts the sphere.
             float ogSx = Normal.z > 0.0 ? 1.0 : -1.0;
-            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y);
+            vec2 ogOff = vec2(ogSx * (ogLocal.x * 2.0 - 1.0), 1.0 - 2.0 * ogLocal.y) * (ogSub + 1.0);
             vec3 ogCw = Position - vec3(ogOff, 0.0);
             vec3 ogCv = (ModelViewMat * vec4(ogCw, 1.0)).xyz;
-            vec3 ogPv = ogCv + vec3(ogOff, 0.0);
             ogCenterV = ogCv;
-            ogPosV = ogPv;
-            gl_Position = ProjMat * vec4(ogPv, 1.0);
+            if (ogFx == 17 && length(ogCv) < 0.3 + 3.2 * ogParam.x + 0.4) {
+                // camera inside the chrono shell: cover the view, the fsh shades the far wall
+                vec3 ogNear = vec3((ogLocal.x * 2.0 - 1.0) * 0.32, (1.0 - ogLocal.y * 2.0) * 0.32, -0.06);
+                ogPosV = ogNear;
+                gl_Position = ProjMat * vec4(ogNear, 1.0);
+            } else {
+                vec3 ogPv = ogCv + vec3(ogOff, 0.0);
+                ogPosV = ogPv;
+                gl_Position = ProjMat * vec4(ogPv, 1.0);
+            }
         }
     }
     // ---- end OrangeGames FX ----

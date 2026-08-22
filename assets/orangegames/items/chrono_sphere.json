@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/chrono_sphere",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776953
+      }
+    ]
+  }
+}

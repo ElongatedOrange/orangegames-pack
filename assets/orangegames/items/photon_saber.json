@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/photon_saber",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776943
+      }
+    ]
+  }
+}

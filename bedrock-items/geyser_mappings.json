@@ -152,6 +152,18 @@
   "minecraft:blaze_rod": [
    {
     "type": "definition",
+    "model": "orangegames:comet_caller",
+    "bedrock_identifier": "orangegames:comet_caller",
+    "display_name": "Comet Caller",
+    "bedrock_options": {
+     "icon": "orangegames.comet_caller",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:tesla_coil",
     "bedrock_identifier": "orangegames:tesla_coil",
     "display_name": "Tesla Coil",
@@ -493,6 +505,20 @@
     }
    }
   ],
+  "minecraft:heart_of_the_sea": [
+   {
+    "type": "definition",
+    "model": "orangegames:chrono_sphere",
+    "bedrock_identifier": "orangegames:chrono_sphere",
+    "display_name": "Chrono Sphere",
+    "bedrock_options": {
+     "icon": "orangegames.chrono_sphere",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "items"
+    }
+   }
+  ],
   "minecraft:iron_boots": [
    {
     "type": "definition",
@@ -758,6 +784,18 @@
   "minecraft:netherite_sword": [
    {
     "type": "definition",
+    "model": "orangegames:photon_saber",
+    "bedrock_identifier": "orangegames:photon_saber",
+    "display_name": "Photon Saber",
+    "bedrock_options": {
+     "icon": "orangegames.photon_saber",
+     "allow_offhand": true,
+     "display_handheld": true,
+     "creative_category": "equipment"
+    }
+   },
+   {
+    "type": "definition",
     "model": "orangegames:prism_blade",
     "bedrock_identifier": "orangegames:prism_blade",
     "display_name": "Prism Blade",
@@ -946,13 +984,13 @@
   "minecraft:snowball": [
    {
     "type": "definition",
-    "model": "orangegames:black_hole_grenade",
-    "bedrock_identifier": "orangegames:black_hole_grenade",
-    "display_name": "Black Hole Grenade",
+    "model": "orangegames:gravity_well",
+    "bedrock_identifier": "orangegames:gravity_well",
+    "display_name": "Gravity Well",
     "bedrock_options": {
-     "icon": "orangegames.black_hole_grenade",
+     "icon": "orangegames.gravity_well",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "items"
     }
    },

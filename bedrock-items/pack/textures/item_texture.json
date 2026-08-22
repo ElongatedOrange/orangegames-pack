@@ -127,11 +127,6 @@
     "textures/items/og/big_shield_potion"
    ]
   },
-  "orangegames.black_hole_grenade": {
-   "textures": [
-    "textures/items/og/black_hole_grenade"
-   ]
-  },
   "orangegames.boomerang": {
    "textures": [
     "textures/items/og/boomerang"
@@ -157,6 +152,11 @@
     "textures/items/og/chili_pepper"
    ]
   },
+  "orangegames.chrono_sphere": {
+   "textures": [
+    "textures/items/og/chrono_sphere"
+   ]
+  },
   "orangegames.club": {
    "textures": [
     "textures/items/og/club"
@@ -175,6 +175,11 @@
   "orangegames.cobblestone_leggings": {
    "textures": [
     "textures/items/og/cobblestone_leggings"
+   ]
+  },
+  "orangegames.comet_caller": {
+   "textures": [
+    "textures/items/og/comet_caller"
    ]
   },
   "orangegames.denim_jacket": {
@@ -255,6 +260,11 @@
   "orangegames.grappling_hook": {
    "textures": [
     "textures/items/og/grappling_hook"
+   ]
+  },
+  "orangegames.gravity_well": {
+   "textures": [
+    "textures/items/og/gravity_well"
    ]
   },
   "orangegames.grilled_cheese": {
@@ -355,6 +365,11 @@
   "orangegames.pebble": {
    "textures": [
     "textures/items/og/pebble"
+   ]
+  },
+  "orangegames.photon_saber": {
+   "textures": [
+    "textures/items/og/photon_saber"
    ]
   },
   "orangegames.popcorn": {

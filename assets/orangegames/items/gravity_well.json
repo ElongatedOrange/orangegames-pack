@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/gravity_well",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776953
+      }
+    ]
+  }
+}

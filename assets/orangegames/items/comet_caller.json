@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "orangegames:item/comet_caller",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": 16776953
+      }
+    ]
+  }
+}
