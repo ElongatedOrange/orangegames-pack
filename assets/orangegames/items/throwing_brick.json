@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/throwing_brick",
-    "tints": []
+    "model": "orangegames:throwing_brick"
   }
 }

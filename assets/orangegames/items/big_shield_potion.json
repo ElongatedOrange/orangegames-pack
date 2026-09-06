@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/big_shield_potion",
-    "tints": []
+    "model": "orangegames:big_shield_potion"
   }
 }

@@ -1,0 +1,527 @@
+{
+  "id": "da0181c7-d07d-4a53-b39a-004d1185f609",
+  "kind": "item3d",
+  "spec": {
+    "name": "throwing_brick",
+    "description": "A battered red clay throwing brick with chamfered corners, pitted fired surfaces and three recessed holes.",
+    "palette": [
+      "#1a2330",
+      "#e8e6dc",
+      "#67d5f5",
+      "#bb7849"
+    ],
+    "display": {
+      "firstperson_righthand": {
+        "rotation": [
+          0,
+          45,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.65,
+          0.65,
+          0.65
+        ]
+      },
+      "gui": {
+        "rotation": [
+          25,
+          30,
+          0
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    "textures": [
+      {
+        "id": "clay",
+        "width": 32,
+        "height": 32,
+        "background": "#ad5944",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#844335",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#ce7b5c",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#844335",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "dark",
+        "width": 32,
+        "height": 32,
+        "background": "#5c302b",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#432422",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#884232",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#432422",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      }
+    ],
+    "elements": [
+      {
+        "name": "Chamfered core",
+        "from": [
+          1,
+          4,
+          5
+        ],
+        "to": [
+          15,
+          10,
+          11
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Lower bevel",
+        "from": [
+          2,
+          3.5,
+          5.5
+        ],
+        "to": [
+          14,
+          4,
+          10.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top front rim",
+        "from": [
+          1,
+          10,
+          5
+        ],
+        "to": [
+          15,
+          11,
+          6.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top back rim",
+        "from": [
+          1,
+          10,
+          9.5
+        ],
+        "to": [
+          15,
+          11,
+          11
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top bridge 1",
+        "from": [
+          1,
+          10,
+          6.5
+        ],
+        "to": [
+          3,
+          11,
+          9.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top bridge 5",
+        "from": [
+          5,
+          10,
+          6.5
+        ],
+        "to": [
+          7,
+          11,
+          9.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top bridge 9",
+        "from": [
+          9,
+          10,
+          6.5
+        ],
+        "to": [
+          11,
+          11,
+          9.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Top bridge 13",
+        "from": [
+          13,
+          10,
+          6.5
+        ],
+        "to": [
+          15,
+          11,
+          9.5
+        ],
+        "texture": "clay",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Dark recessed hole 3",
+        "from": [
+          3,
+          10.01,
+          6.5
+        ],
+        "to": [
+          5,
+          10.1,
+          9.5
+        ],
+        "texture": "dark",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Dark recessed hole 7",
+        "from": [
+          7,
+          10.01,
+          6.5
+        ],
+        "to": [
+          9,
+          10.1,
+          9.5
+        ],
+        "texture": "dark",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Dark recessed hole 11",
+        "from": [
+          11,
+          10.01,
+          6.5
+        ],
+        "to": [
+          13,
+          10.1,
+          9.5
+        ],
+        "texture": "dark",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      }
+    ],
+    "bones": [],
+    "animation": null,
+    "sound": null
+  },
+  "prompt": "",
+  "style": "Vanilla",
+  "resolution": 32,
+  "createdAt": "2026-09-06T15:38:01.095Z",
+  "updatedAt": "2026-09-06T16:24:20.219Z",
+  "revision": 5,
+  "source": "manual",
+  "bindings": {
+    "javaTexture": "",
+    "bedrockTexture": "",
+    "glyph": 57344
+  }
+}

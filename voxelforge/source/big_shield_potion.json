@@ -1,0 +1,230 @@
+{
+  "id": "ee8f1f79-5728-4f73-881f-0839b019d35a",
+  "kind": "item2d",
+  "spec": {
+    "name": "big_shield_potion",
+    "description": "Large round blue shield potion, brown cork and pale glass highlights, matching the existing small/medium shield potion family.",
+    "palette": [
+      "#1a2330",
+      "#e8e6dc",
+      "#67d5f5",
+      "#bb7849"
+    ],
+    "textures": [
+      {
+        "id": "main",
+        "width": 32,
+        "height": 32,
+        "background": "#00000000",
+        "commands": [
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 1,
+            "w": 8,
+            "h": 3,
+            "color": "#56352a",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 13,
+            "y": 1,
+            "w": 6,
+            "h": 1,
+            "color": "#bd9461",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 11,
+            "y": 4,
+            "w": 10,
+            "h": 5,
+            "color": "#283e64",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 13,
+            "y": 4,
+            "w": 6,
+            "h": 5,
+            "color": "#9ddaf3",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 9,
+            "w": 16,
+            "h": 3,
+            "color": "#203259",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 5,
+            "y": 12,
+            "w": 22,
+            "h": 15,
+            "color": "#192949",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 27,
+            "w": 16,
+            "h": 3,
+            "color": "#192949",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 6,
+            "y": 13,
+            "w": 20,
+            "h": 12,
+            "color": "#407ec3",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 11,
+            "w": 16,
+            "h": 4,
+            "color": "#b6e5f3",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 15,
+            "w": 16,
+            "h": 10,
+            "color": "#207ee4",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 25,
+            "w": 16,
+            "h": 3,
+            "color": "#1854ae",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 10,
+            "y": 28,
+            "w": 12,
+            "h": 1,
+            "color": "#4d9edf",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 7,
+            "y": 13,
+            "w": 2,
+            "h": 10,
+            "color": "#e2f7ff",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 9,
+            "y": 12,
+            "w": 2,
+            "h": 5,
+            "color": "#b4e8fa",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 23,
+            "y": 16,
+            "w": 2,
+            "h": 9,
+            "color": "#103677",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 10,
+            "y": 16,
+            "w": 12,
+            "h": 1,
+            "color": "#74d7ff",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 20,
+            "w": 8,
+            "h": 5,
+            "color": "#8be6ff",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 14,
+            "y": 19,
+            "w": 4,
+            "h": 7,
+            "color": "#8be6ff",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 15,
+            "y": 20,
+            "w": 2,
+            "h": 4,
+            "color": "#e8ffff",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      }
+    ],
+    "elements": [],
+    "bones": [],
+    "animation": null,
+    "sound": null
+  },
+  "prompt": "",
+  "style": "Vanilla",
+  "resolution": 32,
+  "createdAt": "2026-09-06T15:38:01.085Z",
+  "updatedAt": "2026-09-06T16:24:20.206Z",
+  "revision": 5,
+  "source": "manual",
+  "bindings": {
+    "javaTexture": "",
+    "bedrockTexture": "",
+    "glyph": 57344
+  }
+}

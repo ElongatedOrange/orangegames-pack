@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/battle_axe",
-    "tints": []
+    "model": "orangegames:battle_axe"
   }
 }

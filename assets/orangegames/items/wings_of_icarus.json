@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/wings_of_icarus",
-    "tints": []
+    "model": "orangegames:item/wings_of_icarus"
   }
 }

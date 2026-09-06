@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/royal_guard_chestplate",
-    "tints": []
+    "model": "orangegames:item/royal_guard_chestplate"
   }
 }

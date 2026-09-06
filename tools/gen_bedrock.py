@@ -31,6 +31,7 @@ import shutil
 import sys
 import uuid
 import zipfile
+import equipment_states
 from pathlib import Path
 
 from PIL import Image
@@ -157,6 +158,14 @@ def primary_model(node):
             r = primary_model(v)
             if r:
                 return r
+    return None
+
+def inventory_model(node):
+    if node.get('property') == 'minecraft:display_context':
+        for case in node.get('cases', []):
+            when = case.get('when')
+            if when == 'gui' or isinstance(when, list) and 'gui' in when:
+                return primary_model(case['model'])
     return None
 
 
@@ -606,9 +615,19 @@ def main():
                 continue
             shutil.copy(src, PACK / "textures" / "items" / "og" / f"{name}.png")
 
+        icon_model = inventory_model(json.loads(def_path.read_text())['model'])
+        if icon_model:
+            gui = json.loads(resolve_model(icon_model).read_text())
+            shutil.copy(resolve_texture(gui['textures']['layer0']), PACK / 'textures/items/og' / f'{name}.png')
+
         # worn-armor rendering: vanilla-style armor attachable over the java
         # equipment layer texture (bedrock uses the same 64x32 layout)
-        if name in armor:
+        if name == 'hailstorm_crossbow':
+            equipment_states.add_crossbow(sys.modules[__name__], PACK, name)
+        if name in armor and name == 'wings_of_icarus':
+            equipment_states.add_wings(sys.modules[__name__], PACK, name, armor[name][1])
+            count_armor += 1
+        elif name in armor:
             slot, asset = armor[name]
             _, _, layer_dir, suffix = ARMOR_SLOTS[slot]
             layer_src = (REPO / "assets" / "orangegames" / "textures" / "entity"

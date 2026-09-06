@@ -1,0 +1,1099 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "throwing_brick",
+  "model_identifier": "throwing_brick",
+  "visible_box": [
+    3,
+    3,
+    1.5
+  ],
+  "resolution": {
+    "width": 64,
+    "height": 32
+  },
+  "display": {
+    "gui": {
+      "rotation": [
+        25,
+        30,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.25,
+        0.25,
+        0.25
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        75,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        2.5,
+        0
+      ],
+      "scale": [
+        0.375,
+        0.375,
+        0.375
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        45,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    }
+  },
+  "front_gui_light": false,
+  "elements": [
+    {
+      "name": "Chamfered core",
+      "type": "cube",
+      "uuid": "eda1a4dd-a3a1-4205-a622-6c3af3d3c849",
+      "from": [
+        1,
+        4,
+        5
+      ],
+      "to": [
+        15,
+        10,
+        11
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            28,
+            12
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            28,
+            12
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            28,
+            12
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            28,
+            12
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Lower bevel",
+      "type": "cube",
+      "uuid": "14e8d8e0-3564-4dbe-a7c3-a2fbc73c0dfb",
+      "from": [
+        2,
+        3.5,
+        5.5
+      ],
+      "to": [
+        14,
+        4,
+        10.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            24,
+            1
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            24,
+            1
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            10,
+            1
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            10,
+            1
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            24,
+            10
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            24,
+            10
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top front rim",
+      "type": "cube",
+      "uuid": "dfb75c3d-5a2b-40ca-a74d-20456b641af8",
+      "from": [
+        1,
+        10,
+        5
+      ],
+      "to": [
+        15,
+        11,
+        6.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            28,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            28,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            28,
+            3
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            28,
+            3
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top back rim",
+      "type": "cube",
+      "uuid": "80d5f547-f4ff-4176-a8c4-49c6edaba251",
+      "from": [
+        1,
+        10,
+        9.5
+      ],
+      "to": [
+        15,
+        11,
+        11
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            28,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            28,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            3,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            28,
+            3
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            28,
+            3
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top bridge 1",
+      "type": "cube",
+      "uuid": "7ddc800c-9f8c-4f92-a8c8-a91954bf8e39",
+      "from": [
+        1,
+        10,
+        6.5
+      ],
+      "to": [
+        3,
+        11,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top bridge 5",
+      "type": "cube",
+      "uuid": "64c989be-c5ee-4902-a7bb-55000f6d2292",
+      "from": [
+        5,
+        10,
+        6.5
+      ],
+      "to": [
+        7,
+        11,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top bridge 9",
+      "type": "cube",
+      "uuid": "4c0f48be-2fb4-4ede-acad-00499fc5b5d7",
+      "from": [
+        9,
+        10,
+        6.5
+      ],
+      "to": [
+        11,
+        11,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Top bridge 13",
+      "type": "cube",
+      "uuid": "4390960a-bfd7-45c0-a3de-95691fcc0263",
+      "from": [
+        13,
+        10,
+        6.5
+      ],
+      "to": [
+        15,
+        11,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4,
+            2
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            6,
+            2
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Dark recessed hole 3",
+      "type": "cube",
+      "uuid": "2f1cf420-b8cd-4757-ae86-46667ac1b651",
+      "from": [
+        3,
+        10.01,
+        6.5
+      ],
+      "to": [
+        5,
+        10.1,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Dark recessed hole 7",
+      "type": "cube",
+      "uuid": "91da547f-8a58-4c60-ac59-39457713a3d7",
+      "from": [
+        7,
+        10.01,
+        6.5
+      ],
+      "to": [
+        9,
+        10.1,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Dark recessed hole 11",
+      "type": "cube",
+      "uuid": "f14a1502-46dc-44ce-aa70-f1ea115db8af",
+      "from": [
+        11,
+        10.01,
+        6.5
+      ],
+      "to": [
+        13,
+        10.1,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            0,
+            36,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            0,
+            38,
+            0.17999999999999972
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            0,
+            36,
+            6
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "eda1a4dd-a3a1-4205-a622-6c3af3d3c849",
+    "14e8d8e0-3564-4dbe-a7c3-a2fbc73c0dfb",
+    "dfb75c3d-5a2b-40ca-a74d-20456b641af8",
+    "80d5f547-f4ff-4176-a8c4-49c6edaba251",
+    "7ddc800c-9f8c-4f92-a8c8-a91954bf8e39",
+    "64c989be-c5ee-4902-a7bb-55000f6d2292",
+    "4c0f48be-2fb4-4ede-acad-00499fc5b5d7",
+    "4390960a-bfd7-45c0-a3de-95691fcc0263",
+    "2f1cf420-b8cd-4757-ae86-46667ac1b651",
+    "91da547f-8a58-4c60-ac59-39457713a3d7",
+    "f14a1502-46dc-44ce-aa70-f1ea115db8af"
+  ],
+  "textures": [
+    {
+      "name": "throwing_brick.png",
+      "id": "0",
+      "uuid": "b12a4614-ba18-4109-a419-42cc46dea34c",
+      "source": "data:image/png;base64,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",
+      "mode": "bitmap",
+      "width": 64,
+      "height": 32,
+      "uv_width": 64,
+      "uv_height": 32
+    }
+  ],
+  "animations": []
+}

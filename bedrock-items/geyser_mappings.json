@@ -224,7 +224,7 @@
     "bedrock_options": {
      "icon": "orangegames.throwing_brick",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "equipment"
     }
    }
@@ -380,7 +380,7 @@
     "bedrock_options": {
      "icon": "orangegames.hailstorm_crossbow",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "equipment"
     }
    },
@@ -568,7 +568,7 @@
     "bedrock_options": {
      "icon": "orangegames.frying_pan",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "equipment"
     }
    }
@@ -686,7 +686,7 @@
     "bedrock_options": {
      "icon": "orangegames.banhammer",
      "allow_offhand": true,
-     "display_handheld": false,
+     "display_handheld": true,
      "creative_category": "equipment"
     }
    },

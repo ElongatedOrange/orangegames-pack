@@ -8,7 +8,7 @@
     "enchanted": "armor_enchanted"
    },
    "textures": {
-    "default": "textures/models/armor/og/hog_rider_2",
+    "default": "textures/models/armor/og/hog_rider_leggings_2",
     "enchanted": "textures/misc/enchanted_actor_glint"
    },
    "geometry": {

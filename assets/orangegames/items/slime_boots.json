@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/slime_boots",
-    "tints": []
+    "model": "orangegames:item/slime_boots"
   }
 }

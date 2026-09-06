@@ -13,7 +13,7 @@ import zipfile
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "OrangeGamesPack.zip")
-EXCLUDE = {".git", ".github", "OrangeGamesPack.zip", "build.py", "README.md"}
+EXCLUDE = {".git", ".github", ".gitignore", "OrangeGamesPack.zip", "build.py", "README.md", "tools", "voxelforge"}
 
 entries = []
 for base, dirs, files in os.walk(ROOT):
@@ -22,8 +22,10 @@ for base, dirs, files in os.walk(ROOT):
     if parts and parts[0] in EXCLUDE:
         dirs[:] = []
         continue
-    dirs[:] = [d for d in dirs if not (not parts and d in EXCLUDE)]
+    dirs[:] = [d for d in dirs if d != '__pycache__' and not (not parts and d in EXCLUDE)]
     for f in files:
+        if f.endswith('.pyc'):
+            continue
         if not parts and f in EXCLUDE:
             continue
         full = os.path.join(base, f)

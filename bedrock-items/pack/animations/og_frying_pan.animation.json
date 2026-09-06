@@ -1,0 +1,223 @@
+{
+ "format_version": "1.8.0",
+ "animations": {
+  "animation.og.frying_pan.third_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      0.0,
+      2.0,
+      0.0
+     ],
+     "scale": [
+      0.7,
+      0.7,
+      0.7
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.frying_pan.third_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      0.0,
+      2.0,
+      0.0
+     ],
+     "scale": [
+      0.7,
+      0.7,
+      0.7
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      -90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      0
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      0,
+      0
+     ],
+     "position": [
+      0,
+      13,
+      -3
+     ]
+    }
+   }
+  },
+  "animation.og.frying_pan.first_person_main_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      -1.0,
+      1.0,
+      0.0
+     ],
+     "scale": [
+      0.7,
+      0.7,
+      0.7
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      15
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.frying_pan.first_person_off_hand": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "rotation": [
+      0,
+      0,
+      0
+     ],
+     "position": [
+      -1.0,
+      1.0,
+      0.0
+     ],
+     "scale": [
+      0.7,
+      0.7,
+      0.7
+     ]
+    },
+    "geyser_custom_y": {
+     "rotation": [
+      0,
+      -90,
+      0
+     ]
+    },
+    "geyser_custom_z": {
+     "rotation": [
+      0,
+      0,
+      -15
+     ]
+    },
+    "geyser_custom": {
+     "rotation": [
+      90,
+      60,
+      -40
+     ],
+     "position": [
+      4,
+      10,
+      4
+     ],
+     "scale": 1.5
+    }
+   }
+  },
+  "animation.og.frying_pan.head": {
+   "loop": true,
+   "bones": {
+    "geyser_custom_x": {
+     "position": [
+      0.0,
+      0.0,
+      0.0
+     ],
+     "scale": [
+      0.625,
+      0.625,
+      0.625
+     ]
+    },
+    "geyser_custom": {
+     "position": [
+      0,
+      19.9,
+      0
+     ]
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,95 @@
+{
+ "format_version": "1.12.0",
+ "minecraft:geometry": [
+  {
+   "description": {
+    "identifier": "geometry.og.wings_of_icarus.wings",
+    "texture_width": 64,
+    "texture_height": 32,
+    "visible_bounds_width": 3,
+    "visible_bounds_height": 3,
+    "visible_bounds_offset": [
+     0,
+     1.5,
+     0
+    ]
+   },
+   "bones": [
+    {
+     "name": "body",
+     "pivot": [
+      0,
+      24,
+      0
+     ]
+    },
+    {
+     "name": "left_wing",
+     "parent": "body",
+     "pivot": [
+      -2,
+      24,
+      2
+     ],
+     "rotation": [
+      10,
+      -12,
+      -12
+     ],
+     "cubes": [
+      {
+       "origin": [
+        -12,
+        4,
+        2
+       ],
+       "size": [
+        10,
+        20,
+        2
+       ],
+       "uv": [
+        22,
+        0
+       ],
+       "mirror": false
+      }
+     ]
+    },
+    {
+     "name": "right_wing",
+     "parent": "body",
+     "pivot": [
+      2,
+      24,
+      2
+     ],
+     "rotation": [
+      10,
+      12,
+      12
+     ],
+     "cubes": [
+      {
+       "origin": [
+        2,
+        4,
+        2
+       ],
+       "size": [
+        10,
+        20,
+        2
+       ],
+       "uv": [
+        22,
+        0
+       ],
+       "mirror": true
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

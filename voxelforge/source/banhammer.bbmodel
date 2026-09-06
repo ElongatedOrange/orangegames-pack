@@ -1,0 +1,3955 @@
+{
+  "meta": {
+    "format_version": "4.10",
+    "model_format": "java_block",
+    "box_uv": false
+  },
+  "name": "banhammer",
+  "model_identifier": "banhammer",
+  "visible_box": [
+    3,
+    3,
+    1.5
+  ],
+  "resolution": {
+    "width": 128,
+    "height": 128
+  },
+  "display": {
+    "gui": {
+      "rotation": [
+        12,
+        0,
+        -35
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ]
+    },
+    "ground": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        3,
+        0
+      ],
+      "scale": [
+        0.4,
+        0.4,
+        0.4
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "head": {
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "translation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        0
+      ],
+      "translation": [
+        0,
+        2,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "firstperson_righthand": {
+      "rotation": [
+        0,
+        -90,
+        15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [
+        0,
+        90,
+        -15
+      ],
+      "translation": [
+        1,
+        1,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "front_gui_light": false,
+  "elements": [
+    {
+      "name": "Long haft",
+      "type": "cube",
+      "uuid": "01e124f1-12c8-4f17-ab08-072c019ca2d5",
+      "from": [
+        7,
+        -2,
+        7
+      ],
+      "to": [
+        9,
+        18,
+        9
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            64,
+            0,
+            68,
+            40
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            64,
+            0,
+            68,
+            40
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            64,
+            0,
+            68,
+            40
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            64,
+            0,
+            68,
+            40
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            64,
+            0,
+            68,
+            4
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            64,
+            0,
+            68,
+            4
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Crimson grip",
+      "type": "cube",
+      "uuid": "e3ef4769-a662-4fa0-ad6f-19f73d6d07b9",
+      "from": [
+        6.7,
+        -2,
+        6.7
+      ],
+      "to": [
+        9.3,
+        7,
+        9.3
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            82
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            82
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            82
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            82
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            69.2
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            96,
+            64,
+            101.2,
+            69.2
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Brass haft ring -2",
+      "type": "cube",
+      "uuid": "28435196-7bb4-417e-adf4-990f15e842a2",
+      "from": [
+        6.5,
+        -2,
+        6.5
+      ],
+      "to": [
+        9.5,
+        -1.3,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Brass haft ring 0",
+      "type": "cube",
+      "uuid": "ee7b3a2c-af26-44ae-a095-2f6e60d4523a",
+      "from": [
+        6.5,
+        0,
+        6.5
+      ],
+      "to": [
+        9.5,
+        0.7,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Brass haft ring 6",
+      "type": "cube",
+      "uuid": "84d9db94-85aa-4886-a841-16311338604f",
+      "from": [
+        6.5,
+        6,
+        6.5
+      ],
+      "to": [
+        9.5,
+        6.7,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Brass haft ring 14",
+      "type": "cube",
+      "uuid": "140f1150-3902-4b1f-ab79-d8ffe13ed0b4",
+      "from": [
+        6.5,
+        14,
+        6.5
+      ],
+      "to": [
+        9.5,
+        14.7,
+        9.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            38,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            38,
+            70
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Hammer core",
+      "type": "cube",
+      "uuid": "ff51b38c-ae61-420e-a9eb-baac5e63af26",
+      "from": [
+        0,
+        17,
+        4.5
+      ],
+      "to": [
+        16,
+        24,
+        11.5
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            32,
+            14
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            32,
+            14
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            14,
+            14
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            32,
+            14
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            32,
+            14
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Gold strike cap -1",
+      "type": "cube",
+      "uuid": "4091272b-ada2-4b12-a597-a20654d34f8f",
+      "from": [
+        -1,
+        16.5,
+        4
+      ],
+      "to": [
+        1,
+        24.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            48,
+            80
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            48,
+            80
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Impact plate -1",
+      "type": "cube",
+      "uuid": "88f77efb-d295-4764-a318-306e8d426086",
+      "from": [
+        -1.2,
+        17.5,
+        5
+      ],
+      "to": [
+        1.2000000000000002,
+        23.5,
+        11
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4.800000000000001,
+            12
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4.800000000000001,
+            12
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4.800000000000001,
+            12
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4.800000000000001,
+            12
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Gold strike cap 15",
+      "type": "cube",
+      "uuid": "6f98f95d-2f2d-44e1-a4c7-3ae64e872cf5",
+      "from": [
+        15,
+        16.5,
+        4
+      ],
+      "to": [
+        17,
+        24.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            48,
+            80
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            48,
+            80
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            36,
+            80
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Impact plate 15",
+      "type": "cube",
+      "uuid": "bb0d0c06-9b02-4a9c-a2b3-15ff15327991",
+      "from": [
+        14.8,
+        17.5,
+        5
+      ],
+      "to": [
+        17.2,
+        23.5,
+        11
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            4.799999999999997,
+            12
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            4.799999999999997,
+            12
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            12,
+            12
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            0,
+            0,
+            4.799999999999997,
+            12
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            4.799999999999997,
+            12
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "Crimson face inset",
+      "type": "cube",
+      "uuid": "eda2c0d7-55b0-40c5-a9dd-bc66d92830ba",
+      "from": [
+        2,
+        18,
+        11.5
+      ],
+      "to": [
+        14,
+        23,
+        11.7
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            96,
+            64,
+            120,
+            74
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            96,
+            64,
+            120,
+            74
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            96,
+            64,
+            96.4,
+            74
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            96,
+            64,
+            96.4,
+            74
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            96,
+            64,
+            120,
+            64.4
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            96,
+            64,
+            120,
+            64.4
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 0",
+      "type": "cube",
+      "uuid": "74a456a2-df77-4ead-ae7a-72a680d26ecc",
+      "from": [
+        3,
+        22,
+        11.7
+      ],
+      "to": [
+        3.7,
+        22.7,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 1",
+      "type": "cube",
+      "uuid": "b339eab6-f700-4e49-a133-d5a9cd79e40d",
+      "from": [
+        3.8,
+        22,
+        11.7
+      ],
+      "to": [
+        4.5,
+        22.7,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 3",
+      "type": "cube",
+      "uuid": "d46dad29-8eac-4135-af7b-4a24e10e0e32",
+      "from": [
+        3,
+        21.2,
+        11.7
+      ],
+      "to": [
+        3.7,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 5",
+      "type": "cube",
+      "uuid": "24aa1337-9712-4cba-a7a8-d262890a9503",
+      "from": [
+        4.6,
+        21.2,
+        11.7
+      ],
+      "to": [
+        5.3,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 6",
+      "type": "cube",
+      "uuid": "ce7ef6e0-757c-4eb5-a5e8-c40830512e0e",
+      "from": [
+        3,
+        20.4,
+        11.7
+      ],
+      "to": [
+        3.7,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 7",
+      "type": "cube",
+      "uuid": "f02b47f0-96cb-46ba-a122-957f5ea509ce",
+      "from": [
+        3.8,
+        20.4,
+        11.7
+      ],
+      "to": [
+        4.5,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 9",
+      "type": "cube",
+      "uuid": "90dc211d-0c81-41f6-a2d0-af6c974046d4",
+      "from": [
+        3,
+        19.6,
+        11.7
+      ],
+      "to": [
+        3.7,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 11",
+      "type": "cube",
+      "uuid": "709ff773-409f-4d87-a0f4-b708f07ca791",
+      "from": [
+        4.6,
+        19.6,
+        11.7
+      ],
+      "to": [
+        5.3,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 12",
+      "type": "cube",
+      "uuid": "260ca2b7-74d0-424a-ac73-75d6dbdbcef8",
+      "from": [
+        3,
+        18.8,
+        11.7
+      ],
+      "to": [
+        3.7,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 0 13",
+      "type": "cube",
+      "uuid": "44f66151-77ee-4c77-a474-6f1c3a87bc07",
+      "from": [
+        3.8,
+        18.8,
+        11.7
+      ],
+      "to": [
+        4.5,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 1",
+      "type": "cube",
+      "uuid": "d4c98045-ce5e-4ccf-af55-3dd28324b9d6",
+      "from": [
+        7.3,
+        22,
+        11.7
+      ],
+      "to": [
+        8,
+        22.7,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 3",
+      "type": "cube",
+      "uuid": "aa53b11b-5e9a-477a-ab0c-53b5188b6212",
+      "from": [
+        6.5,
+        21.2,
+        11.7
+      ],
+      "to": [
+        7.2,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 5",
+      "type": "cube",
+      "uuid": "af010f61-1d6d-4ec4-afc8-08c007bc17db",
+      "from": [
+        8.1,
+        21.2,
+        11.7
+      ],
+      "to": [
+        8.799999999999999,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 6",
+      "type": "cube",
+      "uuid": "0a89d23e-7efe-4b38-ab99-dbca8f7fe730",
+      "from": [
+        6.5,
+        20.4,
+        11.7
+      ],
+      "to": [
+        7.2,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 7",
+      "type": "cube",
+      "uuid": "9aa860a3-e25c-42ce-a08d-0d4ab3b9ffa8",
+      "from": [
+        7.3,
+        20.4,
+        11.7
+      ],
+      "to": [
+        8,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 8",
+      "type": "cube",
+      "uuid": "be8f26f3-adf9-4f22-ab2e-8eebe68d790b",
+      "from": [
+        8.1,
+        20.4,
+        11.7
+      ],
+      "to": [
+        8.799999999999999,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 9",
+      "type": "cube",
+      "uuid": "4ff9d5f0-2d20-410a-a2f1-08afccc774eb",
+      "from": [
+        6.5,
+        19.6,
+        11.7
+      ],
+      "to": [
+        7.2,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 11",
+      "type": "cube",
+      "uuid": "ef9382e1-f2ab-4b25-a7c7-2301e16e19f0",
+      "from": [
+        8.1,
+        19.6,
+        11.7
+      ],
+      "to": [
+        8.799999999999999,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 12",
+      "type": "cube",
+      "uuid": "7918b530-719f-4b13-a886-e7f64efb0a38",
+      "from": [
+        6.5,
+        18.8,
+        11.7
+      ],
+      "to": [
+        7.2,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 1 14",
+      "type": "cube",
+      "uuid": "9e80358d-0009-4eff-ab80-b026cb3b7226",
+      "from": [
+        8.1,
+        18.8,
+        11.7
+      ],
+      "to": [
+        8.799999999999999,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 0",
+      "type": "cube",
+      "uuid": "3a25c7b8-281e-4e89-ac88-5debc97b381f",
+      "from": [
+        10,
+        22,
+        11.7
+      ],
+      "to": [
+        10.7,
+        22.7,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 2",
+      "type": "cube",
+      "uuid": "3bb224ed-8350-47d6-a589-a1f4a218f13d",
+      "from": [
+        11.6,
+        22,
+        11.7
+      ],
+      "to": [
+        12.299999999999999,
+        22.7,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 3",
+      "type": "cube",
+      "uuid": "fff02cb0-6037-4f7b-aa06-33ed0bd7055c",
+      "from": [
+        10,
+        21.2,
+        11.7
+      ],
+      "to": [
+        10.7,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 4",
+      "type": "cube",
+      "uuid": "7c5681ff-8324-4db8-afa4-5ca29c5aef24",
+      "from": [
+        10.8,
+        21.2,
+        11.7
+      ],
+      "to": [
+        11.5,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 5",
+      "type": "cube",
+      "uuid": "76776ba7-6099-4bae-a40f-af2e600e8cd8",
+      "from": [
+        11.6,
+        21.2,
+        11.7
+      ],
+      "to": [
+        12.299999999999999,
+        21.9,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 6",
+      "type": "cube",
+      "uuid": "4ef530e3-c826-4c76-aab4-3337bb277dbd",
+      "from": [
+        10,
+        20.4,
+        11.7
+      ],
+      "to": [
+        10.7,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 7",
+      "type": "cube",
+      "uuid": "3a0bd969-c7fb-4979-a1c5-7ded7556d6ac",
+      "from": [
+        10.8,
+        20.4,
+        11.7
+      ],
+      "to": [
+        11.5,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 8",
+      "type": "cube",
+      "uuid": "ca54e997-8f3c-402b-ae8b-560d04bacc8c",
+      "from": [
+        11.6,
+        20.4,
+        11.7
+      ],
+      "to": [
+        12.299999999999999,
+        21.099999999999998,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 9",
+      "type": "cube",
+      "uuid": "d652c605-0c35-4574-a8cc-a91ad3e478c9",
+      "from": [
+        10,
+        19.6,
+        11.7
+      ],
+      "to": [
+        10.7,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 10",
+      "type": "cube",
+      "uuid": "b28418d2-c849-43d4-af6c-8e1c2bc54863",
+      "from": [
+        10.8,
+        19.6,
+        11.7
+      ],
+      "to": [
+        11.5,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 11",
+      "type": "cube",
+      "uuid": "00270d39-ebf7-4a03-adfa-9215f36c1b7e",
+      "from": [
+        11.6,
+        19.6,
+        11.7
+      ],
+      "to": [
+        12.299999999999999,
+        20.3,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 12",
+      "type": "cube",
+      "uuid": "0a23c70b-dea3-4008-af7c-1d2cb6f1fb98",
+      "from": [
+        10,
+        18.8,
+        11.7
+      ],
+      "to": [
+        10.7,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    },
+    {
+      "name": "BAN raised lettering 2 14",
+      "type": "cube",
+      "uuid": "f96b1972-c5ec-4a74-ab69-6203d2ad62ee",
+      "from": [
+        11.6,
+        18.8,
+        11.7
+      ],
+      "to": [
+        12.299999999999999,
+        19.5,
+        12
+      ],
+      "origin": [
+        8,
+        8,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "rescale": false,
+      "box_uv": false,
+      "faces": {
+        "north": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "south": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            65.4
+          ],
+          "texture": 0
+        },
+        "east": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "west": {
+          "uv": [
+            32,
+            64,
+            32.6,
+            65.4
+          ],
+          "texture": 0
+        },
+        "up": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        },
+        "down": {
+          "uv": [
+            32,
+            64,
+            33.4,
+            64.6
+          ],
+          "texture": 0
+        }
+      }
+    }
+  ],
+  "outliner": [
+    "01e124f1-12c8-4f17-ab08-072c019ca2d5",
+    "e3ef4769-a662-4fa0-ad6f-19f73d6d07b9",
+    "28435196-7bb4-417e-adf4-990f15e842a2",
+    "ee7b3a2c-af26-44ae-a095-2f6e60d4523a",
+    "84d9db94-85aa-4886-a841-16311338604f",
+    "140f1150-3902-4b1f-ab79-d8ffe13ed0b4",
+    "ff51b38c-ae61-420e-a9eb-baac5e63af26",
+    "4091272b-ada2-4b12-a597-a20654d34f8f",
+    "88f77efb-d295-4764-a318-306e8d426086",
+    "6f98f95d-2f2d-44e1-a4c7-3ae64e872cf5",
+    "bb0d0c06-9b02-4a9c-a2b3-15ff15327991",
+    "eda2c0d7-55b0-40c5-a9dd-bc66d92830ba",
+    "74a456a2-df77-4ead-ae7a-72a680d26ecc",
+    "b339eab6-f700-4e49-a133-d5a9cd79e40d",
+    "d46dad29-8eac-4135-af7b-4a24e10e0e32",
+    "24aa1337-9712-4cba-a7a8-d262890a9503",
+    "ce7ef6e0-757c-4eb5-a5e8-c40830512e0e",
+    "f02b47f0-96cb-46ba-a122-957f5ea509ce",
+    "90dc211d-0c81-41f6-a2d0-af6c974046d4",
+    "709ff773-409f-4d87-a0f4-b708f07ca791",
+    "260ca2b7-74d0-424a-ac73-75d6dbdbcef8",
+    "44f66151-77ee-4c77-a474-6f1c3a87bc07",
+    "d4c98045-ce5e-4ccf-af55-3dd28324b9d6",
+    "aa53b11b-5e9a-477a-ab0c-53b5188b6212",
+    "af010f61-1d6d-4ec4-afc8-08c007bc17db",
+    "0a89d23e-7efe-4b38-ab99-dbca8f7fe730",
+    "9aa860a3-e25c-42ce-a08d-0d4ab3b9ffa8",
+    "be8f26f3-adf9-4f22-ab2e-8eebe68d790b",
+    "4ff9d5f0-2d20-410a-a2f1-08afccc774eb",
+    "ef9382e1-f2ab-4b25-a7c7-2301e16e19f0",
+    "7918b530-719f-4b13-a886-e7f64efb0a38",
+    "9e80358d-0009-4eff-ab80-b026cb3b7226",
+    "3a25c7b8-281e-4e89-ac88-5debc97b381f",
+    "3bb224ed-8350-47d6-a589-a1f4a218f13d",
+    "fff02cb0-6037-4f7b-aa06-33ed0bd7055c",
+    "7c5681ff-8324-4db8-afa4-5ca29c5aef24",
+    "76776ba7-6099-4bae-a40f-af2e600e8cd8",
+    "4ef530e3-c826-4c76-aab4-3337bb277dbd",
+    "3a0bd969-c7fb-4979-a1c5-7ded7556d6ac",
+    "ca54e997-8f3c-402b-ae8b-560d04bacc8c",
+    "d652c605-0c35-4574-a8cc-a91ad3e478c9",
+    "b28418d2-c849-43d4-af6c-8e1c2bc54863",
+    "00270d39-ebf7-4a03-adfa-9215f36c1b7e",
+    "0a23c70b-dea3-4008-af7c-1d2cb6f1fb98",
+    "f96b1972-c5ec-4a74-ab69-6203d2ad62ee"
+  ],
+  "textures": [
+    {
+      "name": "banhammer.png",
+      "id": "0",
+      "uuid": "d585ca96-466b-4c91-ab7f-fba3656b1b37",
+      "source": "data:image/png;base64,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",
+      "mode": "bitmap",
+      "width": 128,
+      "height": 128,
+      "uv_width": 128,
+      "uv_height": 128
+    }
+  ],
+  "animations": []
+}

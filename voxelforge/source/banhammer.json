@@ -1,0 +1,1883 @@
+{
+  "id": "9befcdd7-8907-4133-b978-6f03e720ccd4",
+  "kind": "item3d",
+  "spec": {
+    "name": "banhammer",
+    "description": "An oversized judge hammer with a black iron head, gold striking caps, crimson inset panel and raised gold BAN lettering.",
+    "palette": [
+      "#1a2330",
+      "#e8e6dc",
+      "#67d5f5",
+      "#bb7849"
+    ],
+    "display": {
+      "thirdperson_righthand": {
+        "rotation": [
+          0,
+          -90,
+          0
+        ],
+        "translation": [
+          0,
+          2,
+          0
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "thirdperson_lefthand": {
+        "rotation": [
+          0,
+          90,
+          0
+        ],
+        "translation": [
+          0,
+          2,
+          0
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "firstperson_righthand": {
+        "rotation": [
+          0,
+          -90,
+          15
+        ],
+        "translation": [
+          1,
+          1,
+          0
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "firstperson_lefthand": {
+        "rotation": [
+          0,
+          90,
+          -15
+        ],
+        "translation": [
+          1,
+          1,
+          0
+        ],
+        "scale": [
+          0.7,
+          0.7,
+          0.7
+        ]
+      },
+      "gui": {
+        "rotation": [
+          12,
+          0,
+          -35
+        ],
+        "translation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          0.85,
+          0.85,
+          0.85
+        ]
+      },
+      "ground": {
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0,
+          3,
+          0
+        ],
+        "scale": [
+          0.4,
+          0.4,
+          0.4
+        ]
+      }
+    },
+    "textures": [
+      {
+        "id": "steel",
+        "width": 32,
+        "height": 32,
+        "background": "#465365",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#697d91",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#313c4e",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "edge",
+        "width": 32,
+        "height": 32,
+        "background": "#c5d7df",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#eef7fa",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#9baeba",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "wood",
+        "width": 32,
+        "height": 32,
+        "background": "#694432",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#9d7050",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#442d25",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "leather",
+        "width": 32,
+        "height": 32,
+        "background": "#573431",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#332225",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#825747",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#332225",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "gold",
+        "width": 32,
+        "height": 32,
+        "background": "#d8a647",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#946324",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#f5d083",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#946324",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "ice",
+        "width": 32,
+        "height": 32,
+        "background": "#5eb4ce",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#a8e6ef",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#34829f",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      },
+      {
+        "id": "red",
+        "width": 32,
+        "height": 32,
+        "background": "#932e3e",
+        "commands": [
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 37,
+            "density": 0.13
+          },
+          {
+            "op": "noise",
+            "x": 0,
+            "y": 0,
+            "w": 32,
+            "h": 32,
+            "color": "#c44c4b",
+            "seed": 63,
+            "density": 0.12
+          },
+          {
+            "op": "rect",
+            "x": 0,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 4,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 8,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 12,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 16,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 20,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 24,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          },
+          {
+            "op": "rect",
+            "x": 28,
+            "y": 0,
+            "w": 1,
+            "h": 32,
+            "color": "#611f32",
+            "seed": 17,
+            "density": 1
+          }
+        ]
+      }
+    ],
+    "elements": [
+      {
+        "name": "Long haft",
+        "from": [
+          7,
+          -2,
+          7
+        ],
+        "to": [
+          9,
+          18,
+          9
+        ],
+        "texture": "wood",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Crimson grip",
+        "from": [
+          6.7,
+          -2,
+          6.7
+        ],
+        "to": [
+          9.3,
+          7,
+          9.3
+        ],
+        "texture": "red",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Brass haft ring -2",
+        "from": [
+          6.5,
+          -2,
+          6.5
+        ],
+        "to": [
+          9.5,
+          -1.3,
+          9.5
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Brass haft ring 0",
+        "from": [
+          6.5,
+          0,
+          6.5
+        ],
+        "to": [
+          9.5,
+          0.7,
+          9.5
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Brass haft ring 6",
+        "from": [
+          6.5,
+          6,
+          6.5
+        ],
+        "to": [
+          9.5,
+          6.7,
+          9.5
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Brass haft ring 14",
+        "from": [
+          6.5,
+          14,
+          6.5
+        ],
+        "to": [
+          9.5,
+          14.7,
+          9.5
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Hammer core",
+        "from": [
+          0,
+          17,
+          4.5
+        ],
+        "to": [
+          16,
+          24,
+          11.5
+        ],
+        "texture": "steel",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Gold strike cap -1",
+        "from": [
+          -1,
+          16.5,
+          4
+        ],
+        "to": [
+          1,
+          24.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Impact plate -1",
+        "from": [
+          -1.2,
+          17.5,
+          5
+        ],
+        "to": [
+          1.2000000000000002,
+          23.5,
+          11
+        ],
+        "texture": "steel",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Gold strike cap 15",
+        "from": [
+          15,
+          16.5,
+          4
+        ],
+        "to": [
+          17,
+          24.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Impact plate 15",
+        "from": [
+          14.8,
+          17.5,
+          5
+        ],
+        "to": [
+          17.2,
+          23.5,
+          11
+        ],
+        "texture": "steel",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "Crimson face inset",
+        "from": [
+          2,
+          18,
+          11.5
+        ],
+        "to": [
+          14,
+          23,
+          11.7
+        ],
+        "texture": "red",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 0",
+        "from": [
+          3,
+          22,
+          11.7
+        ],
+        "to": [
+          3.7,
+          22.7,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 1",
+        "from": [
+          3.8,
+          22,
+          11.7
+        ],
+        "to": [
+          4.5,
+          22.7,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 3",
+        "from": [
+          3,
+          21.2,
+          11.7
+        ],
+        "to": [
+          3.7,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 5",
+        "from": [
+          4.6,
+          21.2,
+          11.7
+        ],
+        "to": [
+          5.3,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 6",
+        "from": [
+          3,
+          20.4,
+          11.7
+        ],
+        "to": [
+          3.7,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 7",
+        "from": [
+          3.8,
+          20.4,
+          11.7
+        ],
+        "to": [
+          4.5,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 9",
+        "from": [
+          3,
+          19.6,
+          11.7
+        ],
+        "to": [
+          3.7,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 11",
+        "from": [
+          4.6,
+          19.6,
+          11.7
+        ],
+        "to": [
+          5.3,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 12",
+        "from": [
+          3,
+          18.8,
+          11.7
+        ],
+        "to": [
+          3.7,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 0 13",
+        "from": [
+          3.8,
+          18.8,
+          11.7
+        ],
+        "to": [
+          4.5,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 1",
+        "from": [
+          7.3,
+          22,
+          11.7
+        ],
+        "to": [
+          8,
+          22.7,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 3",
+        "from": [
+          6.5,
+          21.2,
+          11.7
+        ],
+        "to": [
+          7.2,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 5",
+        "from": [
+          8.1,
+          21.2,
+          11.7
+        ],
+        "to": [
+          8.799999999999999,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 6",
+        "from": [
+          6.5,
+          20.4,
+          11.7
+        ],
+        "to": [
+          7.2,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 7",
+        "from": [
+          7.3,
+          20.4,
+          11.7
+        ],
+        "to": [
+          8,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 8",
+        "from": [
+          8.1,
+          20.4,
+          11.7
+        ],
+        "to": [
+          8.799999999999999,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 9",
+        "from": [
+          6.5,
+          19.6,
+          11.7
+        ],
+        "to": [
+          7.2,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 11",
+        "from": [
+          8.1,
+          19.6,
+          11.7
+        ],
+        "to": [
+          8.799999999999999,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 12",
+        "from": [
+          6.5,
+          18.8,
+          11.7
+        ],
+        "to": [
+          7.2,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 1 14",
+        "from": [
+          8.1,
+          18.8,
+          11.7
+        ],
+        "to": [
+          8.799999999999999,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 0",
+        "from": [
+          10,
+          22,
+          11.7
+        ],
+        "to": [
+          10.7,
+          22.7,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 2",
+        "from": [
+          11.6,
+          22,
+          11.7
+        ],
+        "to": [
+          12.299999999999999,
+          22.7,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 3",
+        "from": [
+          10,
+          21.2,
+          11.7
+        ],
+        "to": [
+          10.7,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 4",
+        "from": [
+          10.8,
+          21.2,
+          11.7
+        ],
+        "to": [
+          11.5,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 5",
+        "from": [
+          11.6,
+          21.2,
+          11.7
+        ],
+        "to": [
+          12.299999999999999,
+          21.9,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 6",
+        "from": [
+          10,
+          20.4,
+          11.7
+        ],
+        "to": [
+          10.7,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 7",
+        "from": [
+          10.8,
+          20.4,
+          11.7
+        ],
+        "to": [
+          11.5,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 8",
+        "from": [
+          11.6,
+          20.4,
+          11.7
+        ],
+        "to": [
+          12.299999999999999,
+          21.099999999999998,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 9",
+        "from": [
+          10,
+          19.6,
+          11.7
+        ],
+        "to": [
+          10.7,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 10",
+        "from": [
+          10.8,
+          19.6,
+          11.7
+        ],
+        "to": [
+          11.5,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 11",
+        "from": [
+          11.6,
+          19.6,
+          11.7
+        ],
+        "to": [
+          12.299999999999999,
+          20.3,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 12",
+        "from": [
+          10,
+          18.8,
+          11.7
+        ],
+        "to": [
+          10.7,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      },
+      {
+        "name": "BAN raised lettering 2 14",
+        "from": [
+          11.6,
+          18.8,
+          11.7
+        ],
+        "to": [
+          12.299999999999999,
+          19.5,
+          12
+        ],
+        "texture": "gold",
+        "bone": "",
+        "origin": [
+          8,
+          8,
+          8
+        ],
+        "axis": "z",
+        "angle": 0
+      }
+    ],
+    "bones": [],
+    "animation": null,
+    "sound": null
+  },
+  "prompt": "",
+  "style": "Vanilla",
+  "resolution": 32,
+  "createdAt": "2026-09-06T15:38:01.100Z",
+  "updatedAt": "2026-09-06T16:24:20.226Z",
+  "revision": 5,
+  "source": "manual",
+  "bindings": {
+    "javaTexture": "",
+    "bedrockTexture": "",
+    "glyph": 57344
+  }
+}

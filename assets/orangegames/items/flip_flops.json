@@ -1,7 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "orangegames:item/flip_flops",
-    "tints": []
+    "model": "orangegames:item/flip_flops"
   }
 }
