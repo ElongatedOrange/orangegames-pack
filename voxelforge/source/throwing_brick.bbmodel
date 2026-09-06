@@ -153,7 +153,7 @@
       ]
     }
   },
-  "front_gui_light": false,
+  "front_gui_light": true,
   "elements": [
     {
       "name": "Chamfered core",
