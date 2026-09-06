@@ -1,12 +1,12 @@
 {
   "credit": "VoxelForge",
   "textures": {
-    "steel": "orangegames:battle_axe/steel",
-    "edge": "orangegames:battle_axe/edge",
-    "wood": "orangegames:battle_axe/wood",
-    "leather": "orangegames:battle_axe/leather",
-    "gold": "orangegames:battle_axe/gold",
-    "ice": "orangegames:battle_axe/ice"
+    "steel": "orangegames:item/battle_axe/steel",
+    "edge": "orangegames:item/battle_axe/edge",
+    "wood": "orangegames:item/battle_axe/wood",
+    "leather": "orangegames:item/battle_axe/leather",
+    "gold": "orangegames:item/battle_axe/gold",
+    "ice": "orangegames:item/battle_axe/ice"
   },
   "elements": [
     {

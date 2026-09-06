@@ -1,13 +1,13 @@
 {
   "credit": "VoxelForge",
   "textures": {
-    "steel": "orangegames:banhammer/steel",
-    "edge": "orangegames:banhammer/edge",
-    "wood": "orangegames:banhammer/wood",
-    "leather": "orangegames:banhammer/leather",
-    "gold": "orangegames:banhammer/gold",
-    "ice": "orangegames:banhammer/ice",
-    "red": "orangegames:banhammer/red"
+    "steel": "orangegames:item/banhammer/steel",
+    "edge": "orangegames:item/banhammer/edge",
+    "wood": "orangegames:item/banhammer/wood",
+    "leather": "orangegames:item/banhammer/leather",
+    "gold": "orangegames:item/banhammer/gold",
+    "ice": "orangegames:item/banhammer/ice",
+    "red": "orangegames:item/banhammer/red"
   },
   "elements": [
     {

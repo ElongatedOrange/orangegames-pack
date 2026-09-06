@@ -1,10 +1,10 @@
 {
   "credit": "VoxelForge",
   "textures": {
-    "iron": "orangegames:frying_pan/iron",
-    "inside": "orangegames:frying_pan/inside",
-    "wood": "orangegames:frying_pan/wood",
-    "rivet": "orangegames:frying_pan/rivet"
+    "iron": "orangegames:item/frying_pan/iron",
+    "inside": "orangegames:item/frying_pan/inside",
+    "wood": "orangegames:item/frying_pan/wood",
+    "rivet": "orangegames:item/frying_pan/rivet"
   },
   "elements": [
     {

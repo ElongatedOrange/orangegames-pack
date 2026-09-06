@@ -1,8 +1,8 @@
 {
   "credit": "VoxelForge",
   "textures": {
-    "clay": "orangegames:throwing_brick/clay",
-    "dark": "orangegames:throwing_brick/dark"
+    "clay": "orangegames:item/throwing_brick/clay",
+    "dark": "orangegames:item/throwing_brick/dark"
   },
   "elements": [
     {

@@ -1,12 +1,12 @@
 {
   "credit": "VoxelForge",
   "textures": {
-    "steel": "orangegames:hailstorm_crossbow_pulling_2/steel",
-    "edge": "orangegames:hailstorm_crossbow_pulling_2/edge",
-    "wood": "orangegames:hailstorm_crossbow_pulling_2/wood",
-    "leather": "orangegames:hailstorm_crossbow_pulling_2/leather",
-    "gold": "orangegames:hailstorm_crossbow_pulling_2/gold",
-    "ice": "orangegames:hailstorm_crossbow_pulling_2/ice"
+    "steel": "orangegames:item/hailstorm_crossbow_pulling_2/steel",
+    "edge": "orangegames:item/hailstorm_crossbow_pulling_2/edge",
+    "wood": "orangegames:item/hailstorm_crossbow_pulling_2/wood",
+    "leather": "orangegames:item/hailstorm_crossbow_pulling_2/leather",
+    "gold": "orangegames:item/hailstorm_crossbow_pulling_2/gold",
+    "ice": "orangegames:item/hailstorm_crossbow_pulling_2/ice"
   },
   "elements": [
     {

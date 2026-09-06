@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "orangegames:big_shield_potion/main"
+    "layer0": "orangegames:item/big_shield_potion/main"
   },
   "display": {
     "gui": {
