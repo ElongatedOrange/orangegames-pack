@@ -130,8 +130,5 @@
  },
  "hud_title_text": {
   "visible": false
- },
- "hud_actionbar_text": {
-  "visible": false
  }
 }

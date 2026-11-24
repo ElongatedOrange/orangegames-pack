@@ -175,7 +175,8 @@ def build_ui():
             }],
         },
         "hud_title_text": {"visible": False},
-        "hud_actionbar_text": {"visible": False},
+        # hud_actionbar_text stays visible: servers behind the proxy use the action bar for
+        # hints (it does come through Geyser), and hiding it here hid them for every Bedrock player.
     }
 
 
